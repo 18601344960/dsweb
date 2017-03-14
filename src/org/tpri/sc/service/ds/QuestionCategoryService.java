@@ -21,6 +21,7 @@ import org.tpri.sc.manager.ds.QuestionCategoryManager;
 public class QuestionCategoryService {
     @Autowired
     private QuestionCategoryManager questionCategoryManager;
+    
 
     /**
      * 
