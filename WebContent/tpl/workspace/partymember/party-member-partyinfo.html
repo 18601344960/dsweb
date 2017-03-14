@@ -1,0 +1,66 @@
+<!-- 
+	@description 党籍信息
+	@author zhaozijing
+	@since 2015-07-06
+-->
+<fieldset>
+	<legend style="width: 80px;">党籍信息</legend>
+	<table id="partymember-table" style="text-align: center;">
+		<tr>
+			<td width="23%"><b><font class="red-tips">*</font>所在党支部：</b></td>
+			<td width="27%" style="text-align: left;"><input id="ccpartyId" name="ccpartyId" type="text" class='form-control' value="{{ccparty.name}}" ids="{{ccparty.id}}" placeholder="请选择所在党组织" />
+				<div id="ccpartyMenuContent" class="menuContent" style="display: none; position: absolute; background-color: white; width: 300px; overflow: auto; border: 1px solid #000000;">
+					<ul id="ccparty-tree" class="ztree" style="width: 100%; max-height: 350px;"></ul>
+				</div></td>
+			<td width="23%"><b><font class="red-tips">*</font>党员类型：</b></td>
+			<td width="27%"><input type="hidden" id="partymember-id" value="{{id}}"> <select id="partymember-type-select" class='form-control'>
+					<option value="3">预备党员</option>
+					<option value="4">正式党员</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td><b>加入当前组织日期：</b></td>
+			<td><input type="text" class='form-control' value="{{joinCurrentTime}}" id="partymember-joinCurrentTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="加入当前单位日期" /></td>
+			<td><b>加入当前组织形式：</b></td>
+			<td><select id="partymember-jointype-select" class='form-control'>
+					<option value="0">新入党</option>
+					<option value="1">恢复党籍</option>
+					<option value="2">组织关系转入</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td><b>申请入党日期：</b></td>
+			<td><input type="text" class='form-control' value="{{applyTime}}" id="partymember-applyTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="申请入党日期" /></td>
+			<td><b>积极分子日期：</b></td>
+			<td><input type="text" class='form-control' value="{{activistTime}}" id="partymember-activistTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="确定积极分子日期" /></td>
+		</tr>
+		<tr>
+			<td><b>发展对象日期：</b></td>
+			<td><input type="text" class='form-control' value="{{targetTime}}" id="partymember-targetTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="确定为发展对象日期" /></td>
+			<td><b>培养联系人：</b></td>
+			<td><input type="text" class='form-control' value="{{trainer}}" id="partymember-trainer" maxlength="36" placeholder="推荐人/培养联系人" /></td>
+		</tr>
+		<tr>
+			<td><b>预备党员日期：</b></td>
+			<td><input type="text" class='form-control' value="{{passTime}}" id="partymember-passTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="却认为预备党员日期" /></td>
+			<td><b>组织批准日期：</b></td>
+			<td><input type="text" class='form-control' value="{{auditTime}}" id="partymember-auditTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="组织批准日期" /></td>
+		</tr>
+		<tr>
+			<td><b>入党转正日期：</b></td>
+			<td><input type="text" class='form-control' value="{{joinTime}}" id="partymember-joinTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="转为正式党员日期" /></td>
+			<td><b>入党介绍人：</b></td>
+			<td><input type="text" class='form-control' value="{{introducer}}" id="partymember-introducer" maxlength="36" placeholder="入党介绍人" /></td>
+		</tr>
+		<!-- <tr>
+			<td><b>月缴党费(元)：</b></td>
+			<td><input type="text" class='form-control' value="{{fee}}" id="partymember-fee" maxlength="10" placeholder="每月应缴纳党费数目" /></td>
+			<td><b>组织生活情况：</b></td>
+			<td><select id="partymember-live-select" class='form-control'>
+					<option value="0">正常参加</option>
+					<option value="1">间断参加</option>
+					<option value="2">不参加</option>
+			</select></td>
+		</tr> -->
+	</table>
+</fieldset>

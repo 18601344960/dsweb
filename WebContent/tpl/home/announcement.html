@@ -1,0 +1,26 @@
+<!-- 
+<div id="notice-list">
+	<ul>
+		 {% for item in rows %}
+		<li>
+			<a href="announcement-view?id={{item.id}}" target="_blank">{{item.name}}</a>
+			<div>{{item.createTime}}</div>
+		</li>
+		{% endfor %}
+		{% if items.length==0 %}
+		<li>
+			<p class="time">暂无通知通告</p>
+		</li>
+		{% endif %}
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+ -->
+ 
+{%if item %} 
+<span style="float: left;">
+	<i class="fa fa-bullhorn" style="font-size:20px;"></i>&nbsp;&nbsp;
+	<a href="announcement-view?id={{item.id}}" target="_blank" title="{{item.name}}">{{item.name}}</a>
+</span>
+<span style="float: right;">{{item.createTime}}</span>
+{%endif%}

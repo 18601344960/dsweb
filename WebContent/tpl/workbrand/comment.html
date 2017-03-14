@@ -1,0 +1,11 @@
+<!-- 
+	@description 评论列表模板
+	@author 易文俊
+	@since 2015-04-20
+-->
+{% for item in items %}
+<div class="item">
+	<h3><span class="fl">{{item.user.name}}</span><span class="fr" style="padding:0 20px">#{{loop.index}}</span><span class="fr">{{item.createTime}}</span></h3>
+	<p class="con">{{item.content}}</p>
+</div>
+{% endfor %}

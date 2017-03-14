@@ -1,0 +1,33 @@
+<!-- 
+	@description 换届选举监控总览模板
+	@author yiwenjun
+ 	@since 2016-07-05
+-->
+<div id="election-container">
+	<ul class="nav nav-tabs" role="tablist" style="float: left;">
+		<li role="presentation" class="active"><a href="#low-election-info-tab" role="tab" data-toggle="tab">下级换届情况</a></li>
+		<li role="presentation"><a href="#election-info-tab" role="tab" data-toggle="tab">换届信息</a></li>
+	</ul>
+	<div class="tab-content" style="float: left; width: 100%;">
+		<div id="low-election-info-tab" role="tabpanel" class="tab-pane fade in active">
+			<table id="election-summary-table" data-url="obt/getElectionSummary" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-click-to-select="true" data-pagination="false">
+				<thead>
+					<tr>
+						<th data-radio="true"></th>
+						<th data-field="id" data-visible="false">主键</th>
+						<th data-field="ccparty" data-formatter="ElectionMonitor.ccpartyFormatter" data-align="left">党组织</th>
+						<th data-field="sequence" data-formatter="ElectionMonitor.sequenceFormatter" data-width="40" data-align="center">届次</th>
+						<th data-field="selectMode" data-formatter="ElectionMonitor.selectModeFormatter" data-width="60" data-align="center">选举方式</th>
+						<th data-field="ageLimit" data-formatter="ElectionMonitor.ageLimitFormatter" data-width="50" data-align="center">换届年限</th>
+						<th data-field="startTime" data-formatter="ElectionMonitor.dateFormatter" data-align="center" data-width="100">当选日期</th>
+						<th data-field="endTime" data-formatter="ElectionMonitor.dateFormatter" data-align="center" data-width="100">届满日期</th>
+						<th data-field="participants" data-formatter="ElectionMonitor.participantsFormatter" data-width="70" data-align="center">应到会人数</th>
+						<th data-field="attendance" data-formatter="ElectionMonitor.attendanceFormatter" data-width="70" data-align="center">实到会人数</th>
+						<th data-field="remark" data-formatter="ElectionMonitor.remarkFormatter" data-width="100" data-align="center">状态</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="election-info-tab" role="tabpanel" class="tab-pane fade"></div>
+	</div>
+</div>

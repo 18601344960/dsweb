@@ -1,0 +1,127 @@
+<div id="main-container">
+	<div id="conference-form" class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-1 control-label"><span class="bottom-red-line">*</span>工作步骤</label>
+			<div id="step-list" class="col-sm-10"></div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label">组织生活</label>
+			<div id="format-list" class="col-sm-10"></div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label">工作品牌</label>
+			<div id="label-list" class="col-sm-10"></div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label"><span class="bottom-red-line">*</span>工作来源</label> {%if userType==1%}
+			<div class="col-sm-2" id="source-type-container">
+				<label class="radio-inline"> <input type="radio" name="aticle-source" id="party-branch" value=0 checked> 组织
+				</label> <label class="radio-inline"> <input type="radio" name="aticle-source" id="party-member" value="1"> 个人
+				</label>
+			</div>
+			<div class="col-sm-4">
+				<input id="source-name" type="text" class='form-control' value="{{ccpartyName}}" readonly>
+			</div>
+			{%elif userType==2 or userType==3%}
+			<div class="col-sm-2" id="source-type-container">
+				<label class="radio-inline"> <input type="radio" name="aticle-source" id="party-branch" value=0 checked> 组织
+				</label>
+			</div>
+			<div class="col-sm-4">
+				<input id="source-name" type="text" class='form-control' value="{{ccpartyName}}" readonly>
+			</div>
+			{%else%}
+			<div class="col-sm-1" id="source-type-container">
+				<label class="radio-inline"> <input type="radio" name="aticle-source" id="party-member" value="1" checked> 个人
+				</label>
+			</div>
+			<div class="col-sm-2">
+				<input id="source-name" type="text" class='form-control' value="{{userName}}" readonly>
+			</div>
+			{%endif%}
+		</div>
+		<div id="secret-container" class="form-group">
+			<label class="col-sm-1 control-label"><span class="bottom-red-line">*</span>发布范围</label>
+			<div class="col-sm-4">
+				<label class="radio-inline"> <input type="radio" name="secretLevel" value="0" checked>组织内部
+				</label> <label class="radio-inline"> <input type="radio" name="secretLevel" value="1">本组织和上级
+				</label> <label class="radio-inline"> <input type="radio" name="secretLevel" value="2">公开
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label"><span class="bottom-red-line">*</span>工作主题</label>
+			<div class="col-sm-11">
+				<input id="name" name="name" type="text" class="form-control" placeholder="工作记录的主题" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label"><span class="bottom-red-line">*</span>工作时间</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" id="occurTime" value="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly>
+			</div>
+			<label class="col-sm-1 control-label">工作地点</label>
+			<div class="col-sm-5">
+				<input id="address" name="address" type="text" class="form-control" placeholder="工作开展的地点" />
+			</div>
+			<label class="col-sm-1 control-label">参加人数</label>
+			<div class="col-sm-2">
+				<input id="attendance" name="attendance" type="text" class="form-control" value="0" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label">组织者</label>
+			<div class="col-sm-11">
+				<div class="choose-member-container" style="overflow:auto;">
+					<div id="choose-orgnizer-member-list"></div>
+					<div class="btn btn-primary btn-xs" style="margin: 5px; height: 30px; font-size: 14px;" onclick="ConferenceOrgnizer.addOrgnizerDialog('true')">
+						<i class="fa fa-plus" style="margin-top: 8px; color: white;"></i>添加
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label"> </label>
+			<div class="col-sm-11">
+				<div id="choose-orgnizer-list"></div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label">参加人员</label>
+			<div class="col-sm-11">
+				<div class="choose-member-container">
+					<div id="choose-participant-member-list" style="overflow:auto;"></div>
+					<div class="btn btn-primary btn-xs" style="margin: 5px; height: 30px; font-size: 14px;" onclick="ConferenceParticipants.addParticipantsDialog('true')">
+						<i class="fa fa-plus" style="margin-top: 8px; color: white;"></i>添加
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label"> </label>
+			<div class="col-sm-11">
+				<div id="choose-participants-list" style="margin: 20px;"></div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label">工作内容</label>
+			<div class="col-sm-11">
+				<script id=editor-container type="text/plain" style="height: 400px; margin: 10px"></script>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1 control-label">上传文件</label>
+			<div class="col-sm-11">
+				<input type="file" name="file-upload" id="file-upload" />
+				<div id="file-upload-queue"></div>
+			</div>
+		</div>
+		<div class="form-group" style="text-align: center; margin: 30px 0px;">
+			<a href="javascript:ConferenceAdd.checkAddConference('preview')" class="btn btn-default btn-lg" style="font-size: 36px;" title="预览">预览</a> <a
+				href="javascript:ConferenceAdd.checkAddConference('close')" class="btn btn-default btn-lg" style="font-size: 36px;" title="保存并关闭">保存并关闭</a> <a
+				href="javascript:ConferenceAdd.checkAddConference('new')" class="btn btn-default btn-lg" style="font-size: 36px;" title="保存并新建">保存并新建</a> <a
+				href="javascript:ConferenceAdd.checkAddConference('publish')" class="btn btn-default btn-lg" style="font-size: 36px;" title="保存并发布">保存并发布</a> <a href="javascript:window.close();"
+				class="btn btn-default btn-lg" style="font-size: 36px;" title="关闭">关闭</a>
+		</div>
+	</div>
+</div>

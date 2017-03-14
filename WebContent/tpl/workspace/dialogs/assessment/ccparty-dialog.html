@@ -1,0 +1,30 @@
+<!-- 可以分配的组织列表 -->
+<div class="modal fade" id="ccparty-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button class="btn btn-default" style="float: right" onclick="AssessmentTarget.closeCcpartyDialog()" type="button" >关闭</button>
+        <h4 class="modal-title" >请选择测评组织</h4>
+      </div>
+      <div class="modal-body">
+			<!-- 组织 -->
+			<div id="ccparty-buttons" class="btn-group" >
+				<button class="btn btn-default" onclick="AssessmentTarget.affirmCcparty()">
+					<i class="glyphicon glyphicon-floppy-saved"></i> <span data-zh="确定" data-es="submint">确定</span>
+				</button>
+			</div>
+			<table id="ccparty-table" data-url="pub/getTargetsNotExistenceAssessmentTarget" data-toolbar="#target-buttons" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-pagination="false" data-click-to-select="true" data-search="true" data-show-refresh="true">
+				<thead>
+					<tr>
+						<th data-checkbox="true"></th>
+						<th data-field="id" data-visible="false">主键</th>
+						<th data-field="name" >组织名称</th>
+						<th data-field="partyType" data-align="center" data-formatter="AssessmentTarget.ccpartyPartyTypeFormatter" >单位类型</th>
+					</tr>
+				</thead>
+			</table> 
+      </div>
+    </div>
+  </div>
+</div>
+

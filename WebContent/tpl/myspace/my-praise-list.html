@@ -1,0 +1,29 @@
+<!-- 
+	@description 我的点赞列表模板
+	@author 赵子靖
+	@since 2016-06-17
+-->
+<table class="article-list-table">
+	{% if rows.length>0 %}
+		{% for item in rows %}
+		<tr>
+			<td style="width:80%;">
+				<span class="article-title">
+					<a data-bind="cont" href="article-view?articleId={{item.article.id}}" limit="30" title="{{item.article.name}}">{{item.article.name}}</a>
+				</span>
+			 </td>
+			<td style="width:20%;text-align: right;">
+	      		<span style="padding:0 15px;">{{item.createTime}}</span>
+	      		<a href="javascript:MyPraise.deletePraise('{{item.id}}')" class="btn btn-default btn-xs">
+					<i class="fa fa-times"></i>删除
+				</a>
+			</td>
+		</tr>
+		{%endfor%}
+	{% else %}
+	<tr>
+		<td>您还没有赞过任何文章。</td>
+	</tr>
+	{% endif %}
+</table>
+<div id="tpri-pagination" class="pagination-container" style="margin-top: 15px;"></div>

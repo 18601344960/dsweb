@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+	<div class="detail-title">
+		<b>{{name}}</b>
+	</div>
+	<div class="detail-info">
+		<span class="detail-info-item">来源：{{sourceName}}</span> 
+		<span class="detail-info-item">发表日期：{{createTime}}</span> 
+		<span class="detail-info-item">浏览({{hits}})</span> 
+		<span class="detail-info-item"><a href="javascript:ConferenceView.praiseArticle();" title="赞">赞(<span id="praise-count">{{praiseCount}}</span>)</a>
+		</span>
+		<span class="detail-info-item"><a href="javascript:ConferenceView.downloadConference('{{id}}')" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-save"></i>下载</a></span> 
+	</div>
+	<div class="detail-info-sub-item">
+		<span><b>组织者：</b>{{orgnizers}}</span> <span><b>时间：</b>{{getDate(occurTime)}}</span> <span><b>地点：</b>{{address}}</span> <span><b>参加人数：</b>{{attendance}}</span> <span><b>参加人员：</b>{{participants}}</span>
+	</div>
+	<div id="dialogs"></div>
+	<div class="detail-content">{{content}}</div>
+	<div class="images-container">
+		{% for image in images %}
+			<img src="file/getFileData?filePath={{image.filePath}}" onError='Global.onImgError(this)'  style="max-width:100%"/>
+		{% endfor %}
+	</div>
+	{% if files.length>0 %}
+	<div class="detail-files-title">附件：</div>
+	<div id="files-container" class="detail-files-container">
+		{% for file in files %}
+		<p id="{{file.id}}">
+			<a href="file/getFileData?filePath={{file.filePath}}">{{file.name}}</a>
+		</p>
+		{% endfor %}
+	</div>
+	{% endif %}
+</div>
+<div class="up-down-article">
+	<div id="beforeDiv">
+		<label>上一篇：</label><span id="beforeConference"></span>
+	</div>
+	<div id="afterDiv">
+		<label>下一篇：</label><span id="afterConference"></span>
+	</div>
+</div>

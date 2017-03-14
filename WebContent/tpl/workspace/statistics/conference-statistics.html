@@ -1,0 +1,127 @@
+<!-- 
+ 	@description 统计分析
+ 	@author 赵子靖
+ 	@since 2016-07-22
+-->
+<div id="conference-statistics">
+	<ul class="nav nav-tabs" role="tablist" id="conference-tab">
+		<li role="presentation" class="active"><a href="#step" role="tab" data-toggle="tab">工作步骤统计</a></li>
+		<li role="presentation"><a href="#format" role="tab" data-toggle="tab">工作形式统计</a></li>
+		<li role="presentation"><a href="#label" role="tab" data-toggle="tab">工作内容统计</a></li>
+		<li role="presentation"><a href="#ccparty-contrast" role="tab" data-toggle="tab">组织工作统计</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div id="step" class="tab-pane fade in active" role="tabpanel">
+			<!-- 检索条件 -->
+			<div id="step-table-buttons" style="height: 25px;margin-top: 10px;">
+				<div>
+					<button title="搜索" onclick="Statistics.renderStep()" type="button" class="btn btn-default" style="width: 50px; height: 32px; float: right; margin-right: 5px;">
+						<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+					</button>
+					<input id="endDate" class="form-control" type="text" style="width: 150px;float: right;margin-right: 5px;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'beginDate\')}',onpicked:function() {Statistics.renderStep()}})" placeholder="结束日期">
+					<label style="float: right;margin: 5px;">-</label>
+					<input id="beginDate" class="form-control" type="text" style="width: 150px;float: right;" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',onpicked:function() {Statistics.renderStep()}})" placeholder="开始日期">
+					<label style="float: right; line-height:32px;">日期：</label>
+				</div>
+			</div>
+			<table id="step-table" data-url="obt/getConferenceStepsStatistics" data-side-pagination="server" data-pagination="false" data-toolbar="#" data-click-to-select="false" data-search="false">
+				<thead>
+					<tr>
+						<th data-field="id" data-visible="false" data-align="center">ID</th>
+						<th data-field="categoryName" data-align="center">步骤名称</th>
+						<th data-field="num" data-align="center">数量</th>
+						<th data-field="hits" data-align="center">浏览数</th>
+						<th data-field="reply" data-align="center">回复数</th>
+						<th data-field="files" data-align="center">附件数</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+
+		<div id="format" class="tab-pane fade" role="tabpanel">
+			<!-- 检索条件 -->
+			<div id="format-table-buttons" style="height: 25px;margin-top: 10px;">
+				<div>
+					<button title="搜索" onclick="Statistics.renderFormat()" type="button" class="btn btn-default" style="width: 50px; height: 32px; float: right; margin-right: 5px;">
+						<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+					</button>
+					<input id="endDate" class="form-control" type="text" style="width: 150px;float: right;margin-right: 5px;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'beginDate\')}',onpicked:function() {Statistics.renderFormat()}})" placeholder="结束日期">
+					<label style="float: right;margin: 5px;">-</label>
+					<input id="beginDate" class="form-control" type="text" style="width: 150px;float: right;" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',onpicked:function() {Statistics.renderFormat()}})" placeholder="开始日期">
+					<label style="float: right; line-height:32px;">日期：</label>
+				</div>
+			</div>
+			<table id="format-table" data-url="obt/getConferenceFormartStatistics" data-side-pagination="server" data-pagination="false" data-toolbar="#" data-click-to-select="false" data-search="false">
+				<thead>
+					<tr>
+						<th data-field="id" data-visible="false" data-align="center">ID</th>
+						<th data-field="categoryName" data-align="center">形式名称</th>
+						<th data-field="num" data-align="center">数量</th>
+						<th data-field="hits" data-align="center">浏览数</th>
+						<th data-field="reply" data-align="center">回复数</th>
+						<th data-field="files" data-align="center">附件数</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+
+		<div id="label" class="tab-pane fade" role="tabpanel">
+			<!-- 检索条件 -->
+			<div id="label-table-buttons" style="height: 25px;margin-top: 10px;">
+				<div>
+					<button title="搜索" onclick="Statistics.renderLabel()" type="button" class="btn btn-default" style="width: 50px; height: 32px; float: right; margin-right: 5px;">
+						<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+					</button>
+					<input id="endDate" class="form-control" type="text" style="width: 150px;float: right;margin-right: 5px;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'beginDate\')}',onpicked:function() {Statistics.renderLabel()}})" placeholder="结束日期">
+					<label style="float: right;margin: 5px;">-</label>
+					<input id="beginDate" class="form-control" type="text" style="width: 150px;float: right;" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',onpicked:function() {Statistics.renderLabel()}})" placeholder="开始日期">
+					<label style="float: right; line-height:32px;">日期：</label>
+				</div>
+			</div>
+			<table id="label-table" data-url="obt/getConferenceLabelStatistics" data-side-pagination="server" data-pagination="false" data-toolbar="#" data-click-to-select="false" data-search="false">
+				<thead>
+					<tr>
+						<th data-field="id" data-visible="false" data-align="center">ID</th>
+						<th data-field="categoryName" data-align="center">内容名称</th>
+						<th data-field="num" data-align="center">数量</th>
+						<th data-field="hits" data-align="center">浏览数</th>
+						<th data-field="reply" data-align="center">回复数</th>
+						<th data-field="files" data-align="center">附件数</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="ccparty-contrast" class="tab-pane fade" role="tabpanel">
+			<!-- 检索条件 -->
+			<div id="contrast-table-buttons" style="height: 25px;margin-top: 10px;">
+				<div>
+					<button title="搜索" onclick="Statistics.renderCcpartyContrast()" type="button" class="btn btn-default" style="width: 50px; height: 32px; float: right; margin-right: 5px;">
+						<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+					</button>
+					<input id="endDate" class="form-control" type="text" style="width: 150px;float: right;margin-right: 5px;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'beginDate\')}',onpicked:function() {Statistics.renderCcpartyContrast()}})" placeholder="结束日期">
+					<label style="float: right;margin: 5px;">-</label>
+					<input id="beginDate" class="form-control" type="text" style="width: 150px;float: right;" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',onpicked:function() {Statistics.renderCcpartyContrast()}})" placeholder="开始日期">
+					<label style="float: right; line-height:32px;">日期：</label>
+				</div>
+			</div>
+			<table id="ccparty-contrast-table" data-url="obt/getConferenceCcpartyStatistics" data-side-pagination="server" data-pagination="false" data-toolbar="#" data-click-to-select="false"
+				data-search="false">
+				<thead>
+					<tr>
+						<th data-field="ccpartyId" data-visible="false" data-align="left">组织ID</th>
+						<th data-field="ccpartyName" data-align="left">组织</th>
+						<th data-field="individualCount" data-align="center">个人记录数</th>
+						<th data-field="ccpartyCount" data-align="center">组织记录数</th>
+						<th data-field="brandCount" data-align="center">品牌数</th>
+						<th data-field="recommendCount" data-align="center">推荐数</th>
+						<th data-field="totalCount" data-align="center">总数</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+

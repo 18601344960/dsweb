@@ -1,0 +1,317 @@
+@CHARSET "UTF-8";
+#main-container-detail{
+	min-height:500px;
+}
+/***************************右侧内容************************/
+#right-main-container{
+	 padding: 18px 30px;
+}
+#right-main-container .main-title {
+    border-bottom: 2px solid #f2f2f2;
+    color: #999;
+    font-size: 20px;
+    line-height: 1;
+    padding-bottom: 11px;
+}
+/***************************右侧文章列表************************/
+
+.mod-my-collect {
+    padding-top: 10px;
+    text-align: center;
+}
+.mod-my-collect .silder-content {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.mod-my-collect .silder-content ul li {
+    border-bottom: 1px solid #f0f0f0;
+    margin: 0;
+    padding: 26px 0;
+    position: relative;
+}
+
+.mod-my-collect .silder-content ul li .content {
+    display: inline-block;
+    font-size: 16px;
+    width: 650px;
+    word-break: break-all;
+}
+.mod-my-collect .silder-content ul li .header, 
+.mod-my-collect .silder-content ul li .content {
+    vertical-align: top;
+}
+
+.mod-my-collect .silder-content ul li .content a[data-bind="cont"] {
+    color: #333;
+    text-decoration: none;
+}
+.mod-my-collect .silder-content ul li .content a:HOVER {
+    color: #be1a21;
+    text-decoration: none;
+}
+
+.mod-my-collect .silder-content ul li .content .tags {
+    display: inline;
+    margin-left: 13px;
+    padding: 0;
+}
+
+.mod-my-collect .silder-content ul li .operate .time {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.mod-my-collect .silder-content ul li .operate {
+    margin-top: -9px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.mod-my-collect .operate {
+    margin-top: -18px;
+    padding-right: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.mod-my-collect .silder-content ul li .operate em,
+.mod-my-collect .silder-content ul li .operate span {
+    color: #666;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    padding: 0;
+    vertical-align: middle;
+}
+.mod-my-collect .operate span a {
+	color: #333;
+    font-size: 12px;
+}
+.mod-my-collect .operate span a i {
+	color: #333;
+    font-size: 14px;
+}
+.mod-my-collect .silder-content ul li .operate .edit {
+    margin-right: 8px;
+}
+/***************************个人资料右侧内容************************/
+.my_info_tab{
+	background-color: #f1f1f1;
+    border-radius: 10px;
+    color: #999;
+    margin-top: 15px;
+    min-height: 100px;
+    padding: 10px;
+    text-align: left;
+}
+.my_info_tab h4{
+	color: #333;
+	font-family: Arial; 
+	padding: 15px 15px; 
+	width: 110px; 
+}
+.my_info_tab table {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-left: 100px;
+    width: 80%;
+}
+.my_info_tab table tr td{
+  	color: #333;
+}
+.my_info_tab table td {
+    width: 20%;
+}
+/***************************修改密码右侧内容************************/
+.mod-my-collect-updatepwd table{
+	float: center;
+  	font-size: 18px;
+  	font-family:sans-serif;
+  	margin-left: 20px;
+  	margin-top:20px;
+  	width: 90%;
+}
+.mod-my-collect-updatepwd table tr td{
+  	color: #999;
+}
+.update_pwd_save{
+  	color: #999;
+  	font-size: 20px;
+	font-family: Arial; 
+	border: 1px solid #379082; 
+	border-radius: 15px; 
+	padding: 10px 10px; 
+	width: 80px; 
+}
+
+
+/***************************文章列表样式************************/
+/* .article-list-table{
+	width: 100%;
+}
+.article-list-table tr:HOVER{
+	background-color:#fcfcfc;
+}
+.article-list-table tr{
+	height: 100px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #ccc;
+}
+.article-list-table tr td .article-title{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+.article-list-table tr td .article-title a{
+	font-weight:500;
+	cursor: pointer;
+	color: #222;
+    font-size: 16px;
+}
+.article-list-table tr td .article-title a:hover{
+	color:#a12a2a;
+	text-decoration: underline;
+}
+.article-list-table tr td span{
+	font-size: 12px;
+	color: #666;
+	padding: 10px;
+}
+
+.news_tag::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.news_tag {
+	clear: both;
+	display: block;
+	line-height: 20px;
+	margin: 10px 0 5px;
+}
+
+.news_tag .category {
+	background-color: #d37166;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.step{
+	background-color: #a06bad;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.news_info {
+	background: none repeat scroll 0 0 #f3f3f3;
+	color: #999;
+	padding: 10px 10px 0;
+	position: relative;
+	font-family: Helvetica, Tahoma, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.news_info span {
+	background-repeat: no-repeat;
+	margin: 0 6px;
+}
+
+.news_info .view {
+	background-image: url("icon_arrow.gif");
+}
+
+.news_info .date {
+	color: #a12a2a;
+	padding-left: 0;
+}
+ */
+/***************************我的答卷样式************************/
+.my-assessment-search{
+	width: 100%;
+	float: right;
+	height: 60px;
+}
+.qusetionbox{
+ 	background-image:url("../images/assessment/word-nojoin.png");
+    height: 308px;
+    margin-top:20px;
+    margin-left: 50px;
+    width: 200px;
+    cursor: pointer;
+    float: left;
+}
+.qusetionbox:HOVER{
+	background-image:url("../images/assessment/word-hover-nojoin.png");
+}
+.qusetionbox-joined{
+ 	background-image:url("../images/assessment/word-joined.png");
+    height: 308px;
+    margin-top:20px;
+    margin-left: 50px;
+    width: 200px;
+    cursor: pointer;
+    float: left;
+}
+.qusetionbox-joined:HOVER{
+	background-image:url("../images/assessment/word-hover-joined.png");
+}
+.no-my-assessment{
+	width: 100%;
+	margin-top:100px;
+	text-align: center;
+}
+#querstion-box .title{
+	width:85%;
+	margin-left:10px;
+	text-align:center;
+	margin-top:90px;	
+	height: 80px;
+	font-size: 18px;
+	color: #757575;
+	font-weight: bold;
+}
+#querstion-box .ccpartyName{
+	width:85%;
+	margin-left:10px;
+	text-align:center;
+	height: 30px;
+	color: #757575;
+    font-size: 14px;
+}
+#querstion-box .joinNum{
+	width: 35%;
+	margin-top:50px;
+	margin-left:11px;
+	color: #757575;
+    font-size: 14px;
+    float: left;
+}
+#querstion-box .overTip{
+	width: 49%;
+	margin-top:50px;
+	color: #757575;
+    font-size: 14px;
+    float: left;
+    text-align: right;
+}
+/***************************修改密码************************/
+.update-password-table{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	width: 30%;
+}
+.update-password-table tr{
+	line-height: 70px;
+}

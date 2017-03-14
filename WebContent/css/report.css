@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+.clearfix {
+	display: block;
+}
+.report-search{
+	border-right: 1px solid #ccc;
+	width: 20%;
+	float: left;
+	padding-right: 5px;
+}
+.report-article{
+	width: 80%;
+	float:left;
+	padding:0px 40px 40px 20px;
+}
+.html {
+    background-image: url(../images/icons/html.png);
+}
+
+.xls {
+    background-image: url(../images/icons/xls.png);
+}
+
+.pdf {
+    background-image: url(../images/icons/pdf.png);
+}

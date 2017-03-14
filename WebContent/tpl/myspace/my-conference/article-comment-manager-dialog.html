@@ -1,0 +1,31 @@
+<!-- 
+	@description 评论管理
+	@author 赵子靖
+	@since 2015-11-02
+-->
+<div class="modal fade" id="comment-manager-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog" style="width: 800px">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">文章评论管理</h4>
+			</div>
+			<div class="modal-body">
+				<!-- table列表 -->
+				<table id="article-comment-table" data-url="obt/getConferenceComments" data-side-pagination="server" data-page-list="[10, 20, 50, 100, 200]" 
+					data-click-to-select="true" data-search="false" data-pagination="true">
+					<thead>
+						<tr>
+							<th data-radio="true"></th>
+							<th data-field="id" data-visible="false">ID</th>
+							<th data-field="content" >评论内容</th>
+							<th data-field="user" data-width="100" data-formatter="MyArticle.commentUserName">评论者</th>
+							<th data-field="createTime" data-width="180">评论日期</th>
+							<th data-field="id" data-align="center" data-formatter="MyArticle.commentOperatorFormatter" data-width="100">操作</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<!-- 新增用户 -->
+<div class="modal fade" id="user-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog" style="width: 700px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" id="user_dialog_title">新增用户</h4>
+      </div>
+      <div class="modal-body dialog_table">
+      	<table >
+      		<tr>
+      			<td align="right" width="15%">登录账号<b style="color: red">*</b>：</td>
+      			<td align="left" width="35%">
+   					<input type="text" class='form-control' id="loginNo" value="{{loginNo}}" onblur="UserUtils.checkLoginNo(this.value,'loginNo')" maxlength="20"/>
+      			</td>
+      			<td align="left" colspan="2" width="50%" style="font-size: 10px;color: blue;">
+      				请使用身份证后八位，初始密码为123456。
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">姓名<b style="color: red">*</b>：</td>
+      			<td align="left"><input type="text" id="user_name" class='form-control' maxlength="25" ></td>
+      			<td align="right">性别：</td>
+      			<td align="left">
+      				<select id="user_gender" class='form-control'>
+      					<option value="1" selected>男</option>
+      					<option value="2">女</option>
+      				</select>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">身份证<b style="color: red">*</b>：</td>
+	      		<td align="left"><input type="text" id="user_idNumber" class='form-control' maxlength="20"></td>
+      			<td align="right">政治面貌<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<select id="user_type" class='form-control' onchange="ManagerUser.typeRadioChange(this.value)">
+      				</select>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">行政单位<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input id="userOrganizationId" name="userOrganizationId" type="text" class='form-control' value="" ids="" />
+      				<div id="userOrganizationMenuContent" class="menuContent" style="display: none; position: absolute;background-color: white; width: 35%;overflow:auto; border:1px solid #D3D3D3;">
+						<ul id="user-organization-tree" class="ztree" style="margin-top: 0; width: 100%;height: 400px;"></ul>
+					</div>
+      			</td>
+      			<td align="right">所在部门：</td>
+      			<td align="left">
+      				<select id="user_department" class='form-control'>
+      					<option value="0">请选择</option>
+      				</select>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">办公电话：</td>
+      			<td align="left">
+      				<input type="text" id="officePhone" maxlength="36" class='form-control'>
+      			</td>
+      			<td align="right">手机号码：</td>
+      			<td align="left">
+      				<input type="text" id="mobile" maxlength="36" class='form-control'>
+      			</td>
+      		</tr>
+      		<tr id="orgTr" style="display: none;">
+      			<td align="right">所在党支部<b style="color: red">*</b>：</td>
+      			<td align="left" colspan="3" >
+      				<input id="ccpartyId" name="ccpartyId" type="text" class='form-control' value="" ids="" />
+      				<div id="ccpartyMenuContent" class="menuContent" style="display: none; position: absolute;background-color: white; width: 80%;overflow:auto; border:1px solid #D3D3D3;">
+						<ul id="ccparty-tree" class="ztree" style="margin-top: 0; width: 100%;height: 400px;"></ul>
+					</div>
+      			</td>
+      		</tr>
+      		<tr id="youthTr" style="display: none;">
+      			<td align="right">所属团委<b style="color: red">*</b>：</td>
+      			<td align="left" colspan="3" >
+      				<input id="youthId" name="youthId" type="text" class='form-control' value="" ids="" />
+      				<div id="youthMenuContent" class="menuContent" style="display: none; position: absolute;background-color: white; width: 80%;overflow:auto; border:1px solid #D3D3D3;">
+						<ul id="youth-tree" class="ztree" style="margin-top: 0; width: 100%;height: 400px;"></ul>
+					</div>
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerUser.addUser()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+<!-- 新增/编辑用户弹出框 begin-->
+{%if dialog=='user-dialog'%}
+<div class="modal fade" id="user-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog" style="width: 700px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" id="user_dialog_title">{%if dialogType=='add'%}新增用户{%elif dialogType=='edit'%}编辑用户{%endif%}</h4>
+      </div>
+      <div class="modal-body">
+      	<table >
+      		<tr>
+      			<td align="right">温馨提示：</td>
+				<td colspan="3" align="left" style="color: red">账号请使用身份证后八位，初始密码为123456。</td>
+			</tr>
+      		<tr>
+      			<td align="right">登录账号<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				{%if dialogType=='add'%}
+      				<input type="text" class='form-control' id="user_id" value="{{id}}" placeholder="请使用身份证后八位" onblur="UserUtils.checkuserId(this.value,'user_id')"/>
+      				{%elif dialogType=='edit'%}
+      				<label>{{id}}</label>
+      				<input type="hidden" id="user_id" value="{{id}}" />
+      				{%endif%}
+      			</td>
+      			<td align="right">姓名<b style="color: red">*</b>：</td>
+      			<td ><input type="text" id="user_name" class='form-control' maxlength="25" value="{{name}}"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td align="right">性别：</td>
+      			<td align="left">
+      				<select id="user_gender" class='form-control'>
+      					<option value="1">男</option>
+      					<option value="2">女</option>
+      				</select>
+      			</td>
+      			<td align="right">行政单位<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input id="userOrganizationId" name="userOrganizationId" type="text" class='form-control' value="" ids="" />
+      				<div id="userOrganizationMenuContent" class="menuContent" style="display: none; position: absolute;background-color: white; width: 35%;overflow:auto; border:1px solid #D3D3D3;">
+						<ul id="user-organization-tree" class="ztree" style="margin-top: 0; width: 100%;height: 400px;"></ul>
+					</div>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">政治面貌<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<select id="user_type" class='form-control' onchange="ManagerUser.typeRadioChange(this.value)">
+      					<option value="0">普通群众</option>
+      					<option value="1">入党申请</option>
+      					<option value="2">积极分子</option>
+      					<option value="3">发展对象</option>
+      					<option value="4">预备党员</option>
+      					<option value="5">正式党员</option>
+      					<option value="6">流动党员</option>
+      				</select>
+      			</td>
+      			<td align="right">所属党组织<b style="color: red">*</b>：</td>
+      			<td align="left" colspan="3" >
+      				<input id="ccpartyId" name="ccpartyId" type="text" class='form-control' value="" ids="" />
+      				<div id="ccpartyMenuContent" class="menuContent" style="display: none; position: absolute;background-color: white; width: 35%;overflow:auto; border:1px solid #D3D3D3;">
+						<ul id="ccparty-tree" class="ztree" style="margin-top: 0; width: 100%;height: 400px;"></ul>
+					</div>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">身份证：</td>
+	      		<td align="left">
+	      			<input type="text" id="show_idNumber" class='form-control' value="{{showIdNumber}}" onkeyup="javascript:$('#user_idNumber').val(this.value);">
+	      			<input type="hidden" id="user_idNumber" value="{{idNumber}}" />
+	      		</td>
+      			<td align="right">工作号：</td>
+      			<td align="left"><input type="text" id="user_workNo" maxlength="32" class='form-control' value="{{workNo}}"></td>
+      			
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerUser.userSaveOrUpdateSubmit()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+
+<!-- 密码重置 -->
+{%if dialog=='reset-dialog'%}
+<div class="modal fade" id="reset-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog" style="width: 500px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" id="user_dialog_title">为“{{name}}”重置密码</h4>
+      </div>
+      <div class="modal-body">
+      	<table >
+      		<tr>
+      			<input type="text" id="id" hidden="true" value="{{id}}" />
+      			<td align="right" style="width: 30%">重置密码<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input type="password" id="password" class='form-control' maxlength="35" />
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">再次输入密码<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input type="password" id="confirmPassword" class='form-control' maxlength="35" />
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerUser.resetUserPasswordSubmit()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+
+<!-- 用户角色分配弹出框  begin-->
+{%if dialog=='user-role-dialog'%}
+<div class="modal fade" id="user-role-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" >为“<label>{{name}}</label>”分配角色</h4>
+      </div>
+      <div class="modal-body" style="height: 350px;">
+      	<table >
+      		<!-- 角色树 -->
+      		<tr>
+      			<td width="100%">
+      				<div id="roleMenuContent" class="menuContent" style="position: absolute;background-color: white; width: 95%;overflow:auto; border:1px solid #CDC9C9;">
+						<ul id="role-tree" class="ztree" style="margin-top: 0; width: 100%;height: 320px;"></ul>
+					</div>
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerUser.userRoleSave()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}

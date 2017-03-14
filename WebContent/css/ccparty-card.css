@@ -1,0 +1,131 @@
+@CHARSET "UTF-8";
+/**
+	@description 支部工作手册样式文件
+	@author 赵子靖
+	@since 2016-06-14
+**/
+/************************缩略图***************************/
+.ccparty-card-breviary-list{
+	width: 95%;
+	margin: 10px auto;	
+}
+.ccparty-card-breviary{
+	width: 150px;
+	height: 200px;
+	float: left;
+	margin:10px 10px;
+	background-color: #CD3700;
+	cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+.ccparty-card-breviary:HOVER{
+	width: 150px;
+	height: 200px;
+	float: left;
+	margin:10px 10px;
+	background-color: #EE4000;
+	cursor: pointer;
+	border: 2px solid #ffd700;
+}
+.ccparty-card-breviary ul li{
+	color: #DAA520;
+}
+.ccparty-card-breviary-committee{
+	width: 150px;
+	height: 200px;
+	float: left;
+	margin:10px 10px;
+	background-color: #FFD700;
+	cursor: pointer;
+}
+.ccparty-card-breviary-committee:HOVER{
+	width: 150px;
+	height: 200px;
+	float: left;
+	margin:10px 10px;
+	background-color: #FFC125;
+	cursor: pointer;
+	border: 2px solid #cd3700;
+}
+.ccparty-card-breviary-committee ul li{
+	color: #CD3700;
+}
+.breviary-cover1{
+	height: 20px;
+	text-align: center;
+	margin-top: 35px;
+	font-size: 19px;
+	font-family: cursive;
+	font-weight: bold;
+}
+.breviary-cover2{
+	height: 20px;
+	text-align: center;
+	margin-top: 30px;
+	font-weight: bold;
+}
+.breviary-cover3{
+	height: 30px;
+	text-align: center;
+	margin-top: 25px;
+	font-size: 13px;
+	font-family: cursive;
+	font-weight: bold;
+}
+.breviary-cover4{
+	height: 20px;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 10px;
+	font-family: cursive;
+	font-weight: bold;
+}
+.ccparty-card-break{
+	width:100%;
+	height: 40px;	
+}
+.ccparty-card-break button{
+	float:right;
+	margin: 5px; 
+}
+.ccparty-no-data{
+	width: 100%;
+	height: 100px;
+	font-size: 20px;
+	text-align: center;
+}
+.category {
+	background-color: #d37166;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.step {
+	background-color: #a06bad;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.format{
+	background-color: #64ADDA;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.card-party-fee-table{
+	width: 85%;
+	margin: 10px auto;
+	text-align: center;
+}
+.card-party-fee-table tr{
+	line-height: 33px;
+}

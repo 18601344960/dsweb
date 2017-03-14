@@ -1,0 +1,25 @@
+<table id="edit-head-info">
+	<tr>
+		<td width="15%" rowspan="2">
+			<img id="headImgId" gender="{{gender}}" src="uam/getHeadImg?userId={{item.id}}&random={{random}}" onError='Global.onIconError(this)' style="border: 1px solid #DBDBDB;width:140px;height:185px;">
+		</td>
+		<td width="60">
+			<input type="hidden" id="userId" value="{{item.id}}"/>
+			<span style="float: left;margin-top:5px;">姓名：</span><input type="text" class="form-control" style="width: 200px;float: left;" id="name" value="{{item.name}}"/></td>
+		<td width="15%">
+			<button onclick="MyInfo.updateUserHeadInfo()" class="btn btn-success" type="button">保存</button>
+			<button onclick="MyInfo.loadHeadInfo()" class="btn btn-default" type="button">取消</button>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<span style="float: left;margin-top:5px;">全拼：</span><input type="text" class="form-control" style="width: 200px;float: left;" id="namePhoneticize" value="{{item.namePhoneticize}}"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<a href="javascript:UserUtils.replaceUserHeadImgPage('{{item.id}}')" class="btn btn-default btn-xs" style="margin-left:15px;"><i class="fa fa-edit"></i>更换</a>
+			<a href="javascript:UserUtils.deleteUserHeadImg('{{item.id}}')" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-trash"></i>删除</a>
+		</td>
+	</tr>
+</table>

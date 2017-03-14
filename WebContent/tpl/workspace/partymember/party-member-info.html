@@ -1,0 +1,62 @@
+<ul class="nav nav-tabs" role="tablist" id="members-manager-tab" style="float: left;">
+	<li role="presentation" class="active"><a href="#branch-member-tab" aria-controls="branch-member-tab" role="tab" data-toggle="tab">支部成员管理</a></li>
+	<li role="presentation"><a href="#group-member-tab" aria-controls="group-member-tab" role="tab" data-toggle="tab">党小组成员管理</a></li>
+	{%if userType=='2' or userType=='3'%}
+	<li role="presentation"><a href="#export-member-tab" aria-controls="group-member-tab" role="tab" data-toggle="tab">党员回收站</a></li>
+	{%endif%}
+	<li role="presentation"><a href="#election-tab" aria-controls="election-tab" role="tab" data-toggle="tab">班子成员情况</a></li>
+</ul>
+<div class="tab-content" style="float: left; width: 100%;">
+	<div role="tabpanel" class="tab-pane fa active" id="branch-member-tab">
+		<!-- 中间党员列表 -->
+		<div class="main-detail-left-list" id="partymember-center">
+			<p style="text-align: center;">请选择组织</p>
+		</div>
+		<!-- 右边党员详细信息 -->
+		<div class="main-detail-right" id="partymember-right">
+			<div id="right-user-info">
+				<div style="width: 100%; text-align: center;">请选择左侧党员</div>
+			</div>
+			<!-- <ul class="nav nav-tabs" role="tablist" id="partymember-manager-tab">
+				<li role="presentation" class="active" id="right-user-info-tab"><a href="#right-user-info" aria-controls="right-user-info" role="tab" data-toggle="tab">基本信息</a></li>
+				<li role="presentation" id="right-partymember-info-tab"><a href="#right-partymember-info" aria-controls="right-partymember-info" role="tab" data-toggle="tab">党籍信息</a></li>
+			</ul>
+			<div class="tab-content">
+				用户基本信息
+				<div role="tabpanel" class="tab-pane fa active" id="right-user-info">
+					<div style="width: 100%;text-align: center;">请选择左侧党员</div>
+				</div>
+				党员信息
+				<div role="tabpanel" class="tab-pane fa" id="right-partymember-info">
+					<div style="width: 100%;text-align: center;">请选择左侧党员</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane fa" id="group-member-tab">
+		<p style="text-align: center;">暂无党小组</p>
+	</div>
+	<div role="tabpanel" class="tab-pane fa" id="export-member-tab">
+		<table id="export-member-table" data-url="org/getExportPartyMembers" data-side-pagination="server" data-show-refresh="false" data-side-pagination="server" data-page-list="[10, 20, 50, 100, 200]"
+			data-click-to-select="true" data-pagination="true">
+			<thead>
+				<tr>
+					<th data-field="id" data-visible="false">ID</th>
+					<th data-field="name" data-width="150" data-align="center">姓名</th>
+					<th data-field="gender" data-width="100" data-align="center" data-formatter="PartyMemberExport.gender">性别</th>
+					<th data-field="partyMember" data-width="150" data-align="center" data-formatter="PartyMemberExport.memberType">党员类型</th>
+					<th data-field="partyMember" data-width="150" data-align="center" data-formatter="PartyMemberExport.joinCurrentTime">加入当前组织日期</th>
+					<th data-field="partyMember" data-width="100" data-align="center" data-formatter="PartyMemberExport.memberStatus">状态</th>
+					<th data-field="partyMember" data-width="200" data-align="center" data-formatter="PartyMemberExport.updateTime">操作日期</th>
+					<th data-field="partyMember" data-width="150" data-align="center" data-formatter="PartyMemberExport.updateUser">操作人</th>
+					<th data-field="id" data-width="150" data-align="center" data-formatter="PartyMemberExport.operator">操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<!-- 换届选举情况 -->
+	<div role="tabpanel" class="tab-pane fa" id="election-tab">
+		<div class="" id="branch-election-info"></div>
+	</div>
+</div>
+

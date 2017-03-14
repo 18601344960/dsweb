@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PartyFeeData" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="50" bottomMargin="50" uuid="6c29fcb0-1708-4f55-b096-26b2ab592e75">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="88"/>
+	<style name="style1" hAlign="Center" vAlign="Middle" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+	<style name="style2" hAlign="Center" vAlign="Middle" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H">
+		<box>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<parameter name="CCPARTY_NAME" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<parameter name="TOTAL1" class="java.lang.String"/>
+	<parameter name="TOTAL2" class="java.lang.String"/>
+	<parameter name="TOTAL3" class="java.lang.String"/>
+	<parameter name="TOTAL4" class="java.lang.String"/>
+	<parameter name="TOTAL5" class="java.lang.String"/>
+	<parameter name="TOTAL6" class="java.lang.String"/>
+	<parameter name="TOTAL7" class="java.lang.String"/>
+	<parameter name="TOTAL8" class="java.lang.String"/>
+	<parameter name="TOTAL9" class="java.lang.String"/>
+	<parameter name="TOTAL10" class="java.lang.String"/>
+	<parameter name="TOTAL11" class="java.lang.String"/>
+	<parameter name="TOTAL12" class="java.lang.String"/>
+	<parameter name="TOTAL13" class="java.lang.String"/>
+	<field name="SEQUENCE" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="YEAR" class="java.lang.String"/>
+	<field name="JANUARY" class="java.lang.String"/>
+	<field name="FEBRUARY" class="java.lang.String"/>
+	<field name="MARCH" class="java.lang.String"/>
+	<field name="APRIL" class="java.lang.String"/>
+	<field name="MAY" class="java.lang.String"/>
+	<field name="JUNE" class="java.lang.String"/>
+	<field name="JULY" class="java.lang.String"/>
+	<field name="AUGUST" class="java.lang.String"/>
+	<field name="SEPTEMBER" class="java.lang.String"/>
+	<field name="OCTOBER" class="java.lang.String"/>
+	<field name="NOVEMBER" class="java.lang.String"/>
+	<field name="DECEMBER" class="java.lang.String"/>
+	<field name="SPECIALFEE" class="java.lang.String"/>
+	<variable name="SEQUENCE_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{SEQUENCE}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="50" uuid="7fd82724-bb48-41e4-8bca-1a1cc2c1b0ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党员党费情况统计表]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="127" y="50" width="90" height="29" uuid="8489f443-0ea5-4fec-9fec-a83eb8f853fb"/>
+				<textElement textAlignment="Left">
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党支部（总支）]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="17" y="50" width="110" height="29" uuid="0d81ef17-2d34-40e4-b276-151472431d43"/>
+				<textElement>
+					<font isUnderline="true" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CCPARTY_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="508" y="50" width="21" height="29" uuid="6938b7b1-7027-468c-83e8-326fde184dca"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="478" y="50" width="30" height="29" uuid="0988231f-6d6e-444a-a4df-af6af1e6322b"/>
+				<text><![CDATA[___]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="457" y="50" width="21" height="29" uuid="a6595bb6-cc3c-49bc-96e8-b488ccc56346"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="427" y="50" width="30" height="29" uuid="8318749f-b575-47f0-85be-b0feb487f03f"/>
+				<text><![CDATA[___]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="407" y="50" width="21" height="29" uuid="a4fb9cb6-26fd-4c40-8833-672ee5ce99eb"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="377" y="50" width="30" height="29" uuid="ef97fe6a-c355-4712-8333-39a96f9948b1"/>
+				<text><![CDATA[___]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement style="style2" x="0" y="0" width="27" height="40" uuid="519981d6-12b5-447d-954a-234662dfb755"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[序号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="27" y="0" width="49" height="40" uuid="00a9a965-826b-44f8-83fa-75d5ffc99264"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[姓名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="76" y="0" width="33" height="40" uuid="1bb6f039-708e-4924-b6ec-a6edfd2dede9"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年份]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="109" y="0" width="33" height="40" uuid="9fd3e536-c5c6-4f9b-a209-d3e82468e718"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[1月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="142" y="0" width="33" height="40" uuid="71a29c5f-2787-417c-946b-144b62131c46"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[2月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" mode="Transparent" x="175" y="0" width="33" height="40" uuid="97a5b097-3cc3-4b5f-9e88-61fa362caf29"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[3月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="208" y="0" width="33" height="40" uuid="8d0a8365-08b7-4a9d-a258-c61737db9b96"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[4月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="241" y="0" width="33" height="40" uuid="5d7251d4-c793-4aba-90cb-81f8617f5d68"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[5月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="274" y="0" width="33" height="40" uuid="1ffe8b94-8728-4128-a32e-c2af4b8a0e9a"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[6月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="307" y="0" width="33" height="40" uuid="bb445e9b-0e6f-4b98-a88d-bbb6d63bacc2"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[7月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" mode="Transparent" x="340" y="0" width="33" height="40" uuid="68386996-055f-4d27-a420-5e01a73a6ca5"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[8月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="373" y="0" width="33" height="40" uuid="a848d1fd-ebbc-41d5-96d4-364ec48f6a2a"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[9月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="406" y="0" width="33" height="40" uuid="a1be90ab-d936-4bcf-aec1-e09d7650ce1f"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[10月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="439" y="0" width="33" height="40" uuid="c903d6ea-8ab5-4dc4-b219-90716a14c6ed"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[11月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="472" y="0" width="33" height="40" uuid="3c7de27e-b8a7-4cab-bc01-ff199ffe1712"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[12月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="0" width="50" height="40" uuid="8e403cc2-5f1b-4067-b277-b0b954dd68a4"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[特殊党费]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="0" y="0" width="27" height="40" uuid="b2d02089-731d-452b-a44b-e42303901a5e"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SEQUENCE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="27" y="0" width="49" height="40" uuid="c42cac39-3b20-4f94-bcdc-a57eda304177"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="76" y="0" width="33" height="40" uuid="d9e9f465-79ec-4497-8a33-3882574a09e6"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YEAR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="109" y="0" width="33" height="40" uuid="8dfa99cb-ae85-419e-9955-2c64298b4b77"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JANUARY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="142" y="0" width="33" height="40" uuid="d2e79b68-9df9-4072-a275-5079dd9eabdd"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEBRUARY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="175" y="0" width="33" height="40" uuid="d3a4d13c-6868-49e1-a8d1-71f428749de4"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MARCH}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="208" y="0" width="33" height="40" uuid="4e831a32-6622-4b38-a7db-949cb1165a47"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APRIL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="241" y="0" width="33" height="40" uuid="42285dc8-62e8-403b-a1ad-24af52d0dc9c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MAY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="274" y="0" width="33" height="40" uuid="61599983-7554-43bf-854f-738306af10a8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JUNE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="307" y="0" width="33" height="40" uuid="975b8179-455c-4e47-a487-1687069bef55"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JULY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="340" y="0" width="33" height="40" uuid="774fe0e6-f635-42c9-b5c9-6d381b15a003"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AUGUST}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="373" y="0" width="33" height="40" uuid="44aaca83-44e2-410c-8d85-8f6777ecc25b"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SEPTEMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="406" y="0" width="33" height="40" uuid="931f5845-cf8b-4a34-bdba-5530b5a96fec"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OCTOBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="439" y="0" width="33" height="40" uuid="2b1866a5-9531-443f-bada-3a264465b650"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOVEMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="472" y="0" width="33" height="40" uuid="d9de8b84-32dc-4513-8e05-7995048508d7"/>
+				<textElement>
+					<font size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DECEMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="505" y="0" width="50" height="40" uuid="9beae5f9-6dee-4a4d-9371-970f0aa2432d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SPECIALFEE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="55" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="217" y="34" width="100" height="20" uuid="1032037a-be37-4294-a971-08962a9a3e1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="112">
+			<staticText>
+				<reportElement style="style2" x="0" y="0" width="109" height="40" uuid="b9343bff-839f-4a03-9b3c-fcc5715d151b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[合计]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="0" y="40" width="109" height="40" uuid="fe392801-0157-484d-a8ba-71bc3ae55a3c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[总计]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="109" y="40" width="446" height="40" uuid="ab36bf4e-ab4a-480b-b889-a521c76e4e0f"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="109" y="0" width="33" height="40" uuid="bfab9142-c3ff-4b3f-a9ca-d46e77aedc63"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="175" y="0" width="33" height="40" uuid="ff8042c1-e226-4e79-a121-cb398d5dda49"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="274" y="0" width="33" height="40" uuid="3e15faf4-ec06-4f11-97ee-fc71b0c7fb6c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="307" y="0" width="33" height="40" uuid="ab710bb9-9fe5-492b-b418-d134148682ed"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="340" y="0" width="33" height="40" uuid="513abaf0-93fa-4563-8f09-b037dacae9a7"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL8}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="373" y="0" width="33" height="40" uuid="88953190-735c-47d3-9a16-f0e3b64a8f61"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL9}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="406" y="0" width="33" height="40" uuid="958daf54-890e-4bb4-bb7f-3353e14724e9"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL10}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="472" y="0" width="33" height="40" uuid="e0aaaf29-5d25-4a1f-809d-5616160f58e4"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL12}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="208" y="0" width="33" height="40" uuid="4c17eb8d-83f9-4edd-911a-13f80d52ad23"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="241" y="0" width="33" height="40" uuid="3d523cd0-1aa9-4b72-8eab-ee12d2971ea2"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" mode="Transparent" x="439" y="0" width="33" height="40" uuid="f46bf33f-ad8b-4e11-b265-454e2f2acf15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL11}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="505" y="0" width="50" height="40" uuid="c87eefe3-74be-43ca-8aea-9a81b9e05427"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL13}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="style2" x="142" y="0" width="33" height="40" uuid="7e7676b1-fa05-4c3b-9dc7-78e7ecc371f4"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

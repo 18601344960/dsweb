@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="base=info-member-card" language="groovy" pageWidth="595" pageHeight="742" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="50" bottomMargin="50" isFloatColumnFooter="true" uuid="91985368-6c5d-40de-9cbd-0027742cd67c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="19"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="mainData" uuid="a79dbcfd-b310-4176-a233-9dea57310a65">
+		<field name="PARTY_TITLE_ID" class="java.lang.String"/>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="BIRTHDAY" class="java.util.Date"/>
+		<field name="JOIN_TIME" class="java.util.Date"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="GENDER" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="detailData" uuid="706122a8-ae1c-4173-ae61-1d34e5d97a51">
+		<field name="GROUP_NAME" class="java.lang.String"/>
+		<field name="LEADER_NAME" class="java.lang.String"/>
+		<field name="DYS_UPPER" class="java.lang.Integer"/>
+		<field name="DYS_LOWER" class="java.lang.Integer"/>
+		<field name="ZGS_UPPER" class="java.lang.Integer"/>
+		<field name="ZGS_LOWER" class="java.lang.Integer"/>
+		<field name="SQS_UPPER" class="java.lang.Integer"/>
+		<field name="SQS_LOWER" class="java.lang.Integer"/>
+		<field name="JHS_UPPER" class="java.lang.Integer"/>
+		<field name="JHS_LOWER" class="java.lang.Integer"/>
+		<field name="RDS_UPPER" class="java.lang.Integer"/>
+		<field name="RDS_LOWER" class="java.lang.Integer"/>
+		<variable name="SUM_DYS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{DYS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_DYS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{DYS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_ZGS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{ZGS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_ZGS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{ZGS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_SQS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{SQS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_SQS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{SQS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_JHS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{JHS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_JHS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{JHS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_RDS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{RDS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_RDS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{RDS_LOWER}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="DYMC" class="java.lang.String"/>
+	<parameter name="SEX" class="java.lang.String"/>
+	<parameter name="NATIONAL" class="java.lang.String"/>
+	<parameter name="NATIVE" class="java.lang.String"/>
+	<parameter name="BIRTHDAY" class="java.lang.String"/>
+	<parameter name="PARTY_DATE" class="java.lang.String"/>
+	<parameter name="UNIT" class="java.lang.String"/>
+	<parameter name="XZ_DUTY" class="java.lang.String"/>
+	<parameter name="PARTY_DUTY" class="java.lang.String"/>
+	<parameter name="DZBMC" class="java.lang.String"/>
+	<parameter name="DYLX" class="java.lang.String"/>
+	<parameter name="ORG_DATE" class="java.lang.String"/>
+	<parameter name="imageParameter" class="java.io.InputStream"/>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="535" height="50" backcolor="#FFFFFF" uuid="53de7af4-fdf0-4a26-ad6d-66aa99c45b47"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="30" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党员基本信息]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="545">
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="80" width="115" height="35" backcolor="#FFFFFF" uuid="91591cd5-b078-4d38-bd8f-c1354c5f8bcc"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[姓名：]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="80" width="309" height="35" backcolor="#FFFFFF" uuid="5e9adba2-7394-4329-bcaf-315b32937753"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DYMC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="115" width="115" height="35" backcolor="#FFFFFF" uuid="eae9abac-68ef-4ca3-becf-8620cbc25844"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[性别：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="150" width="115" height="35" backcolor="#FFFFFF" uuid="802c21fc-baf8-4152-bd03-ab3a6edea5b7"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[民族：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="185" width="115" height="35" backcolor="#FFFFFF" uuid="0928d581-0a8f-48c7-bd75-3a3415f8cf97"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[籍贯：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="220" width="115" height="35" backcolor="#FFFFFF" uuid="8888cf82-ea63-4a24-947e-9776cef77d4f"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[出生日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="255" width="115" height="35" backcolor="#FFFFFF" uuid="2148fad1-0e5b-4a8f-9721-5d3a4faa8550"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[入党日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="290" width="115" height="35" backcolor="#FFFFFF" uuid="75c82339-5ed0-49e9-a06f-a095f7bda619"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[所属单位：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="325" width="115" height="35" backcolor="#FFFFFF" uuid="1c8eab0c-32af-44a9-946b-cb5828f717fe"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[行政职务：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="360" width="115" height="35" backcolor="#FFFFFF" uuid="c67c0ac5-0f1f-4d38-aeea-65abeae9c732"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[所在党支部：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="395" width="115" height="35" backcolor="#FFFFFF" uuid="a197276f-646a-460f-b256-8dca2c8e51b3"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党内职务：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="430" width="115" height="35" backcolor="#FFFFFF" uuid="5b53b700-8472-4476-924b-f7ab0a29b894"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党员类型：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="465" width="115" height="35" backcolor="#FFFFFF" uuid="cab6b24a-0234-45a6-8ec3-bcf8bf9add68"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[加入当前组织日期：]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="115" width="309" height="35" backcolor="#FFFFFF" uuid="33d8c415-cfc4-477a-bbce-7d8e788ea824"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SEX}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="150" width="309" height="35" backcolor="#FFFFFF" uuid="232b49ae-5d1c-468a-a7ea-ff2bd5fa1888"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NATIONAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="185" width="309" height="35" backcolor="#FFFFFF" uuid="35162b78-c25b-4c9e-b7f2-76f7565a74f3"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NATIVE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="220" width="420" height="35" backcolor="#FFFFFF" uuid="befcbc19-1dc3-42fe-94d9-f2df0b3a225a"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BIRTHDAY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="255" width="420" height="35" backcolor="#FFFFFF" uuid="09dc8817-888d-4a89-a5a1-1cb9721d95fb"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PARTY_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="290" width="420" height="35" backcolor="#FFFFFF" uuid="8977f157-a678-4b04-a441-8c561c9e6282"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{UNIT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="325" width="420" height="35" backcolor="#FFFFFF" uuid="2514ae8d-9683-493f-adef-ae38379d6c36"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{XZ_DUTY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="360" width="420" height="35" backcolor="#FFFFFF" uuid="a5d3f3b4-8531-4066-b4e2-5a53c8ea102b"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DZBMC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="395" width="420" height="35" backcolor="#FFFFFF" uuid="aba17ecb-b7d3-4f7a-8804-4bbb9fd1ef1e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PARTY_DUTY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="430" width="420" height="35" backcolor="#FFFFFF" uuid="530c48b9-9189-4ba9-8a27-09842122d87c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DYLX}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="115" y="465" width="420" height="35" backcolor="#FFFFFF" uuid="1283a20b-54cc-48f5-a243-eb897a3683de"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ORG_DATE}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle" isUsingCache="false">
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="424" y="80" width="111" height="140" uuid="c391df1b-32aa-45af-80f9-c8c266589bb7"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<imageExpression><![CDATA[$P{imageParameter}]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

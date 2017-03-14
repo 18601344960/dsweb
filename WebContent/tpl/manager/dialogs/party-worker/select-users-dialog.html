@@ -1,0 +1,69 @@
+<!-- 
+	@description 选择需要授予党务工作中的用户列表
+	@author 赵子靖
+    @since 2016-03-15
+-->
+<div class="modal fade" id="select-users-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog" style="width: 900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button" >关闭</button>
+        <h4 class="modal-title" >请选择需要授予党务干部的用户</h4>
+      </div>
+      <div class="modal-body">
+      	<div id="partyWorkNameDiv" style="width: 100%;border-bottom:1px solid #ccc;padding-bottom:45px;" hidden="true">
+      		<div style="float: left;">
+				<button class="btn btn-default" onclick="ManagerPartyWorker.addPartyWorker()">
+					<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+				</button>
+			</div>
+			<div class="form-group" style="float: left;">
+				<label style="float: left;margin: 5px;width: 100px;text-align: right;">角色名称：</label>
+				<input style="float: left;width: 150px;" id="partyWorkerName" type="text" class="form-control" value="党务干部">
+				<label style="float: left;margin: 5px;width: 100px;text-align: right;">身份归属：</label>
+				<div style="float: left;">
+					<label class="radio-inline" style="float: left;width: 90px;margin: 5px;"> <input type="radio" name="ccparty" id="ccparty_0" value="0" checked onchange="ManagerPartyWorker.ccpartyRadioChanger('0')">本组织</label> 
+					<label class="radio-inline" style="float:left;width: 90px;margin: 5px;"> <input type="radio" name="ccparty" id="ccparty_1" value="1" onchange="ManagerPartyWorker.ccpartyRadioChanger('1')">下级组织  </label>
+					<div style="width: 220px; float: left;">
+						<input id="partyworkCcparty" type="text" class='form-control' style="width: 220px;display: none;" value="" ids="" placeholder="请选择分配到的组织"/>
+						<div id="partyworkCcpartyMenuContent" class="menuContent" style="display: none; position: absolute; z-index: 100001; background-color: white; width: 220px; overflow: auto; border: 1px solid #D3D3D3;">
+							<ul id="party-work-ccparty-tree" class="ztree" style="width: 100%; max-height: 350px;"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+      	</div>
+      	<div style="clear: both;"></div>
+		<div style="width: 100%;height: 50px;">
+			<div>
+			<button title="刷新" onclick="$('#select-users-table').bootstrapTable('refresh')" type="button" class="btn btn-default" style="width: 50px;height:32px; float: right; margin-left: 10px;"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
+			<input type="text" id="search" class="form-control" style="width: 200px; float: right;margin-left: 5px; " placeholder="姓名搜索" onkeyup="ManagerPartyWorker.searchSelectUsers()"/>
+			<label class="checkbox inline" style="float: right;margin: 5px;">姓名：</label>
+			<div style="width: 220px;float: right;margin-left: 5px;">
+				<input type="text" id="selectOrganizationId" name="selectOrganizationId" class="form-control" style="width: 200px; cursor: pointer;" placeholder="选择行政单位搜索" readonly="readonly" value="" ids=""/>
+				<div id="menuContent" class="menuContent" style="display:none; position: absolute ;z-index:100001;background-color: white; width: 200px;overflow:auto; border:1px solid #D3D3D3;">
+					<div style="float: right;padding: 3px;"><a href="javascript:ManagerPartyWorker.initOrganizationId()" class="btn btn-default btn-xs" ><i class="fa fa-times-circle-o"></i>清空</a></div>
+					<hr style="margin-top: 30px;">
+					<ul id="organization-tree" class="ztree" style="margin-top:0;height: 400px;"></ul>
+				</div>
+			</div>
+			<label class="checkbox inline" style="float: right;margin: 5px;">组织：</label>
+			</div> 
+		</div>
+		<table id="select-users-table" data-url="uam/getUserPartymembersByCcpartys" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="false" data-show-refresh="false" data-side-pagination="server" data-pagination="true" data-click-to-select="true" >
+			<thead>
+				<tr>
+					<th data-radio="true"></th>
+					<th data-field="id" data-visible="false">主键</th>
+					<th data-field="name" data-align="center">姓名</th>
+					<th data-field="gender" data-align="center" data-formatter="ManagerPartyWorker.genderFormatter">性别</th>
+					<th data-field="type" data-align="center" data-formatter="ManagerPartyWorker.userTypeFormatter">政治面貌</th>
+					<th data-field="ccparty" data-formatter="ManagerPartyWorker.commonPartyNameFormatter">所属党组织</th>
+				</tr>
+			</thead>
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="systemUserDialog"></div>

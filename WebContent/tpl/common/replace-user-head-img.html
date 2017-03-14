@@ -1,0 +1,39 @@
+<!-- 更换头像 -->
+<div class="modal fade" id="replace-user-head-img" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >更换头像</h4>
+      </div>
+      <div class="modal-body">
+      	<input type="hidden" id="userId" value="{{userId}}"/>
+      	<table style="width: 100%;color: #666;line-height: 30px;">
+      		<tr>
+      			<td align="right" width="20%">上传头像<font style="color: red">*</font>：</td>
+      			<td align="left" width="80%">
+					<div class="file-upload-box">
+      					<a class="btn btn-default" href="javascript:;">选择头像<input class="choose-file" type="file" id="headImg" name="headImg" onchange="document.getElementById('icon-path-text').value=this.value"/></a>
+      					<input type="text" name='icon-path-text' id='icon-path-text' value="未选择" readonly/>
+      				</div> 
+      			</td>
+      		</tr>
+ 			<tr>
+ 				<td align="right">
+ 					温馨提示：
+ 				</td>
+ 				<td align="left" style="color: #FF8C00;">
+ 					1、图片格式后缀应以 '.jpg', '.jpeg', '.png','.bmp'结尾；<br/>
+ 					2、大小在500KB之内；<br/>
+ 					3、尺寸建议150*200；
+ 				</td>
+ 			</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="UserUtils.saveUserHeadImg()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

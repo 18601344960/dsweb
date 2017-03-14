@@ -1,0 +1,24 @@
+<!-- 
+	@description 组织文章列表模板
+	@author 赵子靖
+	@since 2015-09-22
+-->
+<!-- 搜索条件 -->
+
+
+<div class="card-search" id="search"></div>
+<div style="height: 40px; border-bottom: 1px solid #ccc;">
+	<div class="btn-group" style="border-bottom: 1px sold #666;float:left;">
+		<input type="checkbox" style="float: left;margin:10px 10px 0px 10px;cursor: pointer;" id="checkAllConferenceCheckbox" title="全选/取消全选" onchange="CcpartyArticle.changeAllConferenceCheckbox(this)">
+		<button style="float: left;" class="btn btn-default" onclick="javascript:CcpartyArticle.openAddConferece()" title="新增">
+			<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增">新增</span>
+		</button>
+		<button style="float: left;margin-left:5px;" class="btn btn-default" onclick="javascript:CcpartyArticle.publishConference()" title="发布">
+			<i class="glyphicon glyphicon-cloud"></i> <span data-zh="发布">发布</span>
+		</button>
+		<button style="float: left;margin-left:5px;" class="btn btn-default" onclick="javascript:CcpartyArticle.unpublishConference()" title="取消发布">
+			<i class="fa fa-undo"></i> <span data-zh="取消发布">取消发布</span>
+		</button>
+	</div>	
+</div>
+<div id="article-list"></div>

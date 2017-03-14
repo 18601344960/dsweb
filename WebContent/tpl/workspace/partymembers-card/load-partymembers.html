@@ -1,0 +1,15 @@
+{%for item in items%}
+<li class="partymembers" id="{{item.id}}" title="{{item.name}}"
+			onmouseover="PartyMember.mouseOve(this)" 
+			onmouseout="PartyMember.mouseOut(this)" 
+			onclick="PartyMembersCard.partymemberClick(this,'{{item.id}}')">
+	<img id="head_{{item.id}}" class="avatar" alt="{{item.name}}" gender="{{item.attr3}}" onError='Global.onIconError(this)' src="uam/getHeadImg?userId={{item.id}}&random={{random}}">
+	<div class="message">
+		{{item.name}}
+	</div>
+	<input type="text" value="{{item.pId}}" id="pId" hidden="true"/>
+</li>
+{%endfor%}
+{%if items.length==0%}
+	<li style="text-align: center">暂无党员</li>
+{%endif%}

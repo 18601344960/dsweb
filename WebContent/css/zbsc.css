@@ -1,0 +1,226 @@
+@CHARSET "UTF-8";
+
+/***************************宽屏设置************************/
+.screen-width {
+	margin: 0 auto;
+	min-width: 1200px;
+}
+
+#main-container {
+	padding: 5px;
+	min-height: 500px;
+}
+/*****************************覆盖ztree的样式*********************************/
+.ztree li a.curSelectedNode{
+    background-color: #beebff;
+    border: 1px solid #6bd0fc;
+    color: black;
+    height: 22px;
+    opacity: 0.8;
+    padding-top: 0;
+}
+
+/************************中间内容样式***************************/
+
+#content {
+    margin-top: 0px;
+    min-height: 620px;
+}
+.content-bg{
+	background-color: #fff;
+}
+.w1200 {
+    margin: 0 auto;
+    width: 1200px;
+}
+.border-style {
+    /* border: 1px solid #dadde1; */
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 5px #d3d6da; */
+}
+#main-container{
+	margin:0 10px;
+}
+/************************登录页样式***************************/
+
+.login-bg {
+	background-color: #DFDFD0;
+	margin: 0px auto;
+	width: 800px;
+	height: 1000px;
+	padding-top: 80px;
+	font-size: 14px;
+}
+.login-bg .flag {
+	background-color: #DE2810;
+	height: 180px;
+}
+.login-bg .login-area {
+	padding: 50px;
+	width:300px;
+	margin:0px auto;
+}
+.login-bg .login-area div {
+	height: 30px;
+}
+
+
+.login-bg .flag .party-symbol1 {
+	background-image: url(../images/party_symbol.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 180px;
+	width: 180px;
+	float: left;
+}
+.login-bg .flag .system-name {
+	background-image: url(../images/login1.png);
+	background-position: left center;
+	height: 180px;
+	width: 600px;
+	background-repeat: no-repeat;
+	float: left;
+}
+.login-bg .login-area input {
+	background-color: #DFDFD0;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333;
+	border-right-color: #333;
+	border-bottom-color: #333;
+	border-left-color: #333;
+}
+.login-bg .login-area div {
+	line-height: 30px;
+	height: 30px;
+}
+
+.login-bg .login-area .button {
+	background-color: #F6F6F6;
+	border: 1px solid #333;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: all 0.30s ease-in-out;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	outline: none;
+	color: #080808;
+}
+.login-bg .login-area .button:hover {
+	background-color: #FFF;
+	border: 1px solid #333;
+	color: #090000;
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+-webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+-moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+
+
+/************************主页列表样式***************************/
+
+.contTabDiv{
+    float: left;
+    margin: 8px 8px 0px 8px;
+    font-size: 15px;
+    padding: 5px;
+}
+.contTabDiv a{
+    color: #fff;
+}
+.contTabDiv a:HOVER{
+    color: red;
+    cursor:pointer;
+}
+.firstDiv{
+    margin: 8px 8px 0px 20px;
+}
+.currTab{
+    background-image: url("../images/table_title_bg_grey.png");
+    background-repeat: repeat-x;
+}
+.currTab a{
+    color: #000;
+}
+#class-navigagtion-container .tabMenu{
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius:8px;
+    width:100%;
+    margin-top: 5px;
+}
+
+/************************面包屑***************************/
+.location {
+	font-family:"Microsoft YaHei";
+    color: #727272;
+    border-bottom: 1px solid #F2F2F5;
+    font-size: 16px;
+    margin: 5px auto;
+    text-decoration: none;
+    padding: 12px;
+}
+.location a {
+	color: #727272;
+    text-decoration: none;
+}
+.location span {
+	color: #727272;
+}
+.location a:HOVER {
+	color: #111;
+    text-decoration: none;
+}
+/************************ztree数样式***************************/
+ul.ztree {
+    background: none repeat scroll 0 0 #fff;
+    overflow: auto;
+}
+.form-control option{
+	background: none repeat scroll 0 0 #fff;
+}
+/************************没有权限页面***************************/
+.content-detail {
+    text-align: center;
+}
+.content-detail .noprivilege-tip{
+	font-size:30px;
+	margin:50px;
+}
+.content-detail  .noprivilege-btns{
+	margin:50px;
+}
+.content-detail .noprivilege-btn{
+	margin:10px 10px 50px 10px;
+}
+/************************选择成员样式***************************/
+.choose-member-container{
+	border: 1px solid #CCCCCC;
+	width:100%;
+	min-height: 100px;
+	border-radius:5px;  	
+}
+.member-name{
+	border: 1px solid #CCCCCC;
+	border-radius:5px; 
+	height: 30px;
+	width:auto;
+	margin: 5px;
+	float: left;
+}
+.member-name div{
+	margin: 3px;
+}
+.member-name div i{
+	margin-left:5px;
+	cursor: pointer;
+}
+.member-name div i:hover{
+	color:red;
+}

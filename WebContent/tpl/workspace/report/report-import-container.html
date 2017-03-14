@@ -1,0 +1,19 @@
+<!-- 
+	@description 导出上报数据模板
+	@author 易文俊
+	@since 2015-09-02
+-->
+
+<div id="import-report-container" style="margin: 20px;">
+	<div class="file-upload-box">
+		<a class="btn btn-default" href="javascript:;" style="width: 200px;"> 请选择上报数据包 
+			<input id="file" class="choose-file" type="file" onchange="document.getElementById('icon-path-text').value=this.value" name="file">
+		</a>
+	</div>
+	<div>
+		<input id="icon-path-text" type="text" readonly value="未选择" name="icon-path-text" style="width: 100%;">
+	</div>
+	<div class="form-group" style="margin: 30px 0;">
+		<a id="import-report-btn" href="javascript:ReportImport.importReport();" class="btn btn-primary btn-lg" style="font-size: 36px; color: #fff;">导入上报数据</a>
+	</div>
+</div>

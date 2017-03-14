@@ -1,0 +1,54 @@
+<!-- 
+	@description 权限管理
+	@author zhaozijing
+	@since 2015-06-12
+-->
+<!-- 
+<div id="process-definition-buttons" class="btn-group">
+    <button class="btn btn-default" id="add-privilege-process-definition">
+        <i class="glyphicon glyphicon-file"></i> <span data-zh="新增" data-es="import">新增</span>
+    </button>
+    <button class="btn btn-default" id="update-privilege-process-definition">
+        <i class="glyphicon glyphicon-edit"></i> <span data-zh="编辑" data-es="delete">编辑</span>
+    </button>
+    <button class="btn btn-default" id="delete-privilege-process-definition">
+        <i class="glyphicon glyphicon-trash"></i> <span data-zh="删除" data-es="delete">删除</span>
+    </button>
+</div>
+ -->
+<table id="privilege-process-definition-table" data-toolbar="#process-definition-buttons"  data-click-to-select="true" data-search="true" style="font-size: 15px;font-family: Arial,'宋体';margin-top: -3px;">
+    <thead style="background-color: #fff;font-size: 16px;">
+    <tr>
+        <th data-field="id" data-visible="false">主键</th>
+        <th data-field="name" data-align="left" >权限名称</th>
+        <th data-field="id" data-align="left" >权限ID</th>
+        <th data-field="parentId" data-align="left" >权限父ID</th>
+        <th data-field="desc" data-align="left" >权限描述</th>
+        <th data-radio="true" >选择</th>
+    </tr>
+    </thead>
+    <tbody>
+    	{% for item in rows %}
+    		{% if item.parentId==root %}
+    			<tr id='{{item.id}}' data-tt-id='{{item.id}}'>
+			        <td>{{item.id}}</td>
+			        <td>{{item.name}}</td>
+			        <td>{{item.id}}</td>
+			        <td>{{item.parentId}}</td>
+			        <td>{{item.description}}</td>
+			        <td></td>
+			    </tr>
+    		{% else %}
+    		 	<tr id='{{item.id}}' data-tt-id='{{item.id}}' data-tt-parent-id="{{item.parentId}}">
+			        <td>{{item.id}}</td>
+			        <td><span style="margin-left: 5px;">{{item.name}}</span></td>
+			        <td>{{item.id}}</td>
+			        <td>{{item.parentId}}</td>
+			        <td>{{item.description}}</td>
+			        <td></td>
+			    </tr>
+    		{%endif%}
+    	{% endfor %}
+    </tbody>
+</table>
+

@@ -1,0 +1,29 @@
+<!-- 新增/编辑权限弹出框 begin-->
+<div class="modal fade" id="privilege-process-definition-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" >{{title}}</h4>
+      </div>
+      <div class="modal-body">
+      	<table style="width: 80%">
+      		<tr>
+      			<input type="text" id="privilege_id" hidden="true" value="{{id}}"/>
+      			<td align="right">权限名称<b style="color: red">*</b>：</td>
+      			<td align="left" colspan="3"><input type="text" id="privilege_name" class='form-control' maxlength="20" value="{{name}}"></td>
+      		</tr>
+      		<tr>
+      			<td align="right">描述：</td>
+      			<td align="left" colspan="3"><textarea id="privilege_desc" style="width: 100%" rows="3" class="form-control" maxlength="255" >{{desc}}</textarea></td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerPrivilege.addOrUpdatePrivilegeSubmit()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 新增/编辑权限弹出框 end -->

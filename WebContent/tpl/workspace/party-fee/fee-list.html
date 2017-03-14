@@ -1,0 +1,129 @@
+<!-- 
+ 	@description 党费管理模板
+ 	@author wangqianjun
+ 	@since 2015-10-14
+-->
+
+<div id="fee-list" class="">
+	<ul id="todo-audit-tabs" class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#todo-list" aria-controls="home" role="tab" data-toggle="tab">普通党费</a></li>
+		<li role="presentation"><a href="#history-list" aria-controls="profile" role="tab" data-toggle="tab">特殊党费</a></li>
+		<li role="presentation"><a href="#count-list" aria-controls="profile" role="tab" data-toggle="tab">统计党费</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="todo-list" class="tab-pane active" role="tabpanel">
+			<div style="line-height: 45px;">
+				<div id="party-fee-buttons" class="btn-group fee-selection">
+					<button class="btn btn-default" onclick="PartyFee.printParyPDF()">
+						<i class="glyphicon glyphicon-save"></i> <span>下载收缴表</span>
+					</button>
+				</div>
+				<div id="year-div" class="year-div">
+					<select id="party-fee-year-select" class="year-select" onchange="PartyFee.getPartyFeeList('{{ccpartyId}}')"> {{getYearForSelectOption(2,10,1,1)}}
+					</select> <select id="party-fee-month-select" class="month-select" onchange="PartyFee.getPartyFeeList('{{ccpartyId}}')">
+						<option value="1">1月</option>
+						<option value="2">2月</option>
+						<option value="3">3月</option>
+						<option value="4">4月</option>
+						<option value="5">5月</option>
+						<option value="6">6月</option>
+						<option value="7">7月</option>
+						<option value="8">8月</option>
+						<option value="9">9月</option>
+						<option value="10">10月</option>
+						<option value="11">11月</option>
+						<option value="12">12月</option>
+					</select>
+				</div>
+			</div>
+			<div id="div-fee-table">
+				<table id="fee-table" data-url="obt/getPartyFeesList" data-side-pagination="server" data-click-to-select="true" data-search="false" data-pagination="true"
+					style="font-size: 15px; font-family: Arial, '宋体'; margin-top: -3px; word-break: keep-all">
+					<thead>
+						<tr>
+							<th data-radio="true"></th>
+							<th data-field="userId" data-visible="false" data-align="center">用户Id</th>
+							<th data-field="ccpartyId" data-visible="false" data-align="center">ccpartyId</th>
+							<th data-field="partyFee" data-visible="true" data-align="center" data-formatter="PartyFee.yearFormatter">年份</th>
+							<th data-field="partyFee" data-visible="true" data-align="center" data-formatter="PartyFee.monthFormatter">月份</th>
+							<th data-field="name" data-visible="true" data-align="center">姓名</th>
+							<th data-field="partyFee" data-visible="true" data-align="center" data-formatter="PartyFee.payInFormatter">缴纳金额</th>
+							<th data-field="partyFee" data-visible="true" data-align="center" data-formatter="PartyFee.receiverFormatter">签收人</th>
+							<th data-field="partyFee" data-visible="true" data-align="center" data-formatter="PartyFee.receiverDateFormatter">签收日期</th>
+							<th data-field="partyFee" data-visible="true" data-align="center" data-formatter="PartyFee.remarkFormatter">备注</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		<div id="history-list" role="tabpanel" class="tab-pane">
+			<div style="line-height: 45px;">
+				<div id="large-party-fee-buttons" class="btn-group fee-selection">
+					<button class="btn btn-default" onclick="PartyFee.printLargeParyPDF()">
+						<i class="glyphicon glyphicon-save"></i> <span>下载特殊党费收缴表</span>
+					</button>
+				</div>
+				<div id="year-div" class="year-div">
+					<select id="special-fee-year-select" class="year-select" onchange="PartyFee.getSpecialFeeList('{{ccpartyId}}')"> {{getYearForSelectOption(2,10,1,1)}}
+					</select>
+				</div>
+			</div>
+			<table id="special-fee-table" data-url="obt/getPartyFeeSpecialByYear" data-side-pagination="server" data-show-refresh="false" data-click-to-select="true" data-search="false" data-pagination="true"
+				data-detail-view="true" data-detail-formatter="PartyFee.detailFormatter" style="font-size: 15px; font-family: Arial, '宋体'; margin-top: -3px;">
+				<thead>
+					<tr>
+						<th data-field="id" data-visible="false" data-align="center">Id</th>
+						<th data-field="userId" data-visible="false" data-align="center">userId</th>
+						<th data-field="ccPartyId" data-visible="false" data-align="center">ccpartyId</th>
+						<th data-field="userMc" data-visible="true" data-align="center" data-formatter="PartyFee.userName">姓名</th>
+						<th data-field="year" data-visible="true" data-align="center">年份</th>
+						<th data-field="amount" data-visible="true" data-align="center" data-formatter="PartyFee.amount">金额</th>
+						<th data-field="id" data-visible="true" data-align="center" data-formatter="PartyFee.specialOperate">操作</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="count-list" role="tabpanel" class="tab-pane">
+			<div style="line-height: 45px;">
+				<div id="count-party-fee-buttons" class="btn-group fee-selection">
+					<button class="btn btn-default" onclick="PartyFee.printParyPDFWithData()">
+						<i class="glyphicon glyphicon-signal"></i> <span>统计党费表</span>
+					</button>
+				</div>
+				<div id="year-div" class="year-div">
+					<select id="count-fee-year-select" class="year-select" onchange="PartyFee.countPartyFeeByYear('{{ccpartyId}}')"> {{getYearForSelectOption(2,10,1,1)}}
+					</select>
+				</div>
+			</div>
+			<table id="count-fee-table" data-url="obt/countPartyFeeByYear" data-side-pagination="server" data-show-refresh="false" data-click-to-select="true" data-search="false" data-pagination="false"
+				style="font-size: 15px; font-family: Arial, '宋体'; margin-top: -3px;">
+				<thead>
+					<tr>
+						<th data-field="id" data-visible="false" data-align="center">Id</th>
+						<th data-field="userId" data-visible="false" data-align="center">userId</th>
+						<th data-field="ccPartyId" data-visible="false" data-align="center">ccpartyId</th>
+						<th data-field="year" data-visible="true" data-align="center">年份</th>
+						<th data-field="name" data-visible="true" data-align="center">姓名</th>
+						<th data-field="january" data-visible="true" data-align="center" data-formatter="PartyFee.january">1月</th>
+						<th data-field="february" data-visible="true" data-align="center" data-formatter="PartyFee.february">2月</th>
+						<th data-field="march" data-visible="true" data-align="center" data-formatter="PartyFee.march">3月</th>
+						<th data-field="april" data-visible="true" data-align="center" data-formatter="PartyFee.april">4月</th>
+						<th data-field="may" data-visible="true" data-align="center" data-formatter="PartyFee.may">5月</th>
+						<th data-field="june" data-visible="true" data-align="center" data-formatter="PartyFee.june">6月</th>
+						<th data-field="july" data-visible="true" data-align="center" data-formatter="PartyFee.july">7月</th>
+						<th data-field="august" data-visible="true" data-align="center" data-formatter="PartyFee.august">8月</th>
+						<th data-field="september" data-visible="true" data-align="center" data-formatter="PartyFee.september">9月</th>
+						<th data-field="octorber" data-visible="true" data-align="center" data-formatter="PartyFee.octorber">10月</th>
+						<th data-field="november" data-visible="true" data-align="center" data-formatter="PartyFee.november">11月</th>
+						<th data-field="december" data-visible="true" data-align="center" data-formatter="PartyFee.december">12月</th>
+						<th data-field="specialFee" data-visible="true" data-align="center" data-formatter="PartyFee.specialFee">特殊党费</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+

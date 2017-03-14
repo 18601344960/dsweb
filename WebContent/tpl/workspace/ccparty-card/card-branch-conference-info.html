@@ -1,0 +1,53 @@
+<!-- 
+	@description 支部工作详情
+	@author 赵子靖
+	@since 2016-05-26
+-->
+
+<table class="card-info-table">
+	<tr height="10"></tr>
+	<tr>
+		<td align="left" colspan="3"
+			style="color: #DAA520; font-family: cursive;font-weight: bold; font-size: 24px;">&nbsp;&nbsp;组织生活记录</td>
+	</tr>
+	{%for item in items%}
+	<tr>
+		<td align="right" width="5%"><div id="circle"></div></td>
+		<td align="right" width="20%" style="font-weight: bold;">标题：</td>
+		<td align="left">
+			<a href='article-view?articleId={{item.id}}&viewSource=ccparty' target="_blank" title="{{item.name}}" style="cursor: pointer;">{{item.name}}</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="font-weight: bold;">时间：</td>
+		<td align="left">{{getDate(item.occurTime)}}</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="font-weight: bold;">地点：</td>
+		<td align="left">{{item.address}}</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="font-weight: bold;">组织者：</td>
+		<td align="left" limit="40">{{item.orgnizers}}</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="font-weight: bold;">参与者：</td>
+		<td align="left" limit="40">{{item.participants}}</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="font-weight: bold;">工作标签：</td>
+		<td align="left" style="cursor: pointer;">
+			{%for step in item.conferenceSteps%}
+				<div class="step">{{step.category.name}}</div>
+			{%endfor%}
+			{%for format in item.conferenceFormats%}
+				<div class="format">{{format.category.name}}</div>
+			{%endfor%}
+			{%for label in item.conferenceLabels%}
+				<div class="category">{{label.category.name}}</div>
+			{%endfor%}
+		</td>
+	</tr>
+	<tr height="30"></tr>
+	{%endfor%}
+</table>

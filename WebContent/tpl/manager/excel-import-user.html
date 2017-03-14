@@ -1,0 +1,21 @@
+<div style="float: left; margin: 20px;">
+	<div style="font-size: 20px;">选择导入党员所在党组织:</div>
+	<div class="content_wrap" style="height: 550px; width: 300px; border: 1px solid #999; overflow: auto;">
+		<div class="zTreeDemoBackground left">
+			<ul id="ccparty-tree" class="ztree"></ul>
+		</div>
+	</div>
+</div>
+<div style="float: left; margin-top: 45px; width: 600px; margin-left: auto; margin-right: auto; border: 2px solid #999; border-radius: 15px;">
+	<div style="font-size: 15px;margin: 10px;" id='excel-top'>Excel模板下载： 
+		<a href="file/getFileData?filePath=template\党员信息导入模板.xlsx">党员信息导入模板.xlsx</a><br/>
+		<a style="margin-left:115px;" href="file/getFileData?filePath=template\党员信息导入模板.xls">党员信息导入模板.xls</a>
+	</div>
+	<div style="margin-top: 20px; margin-left: 110px; position: relative; min-height: 480px;">
+		<input type="file" name="file-upload" id="file-upload" />
+		<div id="file-upload-queue"></div>
+		<div class="start-import-btn" onclick="ManagerImportUser.beginExcelImportPartymemberInfo()">
+			<span style="color: white;font-size: 13px;">开始导入</span>
+		</div>
+	</div>
+</div>

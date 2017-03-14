@@ -1,0 +1,48 @@
+<!-- 
+	@description 发展党员程序模板
+	@author 易文俊
+	@since 2015-11-16
+-->
+<div id="development-procedure-buttons" class="btn-group" style="margin-top: 5px;">
+	{% if ccpartyType=="Z000104"%}
+	<div class="dropdown" style="float: left;">
+		<button id="dLabel" type="button" data-toggle="dropdown" class="btn btn-default" aria-haspopup="true" aria-expanded="false">
+			添加人员 <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dLabel">
+			<li><a href="javascript:DevelopmentHandle.addPartyMember()">添加正式党员</a></li>
+			<li><a href="javascript:DevelopmentHandle.addProbationaryPartyMember()">添加预备党员</a></li>
+			<li><a href="javascript:DevelopmentHandle.addDevelopmentObject()">添加发展对象</a></li>
+			<li><a href="javascript:DevelopmentHandle.addActivist()">添加积极分子</a></li>
+			<li><a href="javascript:DevelopmentHandle.addProposer()">添加申请人</a></li>
+		</ul>
+	</div>
+	{% endif %}
+	<button class="btn btn-default" onClick="DevelopmentProcedure.setDevelopmentProcedure()">
+		<i class="glyphicon glyphicon-wrench"></i> <span>设置</span>
+	</button>
+	<button class="btn btn-default" onClick="DevelopmentProcedure.viewDevelopmentProcedure()">
+		<i class="glyphicon glyphicon-th-list"></i> <span>工作程序图</span>
+	</button>
+</div>
+<div class="development-flow-chart">
+	<div id="development-procedure-phase-container"></div>
+	<div class="clear"></div>
+	<div class="current-development-phase">
+		<span style="font-weight: bold;">当前阶段：</span><span id="current-development-phase">申请人确定为积极分子</span>
+	</div>
+</div>
+<table id="development-party-member-table" data-url="org/getPartyMemberListByType" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="false"
+	data-show-refresh="false" data-toolbar="" data-click-to-select="true" data-pagination="true">
+	<thead>
+		<tr>
+			<th data-radio="true"></th>
+			<th data-field="id" data-visible="false">主键</th>
+			<th data-field="user" data-align="center" data-formatter="DevelopmentProcedure.nameFormatter">姓名</th>
+			<th data-field="user" data-align="center" data-formatter="DevelopmentProcedure.genderFormatter">性别</th>
+			<th data-field="process" data-align="center" data-formatter="DevelopmentProcedure.processFormatter">发展阶段</th>
+			<th data-field="ccparty" data-formatter="DevelopmentProcedure.ccpartyFormatter">所在组织</th>
+			<th data-field="id" data-align="center" data-width='200' data-formatter="DevelopmentProcedure.operatorFormatter">操作</th>
+		</tr>
+	</thead>
+</table>

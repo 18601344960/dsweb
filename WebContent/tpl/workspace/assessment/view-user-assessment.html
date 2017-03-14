@@ -1,0 +1,60 @@
+<div class="table-detail">
+	<table frame=void>
+		<tr>
+			<td class="right-title">测评人员：</td>
+			<td class="table-content">{{target.userName}}</td>
+			<td class="left-title" style="border:0px;">测评时间：</td>
+			<td class="table-content">{{target.submitTime}}</td>
+		</tr>
+	</table>
+</div>
+<!-- 问卷测评结果内容 -->
+<div class="question_survey" style="border:0px;margin-top:0px;">
+	<div class="question_surveyhead">
+		<h1 id="pater_title" >{{name}}</h1>
+		<div id="pater_desc" class="question_surveydescription" >{{description}}</div>
+	</div>
+	
+	<!-- questionType=1单选2多选3简答 answer=选项数量 isMust=是否必做 -->
+	{% for topic in topics %}
+		{% if topic.type=='1' %}
+			<div class="div_question" style="border: 0px;">
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【单选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label></li>
+					<li style="">
+						{% for option in topic.options %}
+							<input type="radio" style="margin:0 10px;" value="{{option.id}}"/>{{option.seq}}、<font>{{option.content}}</font><br>
+						{% endfor %}
+					</li>
+					<li style="text-indent: 2em;">
+						<font style="font-weight: bold;color: #FFA500">用户答案：</font><font >{% for result in topic.myAssessresult %}{{result.resultStr}}{% endfor %}</font>
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type=='2' %}
+			<div class="div_question"  style="border: 0px;">
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【多选】<label>{{topic.title}}</label></li>
+					<li style="" id="topic_{{topic.sequence}}_options_li">
+						{% for option in topic.options %}
+							<input type="checkbox" style="margin:0 10px;" value="{{option.id}}"/>{{option.seq}}、<font>{{option.content}}</font><br>
+						{% endfor %}
+					</li>
+					<li style="text-indent: 2em;">
+						<font style="font-weight: bold;color: #FFA500">用户答案：</font><font >{% for result in topic.myAssessresult %}{{result.resultStr}}、{% endfor %}</font>
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type=='3' %}
+			<div class="div_question" style="border: 0px;" >
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【简答】<label>{{topic.title}}</label></li>
+					<li style="">
+						<font style="font-weight: bold;color: #FFA500">用户答案：</font><font >{% for result in topic.myAssessresult %}{{result.resultStr}}{% endfor %}</font>
+					</li>
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+

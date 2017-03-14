@@ -1,0 +1,612 @@
+.application-app {
+  position: relative;
+  margin-top: 20px; 
+}
+.application-app a {
+  background-image: url("../../images/public/application-app-bg.png");
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  height: 200px;
+  margin: 25px 0;
+  overflow: hidden;
+  transition: background 0.15s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  text-align: center;
+  position: relative;
+}
+.application-app a:hover {
+  background: none repeat scroll 0 0 #fff;
+  text-decoration: none;
+}
+.application-app a .app-pic {
+  display: inline-block;
+  margin-top: 58px;
+}
+.application-app a .app-pic i {
+  color: #fff;
+  font-size: 120px;
+}
+.application-app a div h2 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Microsoft Yahei";
+  margin-top: 50px;
+}
+.application-app a div p {
+  color: #666;
+  font-family: "Microsoft Yahei";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.23);
+  bottom: -10px;
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  left: 0px;
+  text-align: right;
+}
+.application-app a div p span {
+  margin-right: 10px;
+}
+.application-app a:hover {
+  background: #f6f5f5;
+}
+.application-app .app-1 {
+  background: none repeat scroll 0 0 rgba(85, 171, 220, 0.75);
+  border: 4px solid rgba(198, 105, 100, 0);
+}
+.application-app .app-1:hover {
+  border: 4px solid #7FB8C5;
+}
+.application-app .app-1:hover i {
+  color: #7FB8C5;
+}
+.application-app .app-1:hover h2 {
+  color: #7FB8C5;
+}
+.application-app .app-2 {
+  background: none repeat scroll 0 0 rgba(198, 39, 1, 0.75);
+  border: 4px solid rgba(198, 39, 1, 0);
+}
+.application-app .app-2:hover {
+  border: 4px solid #C62701;
+}
+.application-app .app-2:hover i {
+  color: #C62701;
+}
+.application-app .app-2:hover h2 {
+  color: #C62701;
+}
+.application-app .app-3 {
+  background: none repeat scroll 0 0 rgba(255, 151, 30, 0.75);
+}
+.application-app .app-3:hover {
+  border: 4px solid #D98B30;
+}
+.application-app .app-3:hover i {
+  color: #D98B30;
+}
+.application-app .app-3:hover h2 {
+  color: #D98B30;
+}
+.application-app .app-3:hover label {
+	margin-top:10px;
+  	width: 100%;
+	background-color: #D98B30;
+	height: 20px;
+}
+.application-app .app-4 {
+  background: none repeat scroll 0 0 rgba(109, 136, 42, 0.75);
+}
+.application-app .app-4:hover {
+  border: 4px solid #92A446;
+}
+.application-app .app-4:hover i {
+  color: #92A446;
+}
+.application-app .app-4:hover h2 {
+  color: #92A446;
+}
+.application-app .app-4:hover label {
+	margin-top:10px;
+  	width: 100%;
+	background-color: #92A446;
+	height: 20px;
+}
+.application-app .app-5 {
+  background: rgba(127, 99, 140, 0.75);
+}
+.application-app .app-5:hover {
+  border: 4px solid #796483;
+}
+.application-app .app-5:hover i{
+  color: #796483;
+}
+.application-app .app-5:hover label {
+	margin-top:10px;
+  	width: 100%;
+	background-color: #796483;
+	height: 20px;
+}
+.home-tips{
+	margin-top:12px;
+	width: 100%;
+	background-color: #46494A;
+	height: 22px;
+	color: white;
+}
+.application-app .app-5:hover h2 {
+  color: #796483;
+}
+.application-app .app-6 {
+  background: rgba(182, 184, 15, 0.75);
+  border: 4px solid rgba(182, 184, 15, 0);
+}
+.application-app .app-6:hover {
+  border: 4px solid #C8C637;
+}
+.application-app .app-6:hover i {
+  color: #C8C637;
+}
+.application-app .app-6:hover h2 {
+  color: #C8C637;
+}
+.application-app .app-7 {
+  background: rgba(109, 136, 42, 0.75);
+  border: rgba(109, 136, 42, 0);
+}
+.application-app .app-7:hover {
+  border: 4px solid #79904A;
+}
+.application-app .app-7:hover i {
+  color: #79904A;
+}
+.application-app .app-7:hover h2 {
+  color: #79904A;
+}
+.application-app .app-8 {
+  background: rgba(236, 183, 41, 0.75);
+  border: 4px solid rgba(236, 183, 41, 0);
+}
+.application-app .app-8:hover {
+  border: 4px solid #DDB64F;
+}
+.application-app .app-8:hover i {
+  color: #DDB64F;
+}
+.application-app .app-8:hover h2 {
+  color: #DDB64F;
+}
+.application-app .app-9 {
+  background: rgba(160, 199, 80, 0.75);
+  border: 4px solid rgba(160, 199, 80, 0);
+}
+.application-app .app-9:hover {
+  border: 4px solid #A1C16E;
+}
+.application-app .app-9:hover i {
+  color: #A1C16E;
+}
+.application-app .app-9:hover h2 {
+  color: #A1C16E;
+}
+.application-app .app-10 {
+  background: rgba(99, 197, 60, 0.3);
+  border: 4px solid rgba(99, 197, 60, 0);
+}
+.application-app .app-10:hover {
+  border: 4px solid #658259;
+}
+.application-app .app-10:hover i {
+  color: #658259;
+}
+.application-app .app-10:hover h2 {
+  color: #658259;
+}
+.application-app .app-11 {
+  background: rgba(44, 148, 137, 0.5);
+  border: 4px solid rgba(44, 148, 137, 0);
+}
+.application-app .app-11:hover {
+  border: 4px solid #6BA3A3;
+}
+.application-app .app-11:hover i {
+  color: #6BA3A3;
+}
+.application-app .app-11:hover h2 {
+  color: #6BA3A3;
+}
+.application-app .app-12 {
+  background: rgba(255, 100, 100, 0.5);
+  border: 4px solid rgba(255, 100, 100, 0);
+}
+.application-app .app-12:hover {
+  border: 4px solid #C57B80;
+}
+.application-app .app-12:hover i {
+  color: #C57B80;
+}
+.application-app .app-12:hover h2 {
+  color: #C57B80;
+}
+.application-app .app-13 {
+  background: rgba(50, 102, 204, 0.3);
+  border: 4px solid rgba(50, 102, 204, 0);
+}
+.application-app .app-13:hover {
+  border: 4px solid #8CA3D3;
+}
+.application-app .app-13:hover i {
+  color: #8CA3D3;
+}
+.application-app .app-13:hover h2 {
+  color: #8CA3D3;
+}
+.application-app .app-14 {
+  background: rgba(182, 184, 15, 0.3);
+  border: 4px solid rgba(182, 184, 15, 0);
+}
+.application-app .app-14:hover {
+  border: 4px solid #A1A87E;
+}
+.application-app .app-14:hover i {
+  color: #A1A87E;
+}
+.application-app .app-14:hover h2 {
+  color: #A1A87E;
+}
+.application-app .app-15 {
+  background: rgba(156, 28, 128, 0.3);
+  border: 4px solid rgba(156, 28, 128, 0);
+}
+.application-app .app-15:hover {
+  border: 4px solid #A480A1;
+}
+.application-app .app-15:hover i {
+  color: #A480A1;
+}
+.application-app .app-15:hover h2 {
+  color: #A480A1;
+}
+.application-app .app-16 {
+  background: rgba(52, 152, 219, 0.5);
+  border: 4px solid rgba(52, 152, 219, 0);
+}
+.application-app .app-16:hover {
+  border: 4px solid #6398BB;
+}
+.application-app .app-16:hover i {
+  color: #6398BB;
+}
+.application-app .app-16:hover h2 {
+  color: #6398BB;
+}
+.application-app .app-17 {
+  background: rgba(237, 135, 192, 0.5);
+  border: 4px solid rgba(237, 135, 192, 0);
+}
+.application-app .app-17:hover {
+  border: 4px solid #CB9CC1;
+}
+.application-app .app-17:hover i {
+  color: #CB9CC1;
+}
+.application-app .app-17:hover h2 {
+  color: #CB9CC1;
+}
+.application-nav .breadcrumb {
+  background-image: url("../../images/public/bread-bg.png");
+  background-color: transparent;
+  margin: 0px;
+}
+.application-nav .breadcrumb a {
+  font-size: 14px;
+  color: #111;
+}
+.application-nav .breadcrumb li,
+.application-nav .breadcrumb li:before {
+  content: normal;
+}
+.application-nav .add {
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.application-nav h1 {
+  margin-bottom: 0px;
+}
+.application-nav .checkbox-list {
+  float: right;
+  margin: 10px 60px 0 0;
+}
+/*
+    应门详情
+*/
+.application-detail {
+  font-size: 14px;
+  color: #111;
+}
+.application-detail .detail-head {
+  border-bottom: 2px solid #ddd;
+  overflow: auto;
+}
+.application-detail .detail-head h1 {
+  font-size: 18px;
+  font-family: "Microsoft Yahei";
+  margin-top: 46px;
+}
+.application-detail .detail-head .header-group {
+  margin-top: 77px;
+  float: right;
+}
+.application-detail .detail-head .header-group .blue {
+  background: #45b5e9;
+}
+.application-detail .detail-head .header-group .blue i {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 6px;
+}
+.application-detail .detail-head .header-group .blue:hover {
+  background: #2face6 !important;
+}
+.application-detail .title a {
+  border-radius: 4px !important;
+  box-shadow: 0 1px 0 #fff inset;
+  display: block;
+  min-height: 84px;
+  overflow: hidden;
+  padding: 15px;
+  transition: background 0.15s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  position: relative;
+}
+.application-detail .title a .fa-pencil {
+  position: absolute;
+  bottom: 19px;
+  right: 11px;
+  color: #fff;
+}
+.application-detail .title a .app-pic {
+  border-radius: 8px !important;
+  display: inline-block;
+  float: left;
+  height: 80px;
+  text-align: center;
+  width: 80px;
+}
+.application-detail .title a .app-pic i {
+  color: #fff;
+  font-size: 58px;
+  margin-top: 34px;
+}
+.application-detail .title a div {
+  float: left;
+  margin-left: 20px;
+  margin-top: 14px;
+}
+.application-detail .title a div h2 {
+  color: #555;
+  font-family: "Microsoft Yahei";
+  font-size: 18px;
+  margin-top: 0;
+}
+.application-detail .main .view {
+  position: relative;
+  margin-top: 35px;
+}
+.application-detail .main .view a {
+  color: #111;
+  text-decoration: underline;
+}
+.application-detail .main .view .edit-btn {
+  position: absolute;
+  top: 10px;
+  right: 150px;
+}
+.application-detail .main .view .edit-btn i {
+  color: #169ef4;
+  display: inline-block;
+  font-size: 20px;
+}
+.application-detail .main .view .edit-btn i:hover {
+  color: #169ef4;
+  text-decoration: none;
+  cursor: pointer;
+}
+.application-detail .main .view .title {
+  color: #333;
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  float: left;
+  margin-right: 10px;
+}
+.application-detail .main .view .text {
+  line-height: 24px;
+  margin-left: 188px;
+  width: 64%;
+}
+.application-detail .main .button-up {
+  width: 36%;
+  margin-left: 188px;
+  position: relative;
+}
+.application-detail .main .button-up input[type="file"] {
+  position: absolute;
+  left: 14px;
+  top: -1px;
+  height: 33px;
+  width: 285px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+}
+.application-detail .main .button-up input[type="text"] {
+  width: 149px;
+  float: left;
+}
+.application-detail .main .button-up .button-group {
+  margin: 0px 0 0 6px;
+}
+.application-detail .main .button-up .button-group a {
+  margin: 0px;
+  text-decoration: none;
+}
+.application-detail .main .button-up .button-group .blue {
+  color: #fff;
+}
+.application-detail .main .button-up .pic-info {
+  margin: 10px 0 0 160px;
+}
+.application-detail .main .button-up .pic-info img {
+  border: 1px solid #ddd;
+}
+.application-detail .main .button-up .pic-info p {
+  margin: 0px 0 0 10px;
+}
+.application-detail .application-detail-btn a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #333;
+}
+.application-detail .application-detail-btn a i {
+  color: #333;
+}
+.application-detail .application-detail-btn a:hover {
+  color: #169ef4;
+  text-decoration: none;
+}
+.application-detail .application-detail-btn a:hover i {
+  color: #169ef4;
+}
+.application-versions {
+  padding-left: 15px;
+}
+.application-versions .detail-head {
+  border-bottom: 2px solid #ddd;
+  height: 34px;
+  margin-top: 20px;
+}
+.application-versions .detail-head .refresh {
+  color: #666;
+  display: inline-block;
+  float: right;
+  margin: 8px 0 0 10px;
+}
+.application-versions .detail-head .refresh:hover {
+  color: #45b5e9;
+}
+.application-versions .detail-head h4 {
+  background-color: #45B5E9;
+  color: #fff;
+  font-family: "Microsoft Yahei";
+  font-size: 14px;
+  font-weight: normal;
+  padding: 8px 20px;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0;
+  margin-top: 0px;
+}
+.application-versions .detail-head h4 em {
+  background-image: url("../../images/title_arrow.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 6px;
+  height: 8px;
+  position: absolute;
+  top: 0px;
+  left: -6px;
+}
+.application-versions .detail-head .header-group {
+  float: right;
+  margin-top: 8px;
+}
+.application-versions .detail-head .header-group:hover {
+  color: #45b5e9;
+  cursor: pointer;
+}
+.application-versions .detail-main .info {
+  border-bottom: 1px dotted #e2e2e2;
+  padding: 4px 5px 4px 20px;
+  overflow: auto;
+}
+.application-versions .detail-main .info:hover {
+  background: #f5f5f5;
+}
+.application-versions .detail-main .info:hover a i {
+  background: #2face6;
+  color: #fff;
+}
+.application-versions .detail-main .info a i {
+  background: #eee;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px !important;
+  -webkit-border-radius: 12px !important;
+  -moz-border-radius: 12px !important;
+  line-height: 25px;
+  text-align: center;
+  color: #999;
+  display: inline-block;
+  margin-right: 10px;
+}
+.application-versions .detail-main .info .fr {
+  margin-top: 5px;
+}
+.application-versions .detail-main .info .fr i {
+  display: inline-block;
+  margin: 0 20px;
+}
+.application-versions .detail-main .info .fr i:hover {
+  color: #45b5e9;
+  cursor: pointer;
+}
+.application-versions .detail-main .select {
+  background: #f5f5f5;
+}
+.application-versions .detail-main .select a i {
+  background: #2face6;
+  color: #fff;
+}
+.application-versions .detail-main .select .main {
+  font-size: 14px;
+  color: #111;
+}
+.application-versions .detail-main .select .main .view {
+  position: relative;
+}
+.application-versions .detail-main .select .main .view a {
+  color: #111;
+  text-decoration: underline;
+}
+.application-versions .detail-main .select .main .view .edit-btn {
+  position: absolute;
+  top: 10px;
+  right: 150px;
+}
+.application-versions .detail-main .select .main .view .edit-btn i {
+  color: #169ef4;
+  display: inline-block;
+  font-size: 20px;
+}
+.application-versions .detail-main .select .main .view .edit-btn i:hover {
+  color: #169ef4;
+  text-decoration: none;
+  cursor: pointer;
+}
+.application-versions .detail-main .select .main .view .title {
+  color: #333;
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  float: left;
+  margin: 4px 10px 0 0;
+}
+.application-versions .detail-main .select .main .view .text {
+  line-height: 24px;
+  margin-left: 188px;
+  width: 64%;
+}

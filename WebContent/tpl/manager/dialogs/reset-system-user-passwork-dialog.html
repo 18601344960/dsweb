@@ -1,0 +1,32 @@
+<!-- 密码重置 -->
+<div class="modal fade" id="reset-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog" style="width: 500px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" id="user_dialog_title">为【{{name}}】重置密码</h4>
+      </div>
+      <div class="modal-body dialog_table">
+      	<table >
+      		<tr>
+      			<input type="text" id="id" hidden="true" value="{{id}}" />
+      			<td align="right" style="width: 30%">重置密码<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input type="password" id="password" class='form-control' maxlength="35" />
+      			</td>
+      		</tr>
+      		<tr>
+      			<td align="right">再次输入密码<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input type="password" id="confirmPassword" class='form-control' maxlength="35" />
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerSystemUser.resetPasswordSubmit()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

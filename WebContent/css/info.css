@@ -1,0 +1,237 @@
+@CHARSET "UTF-8";
+/**********************工作必备*************************/
+.title {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/**********************工作必备列表*************************/
+.information-list {
+	float: left;
+	width: 270px;;
+	height: 150px;
+	margin: 8px;
+	background: #fcfcfc;
+	font-size: 16px;
+	cursor: pointer;
+	border: 1px solid #cfcfcf;
+	box-shadow: 1px 1px 1px 1px #ccc;
+	border-radius: 3px;
+	position: relative;
+}
+
+.information-list:HOVER {
+	background: #DBE5E0;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+.information-title {
+	padding: 20px 10px;
+}
+
+.information-list ul li a {
+	color: #000;
+}
+
+.information-footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.ccparty-name {
+	text-align: right;
+	font-size: 14px;
+	padding: 10px 10px 0 0;
+}
+
+.information-create-time {
+	text-align: right;
+	font-size: 14px;
+	padding: 5px;
+}
+/****************************/
+.dvTab {
+	font-family: 'Microsoft Yahei', verdana;
+	font-size: 14px;
+	height: 36px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.menu {
+	color: rgb(106, 106, 106);
+}
+
+.tab {
+	font-family: "宋体";
+	list-style-type: none;
+	float: left;
+	margin-right: -1px;
+	border: solid 1px #B9C4CF;
+	background-color: #EEEEEE;
+	line-height: 23px;
+	text-align: center;
+	width: 160px;
+	padding: 5px 20px 4px 8px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	text-overflow: ellipsis;
+	font-size: 18px;
+	background-attachment: scroll;
+	background-repeat: repeat;
+	background-position: center top;
+	margin: 0px 2px;
+}
+
+.dv {
+	width: 100%;
+	height: 4px;
+	line-height: 4px;
+	background-color: #213D7E;
+	position: relative;
+	left: 0;
+	top: 33px;
+}
+
+.activeTab {
+	font-family: "宋体";
+	color: #fff;
+	border: solid 1px #213D7E;
+	background-color: #213D7E;
+	background: -moz-linear-gradient(center top, #213D7E, #213D7E) repeat scroll 0% 0% transparent;
+}
+
+.sublist {
+	position: relative;
+	top: 10px;
+	text-align: left;
+	position: 20px;
+}
+
+.sublist a {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 5px;
+	color: #000;
+	font-family: "宋体";
+	font-size: 14px;
+}
+
+.sublist a:HOVER {
+	color: #be1a21;
+	text-decoration: none;
+}
+
+.sublist li {
+	list-style: none;
+	line-height: 30px;
+	width: 800px;
+}
+
+.sublist li {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.sublist li>span {
+	margin-left: 5px;
+}
+
+.sublist .updateTime {
+	padding: 5px;
+	float: right;
+	color: #000;
+	font-family: "宋体";
+	font-size: 14px;
+	line-height: 26px;
+	text-indent: 2em;
+}
+/**********************上下间歇文字滚动*************************/
+#method-container {
+	border: 1px solid #dadde1;
+	border-radius: 5px;
+	width: 100%;
+	text-align: center;
+	margin: 10px 0;
+	font-size: 18px;
+}
+
+#method-container .method-title {
+	font-family: "宋体";
+	padding: 10px;
+	color: #333;
+	font-size: 35px;
+}
+
+#method-container .method-subtitle {
+	color: #333;
+	font-family: "宋体";
+	font-size: 18px;
+}
+
+.scrolltext {
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	text-align: justify;
+}
+/* quotation */
+#quotation {
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	padding: 0 10px;
+	margin: 30px auto 0 auto;
+}
+
+#quotation li {
+	color: #fff;
+	line-height: 28px;
+	padding-bottom: 40px;
+}
+
+#quotation li p {
+	color: #000;
+	font-family: "宋体";
+	font-size: 14px;
+	line-height: 26px;
+	text-indent: 2em;
+}
+
+#quotation li .a-r {
+	text-align: right;
+}
+
+#quotation li span {
+	color: #999;
+	margin: 0 0 0 10px;
+}
+/**********************信息查看页面*************************/
+.passage-content-detail {
+	margin: 10px 50px;
+	padding-bottom: 20px;
+}
+
+.passage-content-detail .passage-content-title {
+	font-size: 24px;
+	text-align: center;
+}
+
+.passage-content-detail .passage-content-info {
+	font-size: 16px;
+	text-align: center;
+	padding: 40px 0px;
+}
+
+.passage-content-detail .passage-content-info span {
+	padding: 0px 5px;
+}
+
+.passage-content-detail .content-description {
+	font-size: 16px;
+}

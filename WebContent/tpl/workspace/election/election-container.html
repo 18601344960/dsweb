@@ -1,0 +1,83 @@
+<!-- 
+	@description 换届选举模板
+	@author 易文俊
+	@since 2015-07-01
+-->
+<div>
+	<div id="group-buttons" class="btn-group">
+		<button class="btn btn-default" onclick="Election.newElectionDialog()">
+			<i class="glyphicon glyphicon-plus-sign"></i> <span>新增</span>
+		</button>
+		<button class="btn btn-default" onclick="Election.editElectionDialog('{{item.id}}')">
+			<i class="glyphicon glyphicon-pencil"></i> <span>编辑</span>
+		</button>
+		<button class="btn btn-default" onclick="Election.deleteElection('{{item.id}}')">
+			<i class="glyphicon glyphicon-trash"></i> <span>删除</span>
+		</button>
+		<button class="btn btn-default" onClick="Election.viewElectionProcedure()">
+			<i class="glyphicon glyphicon-th-list"></i> <span data-zh="工作程序图">工作程序图</span>
+		</button>
+	</div>
+	<div id="group-choose-buttons" class="btn-group" style="float: right;">
+		<button class="btn btn-default" onclick="Election.lastElection('{{item.id}}','{{item.sequence}}','{{rowNum}}')">
+			<i class="glyphicon glyphicon-arrow-left"></i> <span>上一届</span>
+		</button>
+		<button class="btn btn-default" onclick="Election.nextElection('{{item.id}}','{{item.sequence}}','{{rowNum}}')">
+			<i class="glyphicon glyphicon-arrow-right"></i> <span>下一届</span>
+		</button>
+	</div>
+	<div style="float: right; padding: 6px 20px;">第{{rowNum}}届/共{{total}}届</div>
+	<div class="hidden">
+		<input type="text" id="rowNum" value="{{rowNum}}">
+	</div>
+	<div id="election-detail">
+		<table>
+			<tr>
+				<td class="left">届次：</td>
+				<td class="right">{{item.sequence}}</td>
+				<td class="left">选举方式：</td>
+				<td class="right">{{getEnumName('obt_election.selectMode.' + item.selectMode)}}</td>
+			</tr>
+			<tr>
+				<td class="left">换届年限：</td>
+				<td class="right">{{item.ageLimit}}</td>
+			</tr>
+			<tr>
+				<td class="left">当选日期：</td>
+				<td class="right">{{getDate(item.startTime)}}</td>
+				<td class="left">届满日期：</td>
+				<td class="right">{{getDate(item.endTime)}}</td>
+			</tr>
+			<tr>
+				<td class="left">选举应到会人数：</td>
+				<td class="right">{{item.participants}}</td>
+				<td class="left">选举实到会人数：</td>
+				<td class="right">{{item.attendance}}</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<div id="election-member-buttons" class="btn-group">
+		<button class="btn btn-default" onclick="Election.newElectionMember('{{item.id}}')">
+			<i class="glyphicon glyphicon-plus-sign"></i> <span>添加班子成员</span>
+		</button>
+	</div>
+	<table id="election-member-table" data-url="obt/getElectionMemberList" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-toolbar="#group-election-buttons"
+		data-click-to-select="true" data-pagination="false">
+		<thead>
+			<tr>
+				<th data-radio="true"></th>
+				<th data-field="id" data-visible="false">主键</th>
+				<th data-field="user" data-formatter="Election.iconFormatter" data-width="80"></th>
+				<th data-field="user" data-formatter="Election.userFormatter" data-width="100">姓名</th>
+				<th data-align="center" data-field="user" data-formatter="Election.userGenderFormatter" data-width="80">性别</th>
+				<th data-align="center" data-field="birthDay" data-formatter="Election.dateFormatter" data-width="150">出生日期</th>
+				<th data-field="memberTitles" data-formatter="Election.memberTitlesFormatter" data-width="300">党内职务</th>
+				<th data-align="center" data-field="startTime" data-formatter="Election.dateFormatter" data-width="150">批准任职日期</th>
+				<th data-align="center" data-field="endTime" data-formatter="Election.dateFormatter" data-width="150">批准免职时间</th>
+				<th data-field="remark">备注</th>
+				<th data-align="center" data-field="id" data-formatter="Election.memberOperator" data-width="150">操作</th>
+			</tr>
+		</thead>
+	</table>
+</div>

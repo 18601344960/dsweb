@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LargePartyFee" language="groovy" pageWidth="595" pageHeight="842" columnWidth="481" leftMargin="57" rightMargin="57" topMargin="38" bottomMargin="38" uuid="5f67e872-f0a4-44af-9914-8daa022e119f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" hAlign="Center" vAlign="Middle" fontSize="14" isBold="false" isItalic="false" isUnderline="true" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+	<style name="style2" hAlign="Center" vAlign="Middle" fontSize="16" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H">
+		<box>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<parameter name="CCPARTY_NAME" class="java.lang.String"/>
+	<field name="SEQUENCE" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="MOUNT" class="java.lang.String"/>
+	<field name="YEAR" class="java.lang.String"/>
+	<field name="REMARK" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="481" height="60" uuid="45e656ef-d6ed-42b6-89bd-45865941380d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党员缴纳特殊党费情况统计表]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="20" y="60" width="145" height="36" uuid="16b32429-c8be-4a2b-abce-5901f54f6c6b"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CCPARTY_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="165" y="60" width="100" height="36" uuid="d4629cfe-0c82-4e0c-93bc-18b6b3f89dda"/>
+				<textElement textAlignment="Left">
+					<font size="12" isUnderline="false" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[党支部（总支）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="432" y="60" width="21" height="36" uuid="d71ad3f0-97d6-45d1-9601-9bb851b0b41e"/>
+				<textElement>
+					<font size="12" isUnderline="false" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="402" y="60" width="30" height="36" uuid="56865cad-9136-4026-8572-f2dbe8364178"/>
+				<textElement>
+					<font size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[___]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="383" y="60" width="21" height="36" uuid="a041a9d6-afb5-46d2-b66b-ab64acd9da9f"/>
+				<textElement>
+					<font size="12" isUnderline="false" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[月]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="353" y="60" width="30" height="36" uuid="cfac0d4e-5d65-437b-bbf9-d4950b0b18d6"/>
+				<textElement>
+					<font size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[___]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="332" y="60" width="21" height="36" uuid="03b9c42b-8745-4c62-ae7e-6098c1e7b1b6"/>
+				<textElement>
+					<font size="12" isUnderline="false" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="302" y="60" width="30" height="36" uuid="98119f04-0a9a-4053-957a-cad52e3e102d"/>
+				<textElement>
+					<font size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[___]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement style="style2" x="0" y="0" width="81" height="44" uuid="9f1bc0ee-8f98-424b-bfa4-49615543c323"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[序号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="81" y="0" width="100" height="44" uuid="809f77cd-2f22-4c81-bc1e-4bc539aa5a3d"/>
+				<textElement>
+					<font isBold="true" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[姓名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="281" y="0" width="100" height="44" uuid="3c1a0958-7084-452f-a037-d423ab86e7f1"/>
+				<textElement>
+					<font isBold="true" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[金额]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="181" y="0" width="100" height="44" uuid="ba358ec5-f344-4468-a6f7-773335cb486d"/>
+				<textElement>
+					<font isBold="true" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年份]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style2" x="381" y="0" width="100" height="44" uuid="aa2baa97-bf76-4dc7-9428-92b23d902649"/>
+				<textElement>
+					<font isBold="true" pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[备注]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement style="style2" x="0" y="0" width="81" height="44" uuid="d1062776-7a49-4502-acdb-ef9bea60bfb1"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SEQUENCE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="81" y="0" width="100" height="44" uuid="0684bd59-466e-4e21-bc0d-7ec5dfc29877"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="281" y="0" width="100" height="44" uuid="cab4480c-7bc7-4805-98a6-62a2937ccdda"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="181" y="0" width="100" height="44" uuid="ede5a950-5771-42d2-b5d7-b60a6944b2f4"/>
+				<textFieldExpression><![CDATA[$F{YEAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="381" y="0" width="100" height="44" uuid="64c2aa62-fa54-4a17-ad6e-5c76ed0f2f7b"/>
+				<textFieldExpression><![CDATA[$F{REMARK}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,46 @@
+<!-- 
+	@description 问卷测评列表
+	@author 赵子靖
+	@since 2015-06-16
+-->
+<ul class="nav nav-tabs" role="tablist" id="assessment-tab">
+	<li role="presentation" class="active"><a href="#ccparty-assessment" aria-controls="ccparty-assessment" role="tab" data-toggle="tab">本组织答卷</a></li>
+	<li role="presentation"><a href="#leader-ccparty-assessment" aria-controls="leader-ccparty-assessment" role="tab" data-toggle="tab">上级组织答卷</a></li>
+</ul>
+<div class="tab-content">
+	<!-- 本组织答卷 -->
+	<div role="tabpanel" class="tab-pane active" id="ccparty-assessment">
+		<div id="assessment-buttons" class="btn-group">
+			<button class="btn btn-default" type="button" onclick="Assessment.addAssessment()">
+				<i class="fa fa-plus-circle"></i> <span data-zh="新增">新增</span>
+			</button>
+		</div>
+		<table id="assessment-list-table" data-url="pub/getAssessmentList" data-side-pagination="server" data-toolbar="#assessment-buttons" data-click-to-select="false" data-pagination="true" data-page-list="[10, 20, 50, 100, 200]" data-search="true" data-show-refresh="true" >
+			<thead>
+				<tr>
+					<th data-field="id" data-visible="false">主键</th>
+					<th data-field="name" data-formatter="Assessment.nameFormater">答卷名称</th>
+					<th data-field="endDate" data-align="center" data-formatter="Assessment.endDateFormatter" data-width="120">截止日期</th>
+					<th data-field="status" data-align="center" data-formatter="Assessment.statusFormatter" data-width="100">状态</th>
+					<th data-field="id" data-formatter="Assessment.resultOperator" data-width="190">答卷</th>
+					<th data-field="id" data-formatter="Assessment.assessmentOperator" data-width="200">操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<!-- 上级组织答卷 -->
+	<div role="tabpanel" class="tab-pane" id="leader-ccparty-assessment">
+		<table id="leader-assessment-table" data-url="pub/getLeaderAssessmentList" data-side-pagination="server" data-pagination="true" data-page-list="[10, 20, 50, 100, 200]" data-search="true" data-show-refresh="true" >
+			<thead>
+				<tr>
+					<th data-field="id" data-visible="false">主键</th>
+					<th data-field="name" data-formatter="Assessment.nameFormater">答卷名称</th>
+					<th data-field="ccparty" data-formatter="Assessment.ccpartyFormatter" data-width="250">所属组织</th>
+					<th data-field="endDate" data-align="center" data-formatter="Assessment.endDateFormatter" data-width="100">截止日期</th>
+					<th data-field="status" data-align="center" data-formatter="Assessment.statusFormatter" data-width="90">状态</th>
+					<th data-field="id" data-align="center" data-formatter="Assessment.assessmentInfo" data-width="100">完成情况</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>

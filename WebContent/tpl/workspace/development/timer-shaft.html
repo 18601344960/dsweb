@@ -1,0 +1,505 @@
+<!-- 
+	@description 党员发展时间轴
+	@author 赵子靖
+	@since 2016-07-16
+-->
+<div class="box">
+	<ul class="event_year">
+		<li class="current"><label for="proposer">申请人</label></li>
+		<li><label for="activist">积极分子</label></li>
+		<li><label for="developmentObject">发展对象</label></li>
+		<li><label for="prepare">预备党员</label></li>
+		<li><label for="official">正式党员</label></li>
+	</ul>
+	<div class="event_list">
+		<div>
+			<h3 id="proposer">申请人</h3>
+			<li>
+			<span>1.申请人确定为积极分子</span>
+			<p>
+				<table class="procedure-table">
+					<tr>
+						<td style="width: 25%">姓名：</td>
+						<td style="width: 25%">{{item.userName}}</td>
+						<td style="width: 25%">所在党支部：</td>
+						<td style="width: 25%">{{item.ccpartyName}}</td>
+					</tr>
+					<tr>
+						<td>确定积极分子日期：</td>
+						<td>{{getDate(item.partyMember.activistTime)}}</td>
+						<td>培养联系人：</td>
+						<td>{{item.partyMember.trainer}}</td>
+					</tr>
+				</table>
+			</p>
+			</li>
+		</div>
+		<div>
+			<h3 id="activist">积极分子</h3>
+			<li>
+				<span>2.对入党积极分子进行培养教育和考察</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">受组织教育情况：</td>
+							<td style="width: 75%">{{item.info.orgEducationInfo02}}</td>
+						</tr>
+						<tr>
+							<td>社会工作情况：</td>
+							<td>{{item.info.workInfo02}}</td>
+						</tr>
+						<tr>
+							<td>参加组织生活情况：</td>
+							<td>
+								{%for content in item.activityContents%}
+									{%if content.procedureId=='0101'%}
+										{{getDate(content.contentDate)}} - {{content.name}}</br>
+									{%endif%}
+								{%endfor%}
+							</td>
+						</tr>
+						<tr>
+							<td>向党组织汇报情况：</td>
+							<td>
+								{%for content in item.reportContents%}
+									{%if content.procedureId=='0101'%}
+										{{getDate(content.contentDate)}} - {{content.name}} </br> 
+										{{content.content}}</br>
+									{%endif%}
+								{%endfor%}
+							</td>
+						</tr>
+						<tr>
+							<td>考察情况：</td>
+							<td>
+								{%for content in item.inspectContents%}
+									{%if content.procedureId=='0101'%}
+										{{getDate(content.contentDate)}} - {{content.name}} </br> 
+										{{content.content}}</br>
+									{%endif%}
+								{%endfor%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>3.确定发展对象-听取党内外有关推优意见</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">党内外群众意见：</td>
+							<td style="width: 75%">{{item.info.massesOpinion03}}</td>
+						</tr>
+						<tr>
+							<td>团组织推优意见：</td>
+							<td>{{item.info.youthOpinion03}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>4.确定发展对象-党小组讨论</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">党小组意见：</td>
+							<td style="width: 25%">
+								{%if item.info.groupOpinion04==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.groupOpinion04==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.groupOpinion04==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+							<td style="width: 25%">讨论日期：</td>
+							<td style="width: 25%">{{getDate(item.info.discussDate04)}}</td>						
+						</tr>
+						<tr>
+							<td>党小组组长：</td>
+							<td>{{item.info.groupLeader04}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>5.确定发展对象-支委会（支部大会）讨论</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 35%">支委会（党支部大会）意见：</td>
+							<td style="width: 20%">
+								{%if item.info.branchOpinion05==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.branchOpinion05==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.branchOpinion05==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+							<td style="width: 25%">讨论日期：</td>
+							<td style="width: 20%">{{getDate(item.info.discussDate05)}}</td>						
+						</tr>
+						<tr>
+							<td>党支部书记：</td>
+							<td>{{item.info.secretary05}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+		</div>
+		<div>
+			<h3 id="developmentObject">发展对象</h3>
+			<li>
+				<span>6.为发展对象确定入党介绍人</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">入党介绍人：</td>
+							<td style="width: 75%">{{item.partyMember.introducer}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>7.为发展对象进行政治审查</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">政审结果：</td>
+							<td style="width: 75%">
+								{%if item.info.politicalaAudit07==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.politicalaAudit07==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.politicalaAudit07==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>8.为发展对象进行集中培训</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">集中培训日期：</td>
+							<td style="width: 25%">{{getDate(item.info.cultivateDate08)}}</td>
+							<td style="width: 25%">培训结果：</td>
+							<td style="width: 25%">
+								{%if item.info.cultivateResult08==0%}
+								<font style="color: green;">通过</font>
+								{%elif item.info.cultivateResult08==1%}
+								<font style="color: red;">不通过</font>
+								{%endif%}
+							</td>						
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>9.报基层党委预审</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">上级预审组织：</td>
+							<td style="width: 30%">{{item.info.superiorAuditOrg09}}</td>
+							<td style="width: 20%">预审时间：</td>
+							<td style="width: 25%">{{getDate(item.info.auditDate09)}}</td>						
+						</tr>
+						<tr>
+							<td>预审结果：</td>
+							<td>
+								{%if item.info.auditResult09==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.auditResult09==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.auditResult09==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>10.公示情况</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">公示情况：</td>
+							<td style="width: 75%">{{item.info.noticeInfo10}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>11.召开支部大会讨论</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">支部大会讨论日期：</td>
+							<td style="width: 25%">{{getDate(item.info.branchDiscussDate11)}}</td>
+							<td style="width: 25%">支部大会讨论结果：</td>
+							<td style="width: 25%">
+								{%if item.info.branchDiscussResult11==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.branchDiscussResult11==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.branchDiscussResult11==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>						
+						</tr>
+						<tr>
+							<td>加入中共组织类型：</td>
+							<td>
+							{%if item.info.joinCcpartyType11==0%}
+							新吸收为中共预备党员
+							{%elif item.info.joinCcpartyType11==1%}
+							重新吸收为中共预备党员
+							{%elif item.info.joinCcpartyType11==2%}
+							直接批准为中共正式党员
+							{%elif item.info.joinCcpartyType11==3%}
+							直接批准重新入党者为中共正式党员
+							{%elif item.info.joinCcpartyType11==4%}
+							恢复党籍
+							{%elif item.info.joinCcpartyType11==5%}
+							追认为中共正式党员
+							{%endif%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>12.基层党委派人谈话</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">上级谈话日期：</td>
+							<td style="width: 25%">{{getDate(item.info.talkDate12)}}</td>
+							<td style="width: 25%">谈话人：</td>
+							<td style="width: 25%">{{item.info.talker12}}</td>						
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>13.基层党委审批</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td >上级审批组织：</td>
+							<td colspan="3">{{item.info.superiorAuditOrg13}}</td>
+						</tr>
+						<tr>
+							<td style="width: 30%">审查时间：</td>
+							<td style="width: 20%">{{getDate(item.info.auditDate13)}}</td>
+							<td style="width: 40%">审查结果：</td>
+							<td style="width: 10%">
+								{%if item.info.auditResult13==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.auditResult13==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.auditResult13==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>						
+						</tr>
+						<tr>
+							<td>是否为一线特殊发展党员：</td>
+							<td>
+								{%if item.info.isSpecialPartymember13==0%}
+								否
+								{%elif item.info.isSpecialPartymember13==1%}
+								是
+								{%endif%}
+							</td>
+							<td>是否特殊情况下提高审批权限发展：</td>
+							<td>
+								{%if item.info.isSpecialMaxPrivilege13==0%}
+								否
+								{%elif item.info.isSpecialMaxPrivilege13==1%}
+								是
+								{%endif%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+		</div>
+		
+		<div>
+			<h3 id="prepare">预备党员</h3>
+			<li>
+				<span>14.对预备党员进行教育和考察</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">社会工作情况：</td>
+							<td style="width: 75%">{{item.info.workInfo14}}</td>
+						</tr>
+						<tr>
+							<td>参加组织生活情况：</td>
+							<td>
+								{%for content in item.activityContents%}
+									{%if content.procedureId=='0301'%}
+										{{getDate(content.contentDate)}} - {{content.name}}</br>
+									{%endif%}
+								{%endfor%}
+							</td>
+						</tr>
+						<tr>
+							<td>考察情况：</td>
+							<td>
+								{%for content in item.inspectContents%}
+									{%if content.procedureId=='0301'%}
+										{{getDate(content.contentDate)}} - {{content.name}}</br>
+										{{content.content}}</br>
+									{%endif%}
+								{%endfor%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>15.预备党员转正-党小组讨论</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">党小组意见：</td>
+							<td style="width: 25%">
+								{%if item.info.groupOpinion15==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.groupOpinion15==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.groupOpinion15==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+							<td style="width: 25%">讨论日期：</td>
+							<td style="width: 25%">{{getDate(item.info.discussDate15)}}</td>						
+						</tr>
+						<tr>
+							<td>党小组组长：</td>
+							<td>{{item.info.groupLeader15}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>16.预备党员转正-征求党内外群众意见</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">党内外群众意见：</td>
+							<td style="width: 75%">{{item.info.massesOpinion16}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>17.预备党员转正-支委会审查</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">支委会意见：</td>
+							<td style="width: 25%">
+								{%if item.info.branchOpinion17==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.branchOpinion17==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.branchOpinion17==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+							<td style="width: 25%">讨论日期：</td>
+							<td style="width: 25%">{{getDate(item.info.discussDate17)}}</td>						
+						</tr>
+						<tr>
+							<td>党支部书记：</td>
+							<td>{{item.info.secretary17}}</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>18.预备党员转正-支部大会讨论</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">支部大会讨论结果：</td>
+							<td style="width: 25%">
+								{%if item.info.branchMeetingResult18==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.branchMeetingResult18==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.branchMeetingResult18==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>
+							<td style="width: 25%">转正日期：</td>
+							<td style="width: 25%">{{getDate(item.info.officialDate18)}}</td>						
+						</tr>
+						<tr>
+							<td>转正情况：</td>
+							<td>
+							{%if item.info.officialInfo18==0%}
+							按期转正
+							{%elif item.info.officialInfo18==1%}
+							延长预备期满转正
+							{%elif item.info.officialInfo18==2%}
+							预备期满尚未讨论或审批
+							{%elif item.info.officialInfo18==3%}
+							延长预备期
+							{%elif item.info.officialInfo18==4%}
+							预备期满被取消预备党员资格
+							{%endif%}
+							</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+			<li>
+				<span>19.预备党员转正-上级党委审批</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td style="width: 25%">上级审批组织：</td>
+							<td style="width: 30%">{{item.info.superiorAuditOrg19}}</td>
+							<td style="width: 20%">审查结果：</td>
+							<td style="width: 25%">
+								{%if item.info.auditResult19==0%}
+								<font style="color: green;">同意</font>
+								{%elif item.info.auditResult19==1%}
+								<font style="color: red;">不同意</font>
+								{%elif item.info.auditResult19==2%}
+								<font style="color: yellow;">暂缓</font>
+								{%endif%}
+							</td>						
+						</tr>
+					</table>
+				</p>
+			</li>
+		</div>
+		<div>
+			<h3 id="official">正式党员</h3>
+			<li>
+				<span>20.成为正式党员</span>
+				<p>
+					<table class="procedure-table">
+						<tr>
+							<td>{{item.userName}}同志已加入中国共产党。</td>
+						</tr>
+					</table>
+				</p>
+			</li>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

@@ -1,0 +1,60 @@
+<!-- 
+	@description 党组织列表
+	@author zhaozijing
+	@since 2015-08-13
+-->
+{%if Global.ccpartyType!='Z000104'%}
+<div id="ccparty-buttons" class="btn-group" style="height: 30px; margin-top: 10px;">
+	{%if item.type!='Z000104'%}
+	<button class="btn btn-default" id="add-ccparty-btn" style="float: left;">
+		<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="增加下级组织" data-es="new">增加下级组织</span>
+	</button>
+	{%endif%}
+	<button class="btn btn-default" id="delete-ccparty-btn" style="float: left;">
+		<i class="glyphicon glyphicon-trash"></i> <span data-zh="删除本组织" data-es="new">删除本组织</span>
+	</button>
+</div>
+{%endif%}
+{%if item.type=='Z000104'%}
+<div id="ccparty-tabs">
+	<ul class="nav nav-tabs" role="tablist" style="margin: 5px;">
+		<li role="presentation" class="active"><a href="#ccparty-manager" aria-controls="administration-manager" role="tab" data-toggle="tab">组织管理</a></li>
+
+		<li role="presentation"><a href="#ccparty-group-list" aria-controls="ccparty-group-list" role="tab" data-toggle="tab">党小组设置</a></li>
+		<!-- <button type="button" class="btn btn-success" style="float: right;" title="打开支部手册" onclick="CcpartyManager.openCcpartyCard()">
+			<i class="fa fa-book" style="color: white;"></i>支部工作手册
+		</button> -->
+	</ul>
+	<div class="tab-content">
+		<!-- 党组织详情信息 -->
+		<div role="tabpanel" class="tab-pane fade in active" id="ccparty-manager">
+			{%endif%}
+			<div id="ccparty-manager"></div>
+			{%if item.type=='Z000104'%}
+		</div>
+		<!-- 党小组设置 -->
+		<div role="tabpanel" class="tab-pane fade" id="ccparty-group-list">
+			<!-- 菜单按钮 -->
+			<div id="group-buttons" class="btn-group">
+				<button class="btn btn-default" type="button" onclick="CcpartyGroup.addCcpartyGroupDialog()">
+					<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增">新增</span>
+				</button>
+			</div>
+			<!-- table列表 -->
+			<table id="ccparty-group-table" data-url="org/getCcpartyGroupList" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true" data-show-refresh="true"
+				data-toolbar="#group-buttons" data-click-to-select="true" data-pagination="false">
+				<thead>
+					<tr>
+						<th data-radio="true"></th>
+						<th data-field="id" data-visible="false">主键</th>
+						<th data-field="name" data-align="center" data-width=300>小组名称</th>
+						<th data-field="description" data-align="center">描述</th>
+						<th data-field="sequence" data-align="center" data-width=100>显示顺序</th>
+						<th data-field="id" data-align="center" data-formatter="CcpartyGroup.operater" data-width=200>操作</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+{%endif%}

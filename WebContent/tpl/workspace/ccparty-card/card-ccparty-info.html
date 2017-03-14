@@ -1,0 +1,52 @@
+<!-- 
+	@description 党组织基本信息
+	@author 赵子靖
+	@since 2016-05-25
+-->
+<table class="ccparty-card-table">
+	<tr height="10px"></tr>
+	<tr>
+		<td colspan="3" align="left"
+			style="color: #DAA520; font-family: cursive;font-weight: bold; font-size: 24px;">&nbsp;&nbsp;基本信息篇</td>
+	</tr>
+	<tr>
+		<td>
+			<div style="width: 100%;height: 130px;margin-top:10px;">
+				<div style="width: 10%;height: 130px;float: left;border-right: 5px solid #FF7F00;text-align: center;font-size: 20px;line-height: 30px;font-family: cursive;">基础信息</div>
+				<div style="width: 90%;height: 130px;float: left;line-height: 30px;">
+					<ul style="margin-left:10px;font-family: cursive;">
+						<li><b>组织代码：</b>{{ccparty.id}}</li>
+						<li><b>组织名称：</b>{{ccparty.name}}</li>
+						<li><b>组织全称：</b>{{ccparty.fullName}}</li>
+						<li><b>组织类型：</b>{{getCodeName(ccparty.type)}}</li>
+					</ul>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div style="width: 100%;height: 130px;margin-top:10px;">
+				<div style="width: 10%;height: 130px;float: left;border-right: 5px solid #00CD00;text-align: center;font-size: 20px;line-height: 30px;font-family: cursive;">组织数据</div>
+				<div style="width: 90%;height: 130px;float: left;line-height: 30px;">
+					<ul style="margin-left:10px;">
+						<li>该组织下共有{{view.partyNums}}个组织，其中党委{{view.party01Nums}}个，党组{{view.party02Nums}}个， 党总支部{{view.party03Nums}}个，党支部{{view.party04Nums}}个。</li>
+						<li>该组织共有党员{{view.partyMemberNums}}人，其中申请人{{view.partyMember01Nums}}人， 积极分子{{view.partyMember02Nums}}人，发展对象{{view.partyMember03Nums}}人，预备党员{{view.partyMember04Nums}}人， 正式党员{{view.partyMember05Nums}}人。</li>
+					</ul>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div style="width: 100%;height: 210px;margin-top:10px;">
+				<div style="width: 10%;height: 210px;float: left;border-right: 5px solid #836FFF;text-align: center;font-size: 20px;line-height: 50px;font-family: cursive;">领导班子</div>
+				<div style="width: 90%;height: 210px;float: left;line-height: 30px;">
+					<ul style="margin-left:10px;">
+						{{leaderHtml}}
+					</ul>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>

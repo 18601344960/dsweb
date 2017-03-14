@@ -1,0 +1,21 @@
+<!-- 搜索条件 -->
+<div class="my-assessment-search" >
+	<div style="margin-top: 10px;">
+	<button title="刷新" onclick="MyAssessment.search()" type="button" class="btn btn-default" style="width: 50px; height: 35px; float: right; margin-right: 5px;">
+		<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+	</button>
+	<select id="joinType" style="float: right;margin-right:5px;width: 150px;" class="form-control" onchange="MyAssessment.search()">
+		<option value="-1">所有</option>
+		<option value="1">已参与</option>
+		<option value="0">未参与</option>
+	</select>
+	<label style="float: right;margin: 5px;">参与情况：</label>
+	<input id="search" class="form-control" type="text" style="width: 200px;float: right;margin-right:5px;" placeholder="答卷名称" onkeyup="MyAssessment.search()">
+	<label style="float: right; line-height:32px;">答卷名称：</label>
+	</div>
+</div>
+<div style="clear: both;"></div>
+<!-- 答卷列表 -->
+<div id="assessment-list" class="my-assessment-list"></div>
+<!-- 分页信息 -->
+<div id="tpri-pagination" class="pagination-container" style="padding: 40px 40px;"></div>

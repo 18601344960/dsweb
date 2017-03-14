@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+/**
+ *	@description 公告详情页面样式
+ *	@author yiwenjun
+ *	@since 2015-04-28
+ */
+#announcement-container{
+	padding:10px 50px;
+	min-height:400px;
+}
+.announcement-title{
+	text-align:center;
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing : 2pt;
+	margin-top: 10px;
+}
+.announcement-info{
+	text-align:center;
+	margin: 20px;
+}
+.announcement-content{
+	font-size: 20px;
+	line-height: 40px;
+	text-align: left;
+}
+.announcement-info span {
+    padding: 0 5px;
+}

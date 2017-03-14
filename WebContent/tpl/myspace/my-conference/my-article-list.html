@@ -1,0 +1,79 @@
+<!-- 
+	@description 我的文章列表模板
+	@author 赵子靖
+	@since 2015-09-21
+-->
+<table class="article-list-table">
+	{% if rows.length>0 %}
+		{% for item in rows %}
+		<tr>
+			<td style="width:70%;">
+				<span class="article-title">
+					{%if item.isTop==1 %}
+						<img src="images/content/stick.png" alt="[置顶]">
+					{%endif%}
+					{%if item.isRecommend==1 %}
+						<img src="images/content/recommond.png" alt="[推荐]">
+					{%endif%}
+					<a data-bind="cont" href="article-view?articleId={{item.id}}" limit="30" title="{{item.name}}">{{item.name}}{{item.name}}{%if item.status==1 %}<span class="publish-status">[已发布]</span>{%endif%}</a>
+				</span>
+				<br/>
+				<div class="news_tag" style="">
+	    		  {% for conferenceStep in item.conferenceSteps %}
+	              	<div class="step-category">{{conferenceStep.category.name}}</div>
+	              {% endfor %}
+	              {% for conferenceFormat in item.conferenceFormats %}
+	              	<div class="format-category">{{conferenceFormat.category.name}}</div>
+	              {% endfor %}
+	              {% for conferenceLabel in item.conferenceLabels %}
+	              	<div class="label-category">{{conferenceLabel.category.name}}</div>
+	              {% endfor %}
+	          	</div>
+	          	<div>
+					{%if item.sourceType==0 %}
+						<img src="images/content/zu.png" alt="[组织]">
+					{%endif%}
+					{%if item.sourceType==1 %}
+						<img src="images/content/ge.png" alt="[个人]">
+					{%endif%}
+					<span>工作来源：{{item.sourceName}}</span>|<span>工作时间：{{getDate(item.occurTime)}}</span>|<span>创建人：{{item.createUser.name}}</span>|
+					{%if item.commentCount!=0%}
+				  	<span class="hyperlink_line">
+					  	<a href="javascript:MyArticle.commentManager('{{item.id}}')" title="评论">
+							<i class="fa fa-comment-o"></i>评论({{item.commentCount}})
+						</a>
+					</span>
+					{%endif%}
+					<span class="hyperlink_line">
+						<a href="javascript:MyArticle.downloadConference('{{item.id}}')">
+							<i class="glyphicon glyphicon-save"></i>下载
+						</a>
+					</span>
+				</div>
+			 </td>
+			<td style="width:30%;text-align: right;padding-bottom:5px;" valign="bottom">
+				{%if item.status==1 %}
+					<a href="javascript:MyArticle.unpublishConference('{{item.id}}')" class="btn btn-default btn-xs">
+						<i class="fa fa-undo"></i>取消发布
+					</a>
+			  	{%else%}
+					<a href="javascript:MyArticle.publishConference('{{item.id}}')" class="btn btn-default btn-xs">
+						<i class="glyphicon glyphicon-cloud"></i>发布
+					</a>
+				{%endif%}
+	      		<a href="javascript:MyArticle.openEditConferece('{{item.id}}')" class="btn btn-default btn-xs">
+					<i class="fa fa-edit"></i>编辑
+				</a>
+	      		<a href="javascript:MyArticle.deleteArticle('{{item.id}}','{{tabName}}')" class="btn btn-default btn-xs">
+					<i class="fa fa-times"></i>删除
+				</a>
+			</td>
+		</tr>
+		{%endfor%}
+	{% else %}
+	<tr>
+		<td>您还没有发表任何文章。</td>
+	</tr>
+	{% endif %}
+</table>
+<div id="tpri-pagination" class="pagination-container" style="margin-top: 15px;"></div>

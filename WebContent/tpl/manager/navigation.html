@@ -1,0 +1,68 @@
+<div class="setting-menu">
+	<div class="menu-title menu-profile-current active">
+		<h3>
+			<b>管理中心</b>
+		</h3>
+	</div>
+	<div class="panel-group" id="accordion">
+		{% if hasPrivilege('B.001.001') %}
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-ccparty">
+				<div class="nav-container nav-party-set">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">组织管理</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		{% endif %} {% if hasPrivilege('B.001.003') %}
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-party-worker">
+				<div class="nav-container nav-party-worker">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">党务干部</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-system-user">
+				<div class="nav-container nav-system-user">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">系统用户</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-import-user">
+				<div class="nav-container nav-import-user">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">用户导入</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		{% endif %} {% if hasPrivilege('B.001.005') %}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="nav-container">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">系统管理<span class="navigation-direction">▼</span></a>
+					</h4>
+				</div>
+			</div>
+			<div id="collapse8" class="panel-collapse collapse">
+				<div class="panel-body">
+					<ul class="nav nav-tabs nav-stacked">
+						<!-- <li id="nav-system-user" class="menu-item"><a href="javascript:;">系统用户</a></li> -->
+						<li id="nav-role" class="menu-item"><a href="javascript:;">角色</a></li>
+						<li id="nav-privilege" class="menu-item"><a href="javascript:;">权限</a></li>
+						<li id="nav-system-environment" class="menu-item"><a href="javascript:;">环境变量</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,67 @@
+<!-- 
+	@description 奖惩情况信息弹框
+	@author 赵子靖
+	@since 2015-12-04
+-->
+<div class="modal fade" id="rewards-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 850px;">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">奖惩信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<table id="rewards-table" data-url="obt/loadRewardsPunishmentsByUserId" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="false" data-show-refresh="false"
+						data-click-to-select="true" data-pagination="true">
+						<thead>
+							<tr>
+						    	<th data-radio="true"></th>
+						        <th data-field="id" data-visible="false">主键</th>
+						        <th data-field="name" data-align="left" data-sortable="true">奖惩名称</th>
+						        <th data-field="reason" >奖惩原因</th>
+						        <th data-field="institution" >奖惩批准机关</th>
+						        <th data-field="level" >批准机关级别</th>
+						        <th data-field="agreeTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">奖惩批准日期</th>
+						        <th data-field="undoTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">奖惩撤销日期</th>
+						    	<th data-field="explanation" >奖惩说明</th>
+						    	<th data-field="id" data-formatter="PartyMemberRewardsResume.deleteOperator" data-width="50">操作</th>
+						    </tr>
+						</thead>
+					</table>
+				</form>
+				<div class="development-maintain">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<input type="hidden" id="id" value="{{id}}" />
+						<tr>
+							<td style="text-align: right; color: red">*奖惩名称：</td>
+							<td><input type="text" id="name" class='form-control' maxlength="50" value="{{name}}"></td>
+							<td style="text-align: right;">奖惩说明：</td>
+							<td><input type="text" class="form-control" id="explanation" maxlength="200" value="{{explanation}}" /></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">奖惩原因：</td>
+							<td><input type="text" id="reason" class='form-control' maxlength="100" value="{{reason}}"></td>
+							<td style="text-align: right;">奖惩批准机关：</td>
+							<td><input type="text" class="form-control" id="institution" value="{{institution}}" /></td>
+						</tr>
+						<tr>
+							<td style="text-align: right; color: red">*奖惩批准机关级别：</td>
+							<td><input type="text" id="level" class='form-control' maxlength="50" value="{{level}}"></td>
+							<td style="text-align: right; color: red">*奖惩批准日期：</td>
+							<td><input type="text" class="form-control" id="agreeTime" value="{{agreeTime}}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></td>
+						</tr>
+						<tr>
+							<td width="20%" style="text-align: right;">奖惩撤销日期：</td>
+							<td width="30%"><input id="undoTime" type="text" class='form-control' value="{{undoTime}}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></td>
+						</tr>
+					</table>
+					<div style="text-align: center; padding: 10px;">
+						<button  type="button" class="btn btn-primary" onclick="PartyMemberRewardsResume.addRewards()">增加/保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

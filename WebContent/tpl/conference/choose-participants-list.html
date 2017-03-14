@@ -1,0 +1,36 @@
+<!-- 
+	@description 选择参与组织生活人员对话框
+	@author 易文俊
+    @since 2016-06-24
+-->
+<div style="border: solid 1px #ccc; padding: 5px;">
+	<div id="choose-participants-buttons" class="btn-group">
+		<button class="btn btn-default" onclick="ConferenceParticipants.addParticipants({{isAdd}});return false;">
+			<i class="glyphicon glyphicon-plus-sign"></i> <span>确定添加</span>
+		</button>
+		<button class="btn btn-default" onclick="ConferenceParticipants.hideParticipants();return false;">
+			<i class="glyphicon glyphicon-chevron-up"></i> <span>收起</span>
+		</button>
+	</div>
+	<div style="margin: 10px;">
+		<input type="radio" id="in-participants-raido" name="participantsType" value="0" checked onclick="ConferenceParticipants.participantsTypeClick('0')"><label for="in-participants-raido">组织内人员
+		</label> <input type="radio" id="out-participants-raido" name="participantsType" value="1" onclick="ConferenceParticipants.participantsTypeClick('1')"><label for="out-participants-raido">组织外人员</label>
+	</div>
+	<div id="in-participants-container">
+		<table id="choose-participants-table" data-url="org/getAllPartyMembersByCcpartyId" data-toolbar="#" data-side-pagination="server" data-click-to-select="true" data-search="true">
+			<thead>
+				<tr>
+					<th data-checkbox="true"></th>
+					<th data-field="id" data-visible="false">主键</th>
+					<th data-align="center" data-field="name">姓名</th>
+					<th data-align="center" data-field="gender" data-formatter="ConferenceParticipants.genderFormatter">性别</th>
+					<th data-field="partyMember" data-formatter="ConferenceParticipants.ccpartyFormatter">所在党支部</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div id="out-participants-container" style="display: none;">
+		<textarea id="out-participants" class="form-control" rows="3" id="remark" placeholder="多个参与人员请使用分号（;）分开"></textarea>
+	</div>
+</div>
+

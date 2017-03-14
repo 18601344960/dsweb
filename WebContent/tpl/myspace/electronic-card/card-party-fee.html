@@ -1,0 +1,36 @@
+	<!-- 
+	@description 党费缴纳情况
+	@author 赵子靖
+	@since 2016-07-06
+-->
+
+<table class="card-description-table">
+	<tr height="10px"></tr>
+	<tr>
+		<td align="left" style="color: #DAA520; font-weight: bold; font-size: 24px;">&nbsp;&nbsp;党费缴纳篇</td>
+		<td align="right">
+			<select style="font-size: 15px;width: 90px;height: 40px;" class="form-control" onchange="PartymemberElectronicCard.partyFeeYearSelected(this.value,'{{page}}')" id="fee-year-select">
+				{{getYearForSelectOption(2,10,1,1)}}
+			</select>
+		</td>
+	</tr>
+</table>
+<table class="card-party-fee-table" border="1">
+	<tr style="background-color: #EECFA1;font-weight: bold;">
+		<td width="30%">月份({{item.year}})</td>
+		<td width="35%">缴纳金额</td>
+		<td width="35%">特殊党费</td>
+	</tr>
+	{%for item in item.feesDeatilViews%}
+	<tr>
+		<td>{{item.month}}月</td>
+		<td>{{item.actuallyPartyFee}}</td>
+		<td>{{item.bigPartyFee}}</td>
+	</tr>
+	{%endfor%}
+	<tr>
+		<td style="font-weight: bold;">合计</td>
+		<td>{{item.actuallyPartyFeeTotal}}</td>
+		<td>{{item.bigPartyFeeTotal}}</td>
+	</tr>
+</table>

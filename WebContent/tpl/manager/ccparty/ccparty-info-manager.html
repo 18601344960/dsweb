@@ -1,0 +1,66 @@
+<!-- 
+	@description 党组织信息管理
+	@author zhaozijing
+	@since 2015-08-13
+-->
+<div class="ccparty_info_manager">
+	{%if Global.ccpartyId!=id or Global.userType==3%}
+	<table>
+		<tr id="tips" hidden="true">
+			<td align="left" colspan="2" height="10px;">
+				<div class="alert alert-warning" role="alert" style="margin-bottom: 0px; padding: 1px;">
+					&nbsp;&nbsp;<i class="glyphicon glyphicon-warning-sign" style="color: red;"></i> &nbsp;ID请参考规范文档或者询问管理员进行输入。
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" style="width: 20%;"><b><font style="color: red">*</font>组织代码：</b></td>
+			<td align="left" style="width: 30%;"><input type="hidden" id="ccpartyId" value="{{item.id}}" /> 
+				{%if item.id!='' and item.id!=null%} 
+					{{item.id}} 
+				{%else%} 
+				<input type="hidden" id="parentId" value="{{item.parentCcpartyId}}." /> 
+				<span id="parentIdSpan" style="width: 50%; float: left; text-align: center; margin-top: 7px;">{{item.parentCcpartyId}}.</span> <input type="text" id="myselfId"
+				class='form-control' value="" style="width: 50%; float: left;" onblur="CcpartyManager.checkCcpartyId(this.value)" /> {%endif%}</td>
+			<td align="right" style="width: 20%;"><b><font style="color: red">*</font>组织名称：</b></td>
+			<td align="left" style="width: 30%;"><input type="text" id="ccpartyName" class='form-control' value="{{item.name}}"></td>
+		</tr>
+		<tr>
+			<td align="right"><b><font style="color: red">*</font>组织类型：</b></td>
+			<td align="left"><select id="type" class='form-control'></select></td>
+			<td align="right"><b><font style="color: red">*</font>上级党组织：</b></td>
+			<td align="left"><input type="text" id="parentCcpartyId" class='form-control' value="{{item.parentCcpartyName}}" ids="{{item.parentCcpartyId}}" readonly /></td>
+		</tr>
+		<tr>
+			<td align="right"><b>显示顺序：</b></td>
+			<td align="left"><input type="text" id="sequence" class='form-control' value="{{item.sequence}}"></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align: center">
+				<button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="CcpartyManager.saveOrUpdateCcparty()"><i class="glyphicon glyphicon-floppy-disk" style="color: white;"></i>保存</button>
+			</td>
+		</tr>
+	</table>
+	{% else %}
+	<table>
+		<tr>
+			<td align="right" style="width: 20%;"><b>组织代码：</b></td>
+			<td align="left" style="width: 30%;"><input type="hidden" id="ccpartyId" value="{{id}}" />{{item.id}}</td>
+			<td align="right" style="width: 20%;"><b>组织名称：</b></td>
+			<td align="left" style="width: 30%;">{{item.name}}</td>
+		</tr>
+		<tr>
+			<td align="right"><b>组织类型：</b></td>
+			<td align="left">{{Global.getCodeName(item.type)}}</td>
+			<td align="right"><b>上级党组织：</b></td>
+			<td align="left">{{item.parentCcpartyName}}</td>
+		</tr>
+		<tr>
+			<td align="right"><b>当选日期：</b></td>
+			<td align="left">{{Global.getDate(item.documentTime)}}</td>
+			<td align="right"><b>届满日期：</b></td>
+			<td align="left">{{Global.getDate(item.expirationTime)}}</td>
+		</tr>
+	</table>
+	{%endif%}
+</div>

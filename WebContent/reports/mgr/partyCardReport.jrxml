@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dzbgzsc" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="91985368-6c5d-40de-9cbd-0027742cd67c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="24"/>
+	<subDataset name="mainData" uuid="a79dbcfd-b310-4176-a233-9dea57310a65">
+		<field name="PARTY_TITLE_ID" class="java.lang.String"/>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="BIRTHDAY" class="java.util.Date"/>
+		<field name="JOIN_TIME" class="java.util.Date"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="GENDER" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="detailData" uuid="706122a8-ae1c-4173-ae61-1d34e5d97a51">
+		<field name="GROUP_NAME" class="java.lang.String"/>
+		<field name="LEADER_NAME" class="java.lang.String"/>
+		<field name="DYS_UPPER" class="java.lang.Integer"/>
+		<field name="DYS_LOWER" class="java.lang.Integer"/>
+		<field name="ZGS_UPPER" class="java.lang.Integer"/>
+		<field name="ZGS_LOWER" class="java.lang.Integer"/>
+		<field name="SQS_UPPER" class="java.lang.Integer"/>
+		<field name="SQS_LOWER" class="java.lang.Integer"/>
+		<field name="JHS_UPPER" class="java.lang.Integer"/>
+		<field name="JHS_LOWER" class="java.lang.Integer"/>
+		<field name="RDS_UPPER" class="java.lang.Integer"/>
+		<field name="RDS_LOWER" class="java.lang.Integer"/>
+		<variable name="SUM_DYS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{DYS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_DYS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{DYS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_ZGS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{ZGS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_ZGS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{ZGS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_SQS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{SQS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_SQS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{SQS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_JHS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{JHS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_JHS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{JHS_LOWER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_RDS_UPPER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{RDS_UPPER}]]></variableExpression>
+		</variable>
+		<variable name="SUM_RDS_LOWER" class="java.lang.Number" calculation="Sum">
+			<variableExpression><![CDATA[$F{RDS_LOWER}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="sub1Data" uuid="f858e550-5e23-46d1-99ff-6b6b5004602d">
+		<parameter name="year" class="java.lang.String">
+			<property name="year" value="$P{year}"/>
+			<property name="ZBMC" value="$P{ZBMC}"/>
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="ZBMC" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+	</subDataset>
+	<subDataset name="sub2Data" uuid="328c2c9a-d1d4-411b-b31e-3937c71d9b9c">
+		<parameter name="sub2_p1" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="sub2_p2" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="sub2_p3" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="sub4Data" uuid="76a2f1c4-76b3-483c-b96d-2eed49d7d579">
+		<field name="MONTH" class="java.lang.String"/>
+		<field name="SUBMIT_DATE" class="java.util.Date"/>
+		<field name="SUBMIT_MOENY" class="java.math.BigDecimal"/>
+		<field name="SUBMIT_PEOPLE" class="java.lang.String"/>
+		<field name="COLLECT_PEOPLE" class="java.lang.String"/>
+		<variable name="SUM_SUBMIT_MONEY" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{SUBMIT_MOENY}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="sub5Data" uuid="a9f9cf61-1318-4ec7-98e9-7bce2e188495">
+		<field name="SEQ" class="java.lang.Integer"/>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="SEX" class="java.lang.String"/>
+		<field name="NATION" class="java.lang.String"/>
+		<field name="BIRTHDAY" class="java.util.Date"/>
+		<field name="PARTY_TIME" class="java.util.Date"/>
+		<field name="WORK_TIME" class="java.util.Date"/>
+		<field name="DUTY" class="java.lang.String"/>
+		<field name="DESC_INFO" class="java.lang.String"/>
+		<field name="DEGREE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="sub6Data" uuid="bf4ff060-5373-4dbd-ace5-272d39e2844c">
+		<parameter name="sub6_p1" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="sub7Data" uuid="90d49991-e89c-42c4-8d83-56b86292357e">
+		<parameter name="sub7_p1" class="java.lang.String"/>
+		<parameter name="conferences" class="java.util.Collection"/>
+	</subDataset>
+	<subDataset name="sub3Data" uuid="ce4df4b9-acb3-4740-9261-c98072c7848c">
+		<parameter name="ELECTION_START_DATE" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="SUBREPORT_DIR" class="java.lang.String">
+			<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+		</parameter>
+		<parameter name="mainData" class="java.util.Collection"/>
+		<parameter name="detailData" class="java.util.Collection"/>
+	</subDataset>
+	<parameter name="ELECTION_START_DATE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mainData" class="java.util.Collection"/>
+	<parameter name="detailData" class="java.util.Collection"/>
+	<parameter name="sub1Data" class="net.sf.jasperreports.engine.JREmptyDataSource"/>
+	<parameter name="sub2Data" class="net.sf.jasperreports.engine.JREmptyDataSource"/>
+	<parameter name="sub4Data" class="java.util.Collection"/>
+	<parameter name="sub5Data" class="java.util.Collection"/>
+	<parameter name="sub6Data" class="net.sf.jasperreports.engine.JREmptyDataSource"/>
+	<parameter name="sub7Data" class="net.sf.jasperreports.engine.JREmptyDataSource"/>
+	<parameter name="sub2_p1" class="java.lang.String"/>
+	<parameter name="sub2_p2" class="java.lang.String"/>
+	<parameter name="sub2_p3" class="java.lang.String"/>
+	<parameter name="sub6_p1" class="java.lang.String"/>
+	<parameter name="sub3Data" class="net.sf.jasperreports.engine.JREmptyDataSource"/>
+	<parameter name="year" class="java.lang.String">
+		<property name="year" value="$P{year}"/>
+		<property name="ZBMC" value="$P{ZBMC}"/>
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ZBMC" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="conferences" class="java.util.Collection"/>
+	<detail>
+		<band height="842">
+			<subreport isUsingCache="true">
+				<reportElement x="0" y="0" width="575" height="842" uuid="1701f6d5-94ea-469a-887f-5fe82fb379e3"/>
+				<subreportParameter name="ZBMC">
+					<subreportParameterExpression><![CDATA[$P{ZBMC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="year">
+					<subreportParameterExpression><![CDATA[$P{year}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{sub1Data}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "index-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="7c9ae8e1-009b-4dc2-ad32-ae8abd8abefa"/>
+				<subreportParameter name="sub2_p3">
+					<subreportParameterExpression><![CDATA[$P{sub2_p3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub2_p2">
+					<subreportParameterExpression><![CDATA[$P{sub2_p2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub2_p1">
+					<subreportParameterExpression><![CDATA[$P{sub2_p1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{sub2Data}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "explain-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="398" uuid="ce42245b-b51c-42a7-9dab-db0f7e93030d"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ELECTION_START_DATE">
+					<subreportParameterExpression><![CDATA[$P{ELECTION_START_DATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="mainData">
+					<subreportParameterExpression><![CDATA[$P{mainData}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new  net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{mainData})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "branch-baseinfo-party-card.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="398" width="575" height="444" uuid="32266799-9514-4db6-b571-380d7566c60e"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="detailData">
+					<subreportParameterExpression><![CDATA[$P{detailData}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new  net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{detailData})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "group-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="075c606e-ebc6-493e-a6df-e93126bdd2ad"/>
+				<dataSourceExpression><![CDATA[new  net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{sub4Data})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "cost-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842" splitType="Prevent">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="575" height="842" uuid="5f75ec18-e1aa-4a69-ba76-a6a91c005435">
+					<propertyExpression name="orientationValue"><![CDATA["LANDSCAPE"]]></propertyExpression>
+				</reportElement>
+				<subreportParameter name="orientationValue">
+					<subreportParameterExpression><![CDATA["LANDSCAPE"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new  net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{sub5Data})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "member-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="9a8c4369-6501-4233-8d90-5beee66e88c3"/>
+				<subreportParameter name="sub6_p1">
+					<subreportParameterExpression><![CDATA[$P{sub6_p1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{sub6Data}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "plan-one-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="07b095a9-fcb3-47c8-8ee1-e3b465ad978f"/>
+				<subreportParameter name="sub6_p1"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "plan-two-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="c94b4121-69f2-453c-9202-0de0789f87cb"/>
+				<subreportParameter name="conferences">
+					<subreportParameterExpression><![CDATA[$P{conferences}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new  net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{conferences})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "branch-conference-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="43ad97c2-1f5c-49a6-8410-3040a6ae938d"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONTEXT}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "summary-one-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="129eab99-d13d-4848-a3d8-460cde4c8a2c"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "summary-two-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="842">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="842" uuid="7c3604e9-b25e-4fd9-a41b-82bb3f6a9234"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "assess-party-card.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

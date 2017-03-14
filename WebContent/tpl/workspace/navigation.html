@@ -1,0 +1,179 @@
+<div class="setting-menu">
+	<div class="menu-title menu-profile-current active">
+		<h3>
+			<b>综合工作</b>
+		</h3>
+	</div>
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-ccparty-article">
+				<div class="nav-container ccparty-conference">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">工作记录</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-announcement">
+				<div class="nav-container nav-notice">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">通知通告</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="nav-container work-requirement">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">工作必备<span class="navigation-direction">▼</span></a>
+					</h4>
+				</div>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">
+					<ul class="nav nav-tabs nav-stacked">
+						<li id="nav-work-rule" class="menu-item"><a href="javascript:;">工作制度</a></li>
+						<li id="nav-work-requirement" class="menu-item"><a href="javascript:;">工作要求</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-assessment">
+				<div class="nav-container nav-assessment">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">问卷调查</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu-title menu-profile-current active">
+		<h3>
+			<b>支部工作</b>
+		</h3>
+	</div>
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-party-member">
+				<div class="nav-container nav-partymember-manager">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">党员管理</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-development">
+				<div class="nav-container nav-development">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">发展党员</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-party-fee">
+				<div class="nav-container nav-party-fee">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">党费收缴</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		{% if ccpartyType == 'Z000104'%}
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-election">
+				<div class="nav-container nav-election">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">换届选举</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		{% else %}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="nav-container nav-election">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">组织换届<span class="navigation-direction">▼</span></a>
+					</h4>
+				</div>
+			</div>
+			<div id="collapse5" class="panel-collapse collapse">
+				<div class="panel-body">
+					<ul class="nav nav-tabs nav-stacked">
+						<li id="nav-election" class="menu-item"><a href="javascript:;">换届选举</a></li>
+						<li class="menu-split"></li>
+						<li id="nav-election-monitor" class="menu-item"><a href="javascript:;">换届情况</a></li>
+						<li class="menu-split"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+	<div class="menu-title menu-profile-current active">
+		<h3>
+			<b>管理工作</b>
+		</h3>
+	</div>
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-party-card">
+				<div class="nav-container nav-ccparty-card">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">工作手册</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-partymember-card">
+				<div class="nav-container nav-my-card">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">党员手册</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-statistics">
+				<div class="nav-container nav-statistics">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">统计分析</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" id="nav-brand-label">
+				<div class="nav-container nav-brand-label">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" style="cursor: pointer;">品牌标签</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="nav-container nav-report">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">上报管理<span class="navigation-direction">▼</span></a>
+					</h4>
+				</div>
+			</div>
+			<div id="collapse6" class="panel-collapse collapse">
+				<div class="panel-body">
+					<ul class="nav nav-tabs nav-stacked">
+						<li id="nav-report-export" class="menu-item"><a href="javascript:;">导出上报数据</a></li>
+						<li id="nav-report-import" class="menu-item"><a href="javascript:;">导入上报数据</a></li>
+						<li id="nav-report-online" class="menu-item"><a href="javascript:;">在线上报数据</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<!-- 
+	@description 党小组成员
+	@author 易文俊
+	@since 2016-08-02
+-->
+{%for row in rows%}
+<div style="width: 47%; height: 420px; border: 1px solid #ccc; float: left; padding: 0px; margin: 10px;">
+	<div style="text-align: center; font-weight: bold;padding:5px 0;">{{row.name}}（<span id="{{row.id}}-count">{{row.memberCount}}</span>人）</div>
+	{% if Global.ccpartyType == 'Z000104'%}
+	<button type="button" id="{{row.id}}-buttons" class="btn btn-default" onclick="PartyGroupMember.addPartyGroupMemberDialog('{{row.id}}')">
+		<i class="glyphicon glyphicon-plus-sign"></i>添加成员
+	</button>
+	<button type="button" id="{{row.id}}-buttons" class="btn btn-default" onclick="PartyGroupMember.setGroupLeader('{{row.id}}')">
+		<i class="glyphicon glyphicon-user" style="color:red;"></i>设为组长
+	</button>
+	<button type="button" id="{{row.id}}-buttons" class="btn btn-default" onclick="PartyGroupMember.setGroupDeputyLeader('{{row.id}}')">
+		<i class="glyphicon glyphicon-user" style="color:blue;"></i>设为副组长
+	</button>
+	<button type="button" id="{{row.id}}-buttons" class="btn btn-default" onclick="PartyGroupMember.setGroupMember('{{row.id}}')">
+		<i class="glyphicon glyphicon-user"></i>设为成员
+	</button>
+	<div style="overflow: auto; height: 350px;border-top: 1px solid #ccc;">
+	{% else %}
+	<div style="overflow: auto; height: 350px;">
+	{% endif %}
+		<table id="{{row.id}}" data-url="obt/getPartyGroupMemberList" data-side-pagination="server" data-toolbar="#" data-click-to-select="true" data-search="false" data-pagination="false">
+			<thead>
+				<tr>
+					<th data-radio="true"></th>
+					<th data-field="id" data-visible="false" data-align="center">Id</th>
+					<th data-field="user" data-visible="true" data-align="center" data-width="80" data-formatter="PartyGroupMember.iconFormatter"></th>
+					<th data-field="user" data-visible="true" data-align="center" data-formatter="PartyGroupMember.userNameFormatter">姓名</th>
+					{% if Global.ccpartyType == 'Z000104'%}
+					<th data-field="id" data-visible="true" data-align="center" data-width="80" data-formatter="PartyGroupMember.memberOperator">操作</th>
+					{% endif %}
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+{%endfor%}

@@ -1,0 +1,54 @@
+<div class="question_button">
+	<ul style="float: left;padding: 2px;">
+		<button class="btn btn-default" type="button" onclick="AssessmentVote.addAssessmentVoteDialog('{{id}}')">
+			<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增投票项">新增投票项</span>
+		</button>
+	</ul>
+	<ul style="float: left;margin-left:20px;" class="navbar-btn">
+		<li>最多选择几项</li>
+		<li><input type="text" id="maxOptions" class="col-sm-2 form-control" style="margin-top:-7px;width: 80px;" value="{{maxOptions}}"/></li>
+		<li style="color: #999999">设置最多选择几项，0为不限制</li>
+	</ul>
+	
+	<ul style="float: right;padding: 2px;">
+		<button class="btn btn-info" onclick="WorkpracticeAssessment.render();" type="button" >
+			<i class="fa fa-reply" style="color: white;"></i> <span data-zh="返回" style="color: white;">返回</span>
+		</button>
+	</ul>
+	<ul style="float: right;padding: 2px;">
+		<button class="btn btn-primary" onclick="AssessmentVote.saveAssessmentVote()" type="button">
+			<i class="glyphicon glyphicon-floppy-disk" style="color: white;"></i> <span data-zh="保存" style="color: white;">保存</span>
+		</button>
+	</ul>
+</div>
+
+<!-- 投票内容 -->
+<div class="question_survey" id="assessment-vote-item-content" assessmentId="{{id}}">
+	<div class="question_surveyhead">
+		<h1 id="pater_title" >{{name}}</h1>
+		<div id="pater_desc" class="question_surveydescription" >{{description}}</div>
+	</div>
+	
+	{%for item in items%}
+	<div class="assessment-vote-items" >
+		<img id="showImage" alt="{{item.title}}" onError='Global.onIconError(this)' src="file/getFileData?filePath={{item.imageUrl}}" />
+		<ul>
+			<input type="checkbox" style="width: 20px;"/>&nbsp;&nbsp;<b>{{item.title}}</b>&nbsp;&nbsp;{{item.voteNum}}票
+		</ul>
+		<ul>
+			<a class="assessment-vote-items-description" href="javascript:AssessmentVote.assessmentVoteItemDescription('{{item.id}}')">描述&raquo;</a>
+		</ul>
+		<hr>
+		<ul style="float: right">
+			<a class="btn btn-default btn-xs" href="javascript:AssessmentVote.editAssessmentVoteItem('{{item.id}}')">
+				<i class="fa fa-edit"></i>编辑
+			</a>
+			<a class="btn btn-default btn-xs" href="javascript:AssessmentVote.deleteAssessmentVoteItem('{{item.id}}')">
+				<i class="glyphicon glyphicon-trash"></i>删除
+			</a>
+		</ul>
+	</div>
+	{%endfor%}
+	
+	
+</div>

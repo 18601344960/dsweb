@@ -1,0 +1,71 @@
+<!-- 
+	@description 换届选举表单模板
+	@author 易文俊
+	@since 2015-07-01
+-->
+<div class="modal fade" id="election-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog" style="width: 700px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">修改选举</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="save-election" onClick="Election.updateElection()">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+					</button>
+				</div>
+				<hr style="margin: 10px 0">
+				<form class="form-horizontal">
+					<div class="form-group hidden">
+						<label for="id" class="col-sm-3 control-label">表单ID</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="id" value="{{id}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="content" class="col-sm-2 control-label">届次</label>
+						<div class="col-sm-4">
+							<input id="sequence" type="text" class="form-control" placeholder="届次" value="{{sequence}}">
+						</div>
+						<label for="content" class="col-sm-2 control-label">选举方式</label>
+						<div class="col-sm-4">
+							<select id="selectMode" class="form-control">
+								<option value="0">差额</option>
+								<option value="1">等额</option>
+								<option value="2">其它</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="content" class="col-sm-2 control-label">换届年限</label>
+						<div class="col-sm-4">
+							<input id="ageLimit" name="ageLimit" type="text" class="form-control form-filter" placeholder="换届年限" value="{{ageLimit}}" onblur="Election.calculateEndTime()"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="content" class="col-sm-2 control-label">当选日期</label>
+						<div class="col-sm-4">
+							<input id="startTime" name="startTime" type="text" value="{{getDate(startTime)}}" class="form-control form-filter" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" onFocus="WdatePicker({onpicked:function() {Election.calculateEndTime()}})">
+						</div>
+						<label for="content" class="col-sm-2 control-label">届满日期</label>
+						<div class="col-sm-4">
+							<input id="endTime" name="endTime" type="text" value="{{getDate(endTime)}}" class="form-control form-filter" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="content" class="col-sm-2 control-label">应到会人数</label>
+						<div class="col-sm-4">
+							<input id="participants" name="participants" type="text" value="{{participants}}" class="form-control form-filter">
+						</div>
+						<label for="content" class="col-sm-2 control-label">实到会人数</label>
+						<div class="col-sm-4">
+							<input id="attendance" name="attendance" type="text" value="{{attendance}}" class="form-control form-filter">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

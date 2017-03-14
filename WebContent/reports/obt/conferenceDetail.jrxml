@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="50" bottomMargin="50" uuid="464e25d1-f7db-49bc-a9ca-3c4414a7dbc6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="subtitle" vAlign="Middle" fontName="宋体" fontSize="15" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+	<style name="info" vAlign="Middle" fontName="宋体" fontSize="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+	<style name="participats" style="info">
+		<box topPadding="5"/>
+	</style>
+	<parameter name="NAME" class="java.lang.String"/>
+	<parameter name="OCCUR_DATE" class="java.lang.String"/>
+	<parameter name="ADDRESS" class="java.lang.String"/>
+	<parameter name="CHAIR" class="java.lang.String"/>
+	<parameter name="ATTENDANCE" class="java.lang.String"/>
+	<parameter name="PARTICIPANTS" class="java.lang.String"/>
+	<parameter name="CONTENT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="204" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="495" height="62" uuid="d15aa041-5a22-407f-b248-30bab99d1dc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="18" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="subtitle" x="0" y="62" width="78" height="25" uuid="a918a86e-7254-46c8-a6bf-35f80ea05ba3"/>
+				<text><![CDATA[活动时间：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="subtitle" x="0" y="86" width="78" height="25" uuid="92fd51b4-beb7-4ca2-b8b3-23d5a8e4200a"/>
+				<text><![CDATA[活动地点：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="subtitle" x="0" y="134" width="78" height="25" uuid="1857d3a0-f87e-4e75-87fb-b464b3845380"/>
+				<text><![CDATA[参加人数：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="subtitle" x="0" y="110" width="78" height="25" uuid="a3a7d44a-4153-441d-a7ae-6767bad456e6"/>
+				<text><![CDATA[组织者：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="subtitle" x="0" y="159" width="78" height="25" uuid="f90301f8-cdbd-44ff-baee-33519bc666c0"/>
+				<text><![CDATA[参与人员：]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="info" x="78" y="62" width="417" height="25" uuid="b14c4a06-ee0b-44c9-8232-fcdd6f16a68d"/>
+				<textFieldExpression><![CDATA[$P{OCCUR_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="info" x="78" y="134" width="417" height="25" uuid="4778e1f0-9b6d-47b9-8eff-b0bf2d34657d"/>
+				<textFieldExpression><![CDATA[$P{ATTENDANCE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="info" x="78" y="86" width="417" height="25" uuid="f87a6e5c-b2a4-40e6-b26b-7978ed77f0ba"/>
+				<textFieldExpression><![CDATA[$P{ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="info" x="78" y="110" width="417" height="25" uuid="3de0c736-5044-4955-a5c1-bf1888b20af6"/>
+				<textFieldExpression><![CDATA[$P{CHAIR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="info" stretchType="RelativeToBandHeight" x="78" y="159" width="417" height="25" uuid="505d68eb-94b2-437e-87bd-bf926a769e00"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARTICIPANTS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="241">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="495" height="241" uuid="243b7461-4eac-440c-a1ec-ac88753a0dce"/>
+				<textElement>
+					<font fontName="宋体" size="14" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2" firstLineIndent="30"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CONTENT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

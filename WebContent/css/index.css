@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+
+body{
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+.current-name {
+	z-index: 10000;
+	position: fixed;
+	left: 400px;
+	width: 500;
+	_position: absolute;
+	font-size: 16px;
+	padding: 2px 10px;
+	color: #1F1F1F;
+}
+
+.current-name span {
+	color: #1F1F1F;
+}
+
+.current-ccparty-name {
+	top: 5px;
+}
+
+.current-user-name {
+	top: 30px;
+}
+.banner{
+	height: 240px;
+	background-image: url(../images/banner.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+}
+.banner ul {
+	height: 240px;
+	overflow: hidden;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+.banner ul li {
+	height: 240px;
+	padding: 80px;
+}
+.banner ul li a,.banner ul li a:link,.banner ul li a:hover {
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	line-height: 48px;
+	color: #FFF;
+	text-decoration: none;
+}
+.banner ul li div {
+	margin-top: 30px;
+	color: #FFF;
+	font-size: 14px;
+}
+
+
+
+.thumbnail a {
+	text-align: center;
+}
+.column-split {
+	background-color: #EA5353;
+	height: 3px;
+	width: 50px;
+	margin: 30px -15px;
+}
+.gzf a,.gzf a:link,.gzf a:hover {
+	color: #EA5353 !important;
+	text-align: center;
+	padding: 40px;
+}
+.gzf .gzf-icon{
+	color: #EA5353 !important;
+	margin:15px 0 !important;
+}
+.gzf .gzf-icon i{
+	color: #EA5353 !important;
+	height:50px;
+}
+.gzf .gzf-title{
+	color: #1F1F1F !important;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+	margin:15px 0 !important;
+}
+.bg-222{
+	background-color: #222;
+}
+.color-CACACA{
+	color: #CACACA;
+}
+.color-EA5353{
+	color: #EA5353 !important;
+}
+.color-747474{
+	color: #747474;
+}
+.h-line{
+	height: 1px;
+	background-color: #777;
+	margin:15px auto;
+}
+.line-height-48{
+	line-height: 48px;
+}
+.line-height-80{
+	line-height: 80px;
+}
+.copyright a,.copyright a:link,.copyright a:hover{
+	color: #CACACA;
+	text-decoration:none;
+}
+
+
+#notice-list a:HOVER{
+	text-decoration:underline;
+}

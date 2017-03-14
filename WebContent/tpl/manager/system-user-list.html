@@ -1,0 +1,23 @@
+<!-- 
+	@description 系统用户列表
+	@author 易文俊
+	@since 2016-01-08
+-->
+<div id="system-user-buttons" class="btn-group">
+	<button class="btn btn-default" onclick="ManagerSystemUser.newSystemUserDialog()">
+		<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="添加">添加</span>
+	</button>
+</div>
+<table id="system-user-table" data-url="uam/getSystemUsers" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true" data-show-refresh="true"
+	data-toolbar="#system-user-buttons" data-click-to-select="true" data-pagination="true">
+	<thead>
+		<tr>
+			<th data-radio="true"></th>
+			<th data-field="loginNo" data-width="120" data-align="left">登录账号</th>
+			<th data-field="name" data-width="200" data-align="left">姓名</th>
+			<th data-field="ccparty" data-align="left" data-formatter="ManagerSystemUser.ccpartyFormatter">管辖党组织</th>
+			<th data-field="operator" data-width="300" data-align="left" data-formatter="ManagerSystemUser.operator">操作</th>
+		</tr>
+	</thead>
+</table>
+

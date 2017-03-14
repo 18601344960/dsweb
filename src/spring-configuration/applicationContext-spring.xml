@@ -1,0 +1,97 @@
+<!--
+		 @description spring配置文件
+		 @author yiwenjun
+		 @since 2015-03-28
+	 -->
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"   
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	
+	<!-- 启动注解驱动的Spring MVC功能-->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- 处理responseBody 里面日期类型 -->
+			<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="dateFormat">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+							</bean>
+						</property>
+					</bean>
+				</property>
+			</bean>
+			<!-- StringHttpMessageConverter中的编码问题 -->
+			<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>text/plain;charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- 对 web 包中的所有类进行扫描，以完成 Bean 创建和自动依赖注入的功能 -->
+	<context:component-scan base-package="org.tpri"/>
+	
+	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀  -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>	
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize"> 
+			<value>104857600</value> 
+		</property> 
+		<property name="maxInMemorySize"> 
+			<value>104857600</value> 
+		</property> 
+	</bean> 
+	
+	<bean id="kaptchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">  
+		<property name="config">  
+			<bean class="com.google.code.kaptcha.util.Config">  
+				<constructor-arg>  
+					<props>  
+						<prop key="kaptcha.border">yes</prop>  
+						<prop key="kaptcha.border.color">105,179,90</prop>  
+						<prop key="kaptcha.textproducer.font.color">blue</prop>  
+						<prop key="kaptcha.image.width">100</prop>  
+						<prop key="kaptcha.image.height">40</prop>  
+						<prop key="kaptcha.textproducer.font.size">35</prop>  
+						<prop key="kaptcha.session.key">code</prop>  
+						<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>  
+						<prop key="kaptcha.textproducer.char.string">0123456789</prop>  
+						<prop key="kaptcha.textproducer.char.length">4</prop>  
+						<prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>  
+					</props>  
+				</constructor-arg>  
+			</bean>  
+		</property>  
+	</bean>
+	
+	<!--主要处理js、css、图片等静态文件的访问-->
+	<mvc:default-servlet-handler />
+	
+</beans>

@@ -1,0 +1,28 @@
+<!-- 更换头像 -->
+<div class="modal fade" id="replace-head-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >更换头像</h4>
+      </div>
+      <div class="modal-body">
+      	<table style="width: 100%;color: #666">
+      		<tr>
+      			<td align="right" width="20%">上传头像<font style="color: red">*</font>：</td>
+      			<td align="left" width="80%">
+					<div class="file-upload-box">
+      					<a class="btn btn-default" href="javascript:;">选择头像<input class="choose-file" type="file" id="headImg" name="headImg" onchange="document.getElementById('icon-path-text').value=this.value"/></a>
+      					<input type="text" name='icon-path-text' id='icon-path-text' value="未选择" readonly/>
+      				</div> 
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="PartyMemberBaseInfo.saveHeadImg()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

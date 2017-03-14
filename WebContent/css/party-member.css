@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";
+/**
+	@description 党员管理
+	@author zhaozijing
+	@since 2015-07-06
+**/
+/************************党员管理样式******************/
+.partymember-left{
+	border: 1px dashed #D6D6D6;
+	width: 230px;
+	height:600px;
+	float: left;
+	overflow: auto;
+}
+.partymember-center{
+	border: 1px dashed #D6D6D6;
+	width: 150px;
+	float: left;
+	height:600px;
+	overflow: auto;
+}
+.partymember-right{
+	overflow: auto;
+}
+.partymember_content table{
+	text-align: center;
+	margin-top: 7px;
+	width: 100%;
+	font-size: 14px;
+}
+.partymember_content table tr td{
+	padding: 7px;
+}
+.partymembers{
+    height: 40px;
+    cursor: pointer;
+}
+.partymembers_select{
+    height: 40px;
+    cursor: pointer;
+    background-color: #900;
+}
+.partymembers_click{
+    height: 40px;
+    cursor: pointer;
+    background-color: #900;
+}
+.chats{
+	margin: 0;
+	padding: 0;
+}
+.chats li{
+	list-style: none;
+	padding: 2px 0;
+	margin: 2px auto;
+	font-size: 12px;
+}
+.chats li.partymembers img.avatar {
+    float: left;
+    margin-left:5px;
+}
+.chats li.partymembers_select img.avatar {
+    float: left;
+    margin-left:5px;
+}
+.chats li.partymembers_click img.avatar {
+    float: left;
+    margin-left:5px;
+}
+.message{
+	margin-top: 10px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.chats li img.avatar {
+    height: 35px;
+    width: 35px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+.chats li.partymembers .message {
+    text-align: left;
+    margin-left: 46px;
+}
+.chats li.partymembers_select .message {
+    text-align: left;
+    margin-left: 46px;
+    color: white;
+}
+.chats li.partymembers_click .message {
+    text-align: left;
+    margin-left: 46px;
+    color: white;
+}
+.add{
+	width: 100%;
+	height: 35px;
+}
+/************************用户管理样式******************/
+.user-manager-left{
+	border: 1px dashed #D6D6D6;
+	width: 20%;
+	height:600px;
+	float: left;
+	overflow: auto;
+}
+.user-manager-right{
+	width: 80%;
+	float: left;
+	overflow: auto;
+}

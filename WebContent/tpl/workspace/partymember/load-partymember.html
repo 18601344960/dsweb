@@ -1,0 +1,18 @@
+<!-- 党员加载列表 -->
+<button type="button" class="btn btn-primary add" onclick="PartyMember.loadUserAndPartymemberInfo()"><i class="glyphicon glyphicon-plus-sign" style="color: white;"></i>&nbsp;新增党员</button>
+<ul class="chats">
+	{%for item in items%}
+	<li class="partymembers" id="{{item.id}}" title="{{item.name}}"
+				onmouseover="PartyMember.mouseOve(this)" 
+				onmouseout="PartyMember.mouseOut(this)" 
+				onclick="PartyMember.onClick(this,'{{item.id}}','{{item.name}}')">
+		<img id="head_{{item.id}}" gender="{{item.attr3}}" class="avatar" alt="{{item.name}}" onError='Global.onIconError(this)' src="uam/getHeadImg?userId={{item.id}}&random={{random}}">
+		<div class="message">
+			{{item.name}}
+		</div>
+	</li>
+	{%endfor%}
+	{%if items.length==0%}
+		<li style="text-align: center">暂无党员</li>
+	{%endif%}
+</ul>

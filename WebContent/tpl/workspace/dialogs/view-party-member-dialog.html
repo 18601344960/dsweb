@@ -1,0 +1,62 @@
+<!-- 
+	@description 查看领导班子信息对话框
+	@author 赵子靖
+	@since 2016-01-13
+-->
+<div class="modal fade" id="view-party-member-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 700px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">党员详情</h4>
+			</div>
+			<div class="modal-body">
+				<table cellspacing="0" cellpadding="0" border="3" class="development-manager-table">
+					<tr>
+						<td width="15%" style="background-color: #CCCCCC">姓名</td>
+						<td width="25%">{{item.name}}</td>
+						<td width="15%" style="background-color: #CCCCCC">性别</td>
+						<td width="25%">{{getCodeName('A0107.'+item.gender)}}</td>
+						<td width="20%" rowspan="4" colspan="2">
+							<img src="uam/getHeadImg?userId={{item.id}}" gender="{{item.gender}}" onError='Global.onIconError(this)' style="border: 1px solid #DBDBDB;width:130px;height:180px;" >
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">出生日期</td>
+						<td >{{getDate(item.birthDay)}}</td>
+						<td style="background-color: #CCCCCC">民族</td>
+						<td>
+							{{getCodeName('A0121.'+item.nation)}}
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">籍贯</td>
+						<td>
+							{{getCodeName('A0114.'+item.birthPlace)}}
+						</td>
+						<td style="background-color: #CCCCCC">联系电话</td>
+						<td>{{item.mobile}}</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">学历</td>
+						<td >
+							{{getCodeName('A0405.'+item.education)}}
+						</td>
+						<td style="background-color: #CCCCCC">学位</td>
+						<td >
+							{{getCodeName('A0440.'+item.degree)}}
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">现居住地</td>
+						<td colspan="5">{{item.address}}</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">所在党支部</td>
+						<td colspan="5">{{names}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

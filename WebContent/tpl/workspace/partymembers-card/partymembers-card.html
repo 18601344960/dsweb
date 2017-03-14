@@ -1,0 +1,22 @@
+<div class="main-detail-left-list" id="partymember-center" style="width: 200px;">
+	<!-- 组织检索条件 -->
+	<div style="width: 100%">
+		<input type="text" id="ccpartyId" class="form-control" style="float: left;width: 90%;" value="{{ccpartyName}}" ids="{{ccpartyId}}"  disabled>
+		<div class="cards-button" id="ccpartySelectBtn">
+			<i class="fa fa-angle-down" style="margin-left: 3px;margin-top:10px;"></i>
+		</div>
+		<!-- 组织树 -->
+		<div id="ccpartyMenuContent" class="menuContent" style="display: none; position: absolute; z-index: 100001; background-color: white; width: 200px; overflow: auto; border: 1px solid #D3D3D3;margin-top:10px;">
+			<ul id="ccparty-tree" class="ztree" style="width: 100%; max-height: 350px;"></ul>
+		</div>							
+		
+	</div>
+	<!-- 姓名检索条件 -->
+	<input type="text" id="name-search" class='form-control' placeholder="输入姓名搜索" onkeyup="PartyMembersCard.getPartymembers()"/>
+	<!-- 党员列表 -->
+	<ul class="chats" id="chats"></ul>
+</div>
+<!-- 右边党员详细信息 -->
+<div id="partymember-right" style="margin-left:200px;">
+	<p style="text-align: center;">暂无信息</p>
+</div>

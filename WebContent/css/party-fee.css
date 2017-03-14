@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+/**
+ * @description 党费管理
+ * @author guojing
+ * @since 2015-07-08
+ */
+.partyfee-left {
+	border: 1px dashed #D6D6D6;
+	width: 20%;
+	float: left;
+	height: 600px;
+	overflow: auto;
+}
+
+.partyfee-right {
+	/* border-top: 1px dashed #D6D6D6; */
+	width: 80%;
+	float: left;
+	overflow: auto;
+}
+
+.fee-selection {
+	float: left;
+	margin-top: 10px;
+}
+
+.year-select {
+	margin-left: 10px;
+	height: 34px;
+	width: 100px;
+}
+.month-select {
+	margin-left : 20px;
+	height: 34px;
+	width: 60px;
+}
+
+.year-div {
+	margin-top: 10px;
+	float: right;
+}
+
+.year-select-button {
+	height: 33px;
+	width: 60px;
+}
+
+.form-control-largepay {
+	width: 80%;
+}
+.party-special-detail-table tr{
+	font-size:13px; 
+	font-family: Arial, 宋体; 
+	word-break: keep-all;
+	border-collapse:collapse;
+	border:1px solid #ccc;
+	line-height: 30px;
+}
+
+.checkMonth label{
+	margin-left:10px;
+}

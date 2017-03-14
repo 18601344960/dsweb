@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+/**
+	@description 个人信息
+	@author 赵子靖
+	@since 2016-06-26
+**/
+/***************************个人资料首页************************/
+.my-info-head {
+	width: 80%;
+	border: 1px solid #B7B7B7;
+	margin:20px auto;
+	background-color: #F7F7F7;
+}
+.my-info-head table{
+	width: 100%;
+	margin: 10px;
+}
+.user-name{
+	font-size: 28px;
+}
+.my-info-content{
+	width: 80%;
+	border: 1px solid #B7B7B7;
+	margin:20px auto;
+	background-color: #F7F7F7;	
+}
+.my-info-content-first-table{
+	width: 100%;
+	margin: 10px;	
+}
+.base-info-icon{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/my-info-icon.png) 0 0 no-repeat;
+    vertical-align: top;
+    background-position: 0 -64px;
+}
+.head-title{
+	font-family: cursive;
+    font-size: 20px;
+}
+.my-info-content-two-table{
+	width: 90%;
+	margin: 20px auto;
+}
+.my-info-content-two-table tr{
+	line-height: 40px;
+}
+.my-info-table-line{
+	width: 90%;
+	border: 1px dashed #848484;
+	height: 1px;
+	margin:30px auto;
+}
+.partymember-info-icon{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/my-info-icon.png) 0 0 no-repeat;
+    vertical-align: top;
+}
+.education-info-icon{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/my-info-icon.png) 0 0 no-repeat;
+    vertical-align: top;
+    background-position: 0 -96px;
+}
+.family-info-icon{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/my-info-icon.png) 0 0 no-repeat;
+    vertical-align: top;
+    background-position: 0 -224px;
+}
+.school-name{
+	font-size: 20px;
+}
+.add-family-table{
+	border-top:8px solid #3D9CCC;
+	border-right:2px solid #3D9CCC;
+	border-left:2px solid #3D9CCC;
+	border-bottom:2px solid #3D9CCC;
+	width: 90%;
+	margin: 20px auto;;
+}
+.add-family-table tr{
+	line-height: 60px;
+}

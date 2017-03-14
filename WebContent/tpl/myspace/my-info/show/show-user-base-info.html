@@ -1,0 +1,48 @@
+<table class="my-info-content-first-table">
+	<tr>
+		<td width="5%" style="text-align: center;"><i
+			class="base-info-icon"></i></td>
+		<td width="85%" class="head-title">基本资料</td>
+		<td width="10%">
+			<button onclick="MyInfo.editUserBaseInfoPage('{{item.id}}')" class="btn btn-primary" type="button">
+				<i class="fa fa-edit" style="color: white;"></i>编辑
+			</button>
+		</td>
+	</tr>
+</table>
+<div id="user-base-info">
+	<table class="my-info-content-two-table">
+		<tr>
+			<td width="20%" style="text-align: right;">性别：</td>
+			<td width="25%">{{getCodeName('A0107.'+item.gender)}}</td>
+			<td width="20%" style="text-align: right;">出生日期：</td>
+			<td width="25%">{{getDate(item.birthDay)}}</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">民族：</td>
+			<td width="25%">{{getCodeName('A0121.'+item.nation)}}</td>
+			<td width="20%" style="text-align: right;">籍贯：</td>
+			<td width="25%">{{getCodeName('A0114.'+item.birthPlace)}}</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">学历：</td>
+			<td width="25%">{{getCodeName('A0405.'+item.education)}}</td>
+			<td width="20%" style="text-align: right;">学位：</td>
+			<td width="25%">{{getCodeName('A0440.'+item.degree)}}</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">手机：</td>
+			<td width="25%">
+				{{item.mobile}}
+			</td>
+			<td width="20%" style="text-align: right;">办公电话：</td>
+			<td width="25%">{{item.officePhone}}</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">邮箱：</td>
+			<td width="25%">{{item.email}}</td>
+			<td width="20%" style="text-align: right;">家庭地址：</td>
+			<td width="25%">{{item.address}}</td>
+		</tr>
+	</table>
+</div>

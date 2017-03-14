@@ -1,0 +1,130 @@
+@CHARSET "UTF-8";
+/************************试卷编辑***************************/
+.question_button {
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+}
+
+.question_button ul li {
+	display: inline;
+	float: left;
+	padding: 2px;
+}
+
+.question_survey {
+	width: 100%;
+	margin-top: 15px;
+	overflow: auto;
+	border: dashed 1px #FFA500;
+}
+
+.question_surveyhead {
+	line-height: 20px;
+	text-align: center;
+	padding: 30px 2% 20px;
+}
+
+.question_surveyhead h1 {
+	font-size: 24px !important;
+	font-weight: bold;
+	color: #f53d05;
+	vertical-align: middle;
+	margin: 0;
+	padding: 15px 0;
+	line-height: 24px;
+}
+
+.question_surveydescription {
+	line-height: 24px;
+	text-align: left;
+	font-size: 16px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #ccc;
+	margin-left: 0;
+	margin-top: 20px;
+}
+
+.div_question {
+	border: 2px solid #fdb553;
+	padding: 4px;
+	clear: both;
+	margin: 2px auto 10px;
+	width: 95%;
+	height: auto;
+}
+
+.div_question ul li {
+	line-height: 30px;
+}
+/************************测评结果统计样式***************************/
+.statistical_title {
+	font-weight: bolder;
+	font-size: 16px;
+}
+
+.echart_main {
+	height: 240px;
+}
+
+.reply {
+	padding: 10px 0;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.user_name {
+	color: #333;
+	font-weight: bolder;
+}
+
+.reply_content {
+	border-bottom: 1px dashed #ccc;
+	font-size: 14px;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.answer-option{
+	width: 100%;
+	padding-left: 30px;
+	padding-bottom: 20px;
+}
+/************************投票编辑样式***************************/
+.assessment-vote-items {
+	border: 2px solid #fdb553;
+	width: 160px;
+	height: 235px;
+	margin: 15px;
+	float: left;
+	text-align: center;
+}
+.assessment-vote-items img{
+	width: 130px;
+	height: 160px;
+}
+.assessment-vote-items ul{
+	width: 100%;
+}
+.assessment-vote-items-description:hover{
+	color:red;
+	text-decoration:underline;
+}
+.assessment-vote-items-description{
+	text-decoration:none;
+}
+.assessment-vote-items a{
+	margin: 2px;
+}
+.assessment-vote-items-button{
+	width: 100%;
+	text-align: center;
+	margin-top:10px;
+}
+.my-assessment-submit{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	margin-top:40px;
+}

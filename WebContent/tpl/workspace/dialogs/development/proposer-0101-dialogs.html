@@ -1,0 +1,77 @@
+<!-- 
+	@description 对入党积极分子进行培养教育和考察对话框
+	@author 赵子靖
+	@since 2015-12-18
+-->
+<div class="modal fade" id="proposer-0101-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 700px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">对入党积极分子进行培养教育和考察</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentProcedure.nextStepDevelopmentProcedureDialog('{{id}}','0001')">
+						<i class="fa fa-level-up"></i> <span data-zh="上一步">上一步</span>
+					</button>
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentStepHandle.saveOrUpdate0101Info()">
+						<i class="glyphicon glyphicon-floppy-save"></i> <span data-zh="保存并下一步">保存并下一步</span>
+					</button>
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentProcedure.nextStepDevelopmentProcedureDialog('{{id}}','0102')">
+						<i class="fa fa-level-down"></i> <span data-zh="下一步">下一步</span>
+					</button>
+				</div>
+				<table cellspacing="0" cellpadding="0" border="3" class="development-manager-table">
+					<input type="hidden" id="partymemberId" value="{{id}}" />
+					<input type="hidden" id="procedureId" value="0101" />
+					<tr>
+						<td>姓名</td>
+						<td>
+							{{user.name}}
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">受组织教育情况</td>
+						<td>
+							<textarea rows="2" id="orgEducationInfo02" class="form-control" >{{developmentInfo.orgEducationInfo02}}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">社会工作情况</td>
+						<td>
+							<textarea rows="2" id="workInfo02" class="form-control" >{{developmentInfo.workInfo02}}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">参加组织生活情况</td>
+						<td>
+							<input type="text" class="form-control" id="unitJob" value="" placeholder="请双击进入维护" ondblclick="DevelopmentProcedureCommonContent.renderActivityCommonContent('{{id}}')" readonly="readonly"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">向党组织汇报情况</td>
+						<td>
+							<input type="text" class="form-control" id="unitJob" value="" placeholder="请双击进入维护" ondblclick="DevelopmentProcedureCommonContent.renderReportCommonContent('{{id}}')" readonly="readonly"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">考察情况</td>
+						<td>
+							<input type="text" class="form-control" id="unitJob" value="" placeholder="请双击进入维护" ondblclick="DevelopmentProcedureCommonContent.renderInspectCommonContent('{{id}}')" readonly="readonly"/>
+						</td>
+					</tr>
+				</table>
+				<div class="development-manager-explain">
+					<label style="float: right;">选填项</label>
+					<div style="background-color: #CCCCCC; width: 20px; height: 20px;float: right"></div>
+					<label style="float: right">必填项</label>
+					<div style="background-color: #87CEFA; width: 20px; height: 20px;float: right"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 维护项弹框DIV -->
+<div id="maintainDialogs"></div>

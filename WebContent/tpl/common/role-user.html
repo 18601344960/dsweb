@@ -1,0 +1,9 @@
+<!-- 
+	@description 切换角色模板
+	@author 易文俊
+	@since 2016-03-15
+-->
+
+{%for user in rows%}
+<a class="menu-sub-title change-role" href="javascript:;" roleUserId={{user.id}} style="text-align: left;">{{user.name}}({{user.ccpartyName}})</a>
+{%endfor%}

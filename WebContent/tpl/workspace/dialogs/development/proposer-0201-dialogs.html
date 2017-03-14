@@ -1,0 +1,53 @@
+<!-- 
+	@description 为发展对象确定入党介绍人对话框
+	@author 赵子靖
+	@since 2015-12-21
+-->
+<div class="modal fade" id="proposer-0201-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 700px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">为发展对象确定入党介绍人</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentProcedure.nextStepDevelopmentProcedureDialog('{{id}}','0104')">
+						<i class="fa fa-level-up"></i> <span data-zh="上一步">上一步</span>
+					</button>
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentStepHandle.saveOrUpdate0201Info()">
+						<i class="glyphicon glyphicon-floppy-save"></i> <span data-zh="保存并下一步">保存并下一步</span>
+					</button>
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentProcedure.nextStepDevelopmentProcedureDialog('{{id}}','0202')">
+						<i class="fa fa-level-down"></i> <span data-zh="下一步">下一步</span>
+					</button>
+				</div>
+				<table cellspacing="0" cellpadding="0" border="3" class="development-manager-table">
+					<input type="hidden" id="partymemberId" value="{{id}}" />
+					<input type="hidden" id="procedureId" value="0201" />
+					<tr>
+						<td>姓名</td>
+						<td>
+							{{user.name}}
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">入党介绍人</td>
+						<td>
+							<input type="text" class="form-control" id="introducer" value="{{introducer}}"/>
+						</td>
+					</tr>
+				</table>
+				<div class="development-manager-explain">
+					<label style="float: right;">选填项</label>
+					<div style="background-color: #CCCCCC; width: 20px; height: 20px;float: right"></div>
+					<label style="float: right">必填项</label>
+					<div style="background-color: #87CEFA; width: 20px; height: 20px;float: right"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 维护项弹框DIV -->
+<div id="maintainDialogs"></div>

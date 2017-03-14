@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="plan-two-party-card" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="50" bottomMargin="50" uuid="91985368-6c5d-40de-9cbd-0027742cd67c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="765"/>
+	<parameter name="sub6_p1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<title>
+		<band height="53">
+			<staticText>
+				<reportElement x="0" y="0" width="535" height="53" forecolor="#000000" uuid="3bd12346-4bf0-4278-9a7e-1493e434381f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="26" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[年度工作计划]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="687" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="535" height="30" uuid="1cf246e8-c39b-4373-8059-520ef5da543a"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="535" height="30" uuid="432867ab-07c3-42f0-b651-1c32d9acad95"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="535" height="30" uuid="bd8b93bf-aca6-409c-91f7-3cdc60b87bd8"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="90" width="535" height="30" uuid="191f27f3-4274-4b3e-810a-38966e33c0c9"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="535" height="30" uuid="47e72aa2-e735-463b-8700-b2b5e219f46d"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="150" width="535" height="30" uuid="925b8114-dbd3-47ab-89af-3a4a3b138206"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="180" width="535" height="30" uuid="e7820f70-c7f5-4213-9bd5-aad59fcee159"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="210" width="535" height="30" uuid="3c18ad33-cd22-43aa-98fb-efe3084eb708"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="240" width="535" height="30" uuid="089a16f8-ccf3-499e-81c1-e210aa2ff887"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="270" width="535" height="30" uuid="4d1487d9-24d4-4464-817e-f40575749ab1"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="300" width="535" height="30" uuid="39ead33b-2c7c-457a-933c-23c41d1419fe"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="330" width="535" height="30" uuid="9acf09c5-5fcc-4fde-b175-8b2a9f3bd131"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="360" width="535" height="30" uuid="0d134329-1f12-4a95-b025-3f112a813591"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="390" width="535" height="30" uuid="bf0e15c3-699e-4915-b62c-3fc96c8d22cb"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="420" width="535" height="30" uuid="3dd0ca9a-dac3-48f5-ac70-1e9e2327c561"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="450" width="535" height="30" uuid="9e381e30-9eaa-4234-af74-7fe96f497fe8"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="480" width="535" height="30" uuid="4991a67c-260b-4883-ad76-f97a81e9c5f4"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="510" width="535" height="30" uuid="26baed7e-3dc5-44e7-97d4-43d2d2ce79c7"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="540" width="535" height="30" uuid="39d38f7e-5002-47be-9ff3-2555a8414f33"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="570" width="535" height="30" uuid="24ebf853-783a-4b3d-b200-f4de8459dc34"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="600" width="535" height="30" uuid="5906cc62-9ceb-4df2-ba8e-b753c9b16d06"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="630" width="535" height="30" uuid="255fc042-efcf-486a-8b74-194013c0b5ff"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

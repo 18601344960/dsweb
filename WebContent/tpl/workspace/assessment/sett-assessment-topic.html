@@ -1,0 +1,91 @@
+<div class="question_button">
+	<ul style="float: left;padding: 2px;">
+		<button class="btn btn-default" onclick="AssessmentTopic.createRadioQuestion()" type="button">
+			<i class="fa fa-dot-circle-o"></i> <span data-zh="单选题">单选题</span>
+		</button>
+	</ul>
+	<ul style="float: left;padding: 2px;">
+		<button class="btn btn-default" onclick="AssessmentTopic.createCheckQuestion()" type="button">
+			<i class="fa fa-check-square-o"></i> <span data-zh="多选题">多选题</span>
+		</button>
+	</ul>
+	<ul style="float: left;padding: 2px;">
+		<button class="btn btn-default" onclick="AssessmentTopic.createAnswerQuestion()" type="button">
+			<i class="fa fa-file-text-o"></i> <span data-zh="简答题">简答题</span>
+		</button>
+	</ul>
+	
+	<ul style="float: right;padding: 2px;">
+		<button class="btn btn-info" onclick="Assessment.render();" type="button" >
+			<i class="fa fa-reply" style="color: white;"></i> <span data-zh="返回" style="color: white;">返回</span>
+		</button>
+	</ul>
+</div>
+
+<!-- 问卷测评内容 -->
+<div class="question_survey" id="question_survey" assessmentId="{{id}}">
+	<div class="question_surveyhead">
+		<h1 id="pater_title" >{{name}}</h1>
+		<div id="pater_desc" class="question_surveydescription" >{{description}}</div>
+	</div>
+	
+	<!-- questionType=1单选2多选3简答 answer=选项数量 isMust=是否必做 -->
+	{% for topic in topics %}
+		{% if topic.type==1 %}
+		<div class="div_question">
+			<ul>
+				<li style="font-weight: bold;">{{topic.sequence}}、【单选】<label>{{topic.title}}</label>{% if topic.isMust==0 %}<b style="color: red">*</b>{%endif%}</li>
+				<li style="" >
+					{% for option in topic.options %}
+						<input type="radio" style="margin:0 10px;" />{{option.seq}}、<font>{{option.content}}</font><br>
+					{% endfor %}
+				</li>
+				<li>
+					<button class="btn btn-primary" type="button" onclick="AssessmentTopic.editTopic('{{topic.id}}')">
+						<i class="glyphicon glyphicon-edit" style="color: white"></i> <span data-zh="编辑" style="color: white">编辑</span>
+					</button>
+					<button class="btn btn-danger" type="button" onclick="AssessmentTopic.deleteTopic('{{topic.id}}')">
+						<i class="glyphicon glyphicon-trash" style="color: white"></i> <span data-zh="删除" style="color: white">删除</span>
+					</button>
+				</li>
+			</ul>
+		</div>
+		{% elif topic.type==2 %}
+			<div class="div_question" >
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、【多选】<label>{{topic.title}}</label>{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}</li>
+					<li style="">
+						{% for option in topic.options %}
+							<input type="checkbox" style="margin:0 10px;" />{{option.seq}}、<font>{{option.content}}</font><br>
+						{% endfor %}
+					</li>
+					<li>
+						<button class="btn btn-primary" type="button" onclick="AssessmentTopic.editTopic('{{topic.id}}')">
+							<i class="glyphicon glyphicon-edit" style="color: white"></i> <span data-zh="编辑" style="color: white">编辑</span>
+						</button>
+						<button class="btn btn-danger" type="button" onclick="AssessmentTopic.deleteTopic('{{topic.id}}')">
+							<i class="glyphicon glyphicon-trash" style="color: white"></i> <span data-zh="删除" style="color: white">删除</span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type==3 %}
+			<div class="div_question">
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、【简答】<label>{{topic.title}}</label>{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}</li>
+					<li style="" >
+						<textarea style="width: 94%; height: auto;" ></textarea>
+					</li>
+					<li>
+						<button class="btn btn-primary" type="button" onclick="AssessmentTopic.editTopic('{{topic.id}}')">
+							<i class="glyphicon glyphicon-edit" style="color: white"></i> <span data-zh="编辑" style="color: white">编辑</span>
+						</button>
+						<button class="btn btn-danger" type="button" onclick="AssessmentTopic.deleteTopic('{{topic.id}}')">
+							<i class="glyphicon glyphicon-trash" style="color: white"></i> <span data-zh="删除" style="color: white">删除</span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>

@@ -1,0 +1,35 @@
+<table>
+	<tr>
+		<td width="15%" rowspan="4">
+			<a href="javascript:UserUtils.replaceUserHeadImgPage('{{item.id}}')"><img id="headImgId" gender="{{gender}}" src="uam/getHeadImg?userId={{item.id}}&random={{random}}" onError='Global.onIconError(this)' style="border: 1px solid #DBDBDB;width:140px;height:185px;"></a>
+		</td>
+		<td width="75%"><font class="user-name">{{item.name}}</font></td>
+		<!-- <td width="10%">
+			<button onclick="MyInfo.editUserHeadPage('{{item.id}}')" class="btn btn-primary" type="button"><i class="fa fa-edit" style="color: white;"></i>编辑</button>
+		</td> -->
+	</tr>
+	<tr>
+		<td colspan="2">
+		<!-- 判断党员是否为空 -->
+		{%if item.partyMember!=null and item.partyMember.ccparty!=null%}
+			<!-- 换届选举信息是否存担任职务 -->
+			{{item.partyMember.ccparty.name}}
+			{%if item.partyMember.electionMemberTitle%}
+				-{{item.partyMember.electionMemberTitle}}				
+			{%endif%}
+		{%else%}
+			{{item.organization.name}}
+		{%endif%}
+		</td>
+	</tr>
+	<tr>
+		{%if item.partyMember!=null%}
+			<td colspan="2">{{getEnumName('obt_party_member.type.'+item.partyMember.type)}} | 党龄 {{item.partyAge}}年 </td>
+		{%else%}
+			<td colspan="2">普通群众</td>
+		{%endif%}
+	</tr>
+	<tr>
+		<td colspan="2">登录次数：{{item.loginCount}}次，上次于{{item.lastLoginTime}}登录过本系统。</td>
+	</tr>
+</table>

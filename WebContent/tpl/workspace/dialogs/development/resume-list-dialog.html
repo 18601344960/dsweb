@@ -1,0 +1,54 @@
+<!-- 
+	@description 党内职务履历信息弹框
+	@author 赵子靖
+	@since 2015-12-03
+-->
+<div class="modal fade" id="resume-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 850px;">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">单位、职务信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<table id="resume-table" data-url="obt/loadPartymemberResumeByUserId" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="false" data-show-refresh="false"
+						data-click-to-select="true" data-pagination="true">
+						<thead>
+							<tr>
+						    	<th data-radio="true"></th>
+						        <th data-field="id" data-visible="false">主键</th>
+						        <th data-field="party" data-align="left" data-sortable="true">党组织</th>
+						        <th data-field="startTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">起始时间</th>
+						        <th data-field="endTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">截止时间</th>
+						        <th data-field="position" >职务</th>
+						        <th data-field="id" data-formatter="PartyMemberResume.deleteOperator" data-width="50">操作</th>
+						    </tr>
+						</thead>
+						</tbody>
+					</table>
+				</form>
+				<div class="development-maintain">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<input type="hidden" id="id" value="{{id}}"/>
+						<tr>
+							<td style="text-align: right;color: red">*任职组织：</td>
+							<td><input type="text" id="party" class='form-control' maxlength="50" value="{{party}}"></td>
+							<td style="text-align: right;color: red">*担任职务：</td>
+							<td><input type="text" class="form-control" id="position" value="{{position}}" /></td>
+						</tr>
+						<tr>
+							<td width="20%" style="text-align: right; color: red">*批准任职日期：</td>
+							<td width="30%"><input id="startTime" type="text" class='form-control' value="{{startTime}}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></td>
+							<td width="20%" style="text-align: right;" >批准免职日期：</td>
+							<td width="30%"><input id="endTime" type="text" class='form-control' value="{{endTime}}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></td>
+						</tr>
+					</table>
+					<div style="text-align: center; padding: 10px;">
+						<button type="button" class="btn btn-primary" onclick="PartyMemberResume.addResume()">增加/保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

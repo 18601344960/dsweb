@@ -1,0 +1,185 @@
+@CHARSET "UTF-8";
+
+.info-table {
+    border: 1px solid #f88793;
+    border-collapse: collapse;
+    color: #e4e4e4;
+    font-size: 16px;
+    margin: 0 auto 14px;
+    width: 100%;
+}
+
+
+.info-table THEAD TR {
+    background-image: url("../images/table_title_bg_grey.png");
+    color: #373737;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.info-table TR {
+    border: 1px solid #f88793;
+}
+
+
+.info-table TBODY TR {
+    background-color: #fff;
+    color: #373737;
+    height: 30px;
+    line-height: 30px;
+}
+
+.info-table tbody tr .td-align-left {
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-table TBODY TR TD {
+    color: #373737;
+    padding: 4px;
+    text-align: center;
+}
+
+.info-table TBODY TR TD a {
+    color: #373737;
+    float: left;
+    text-align: center;
+}
+.info-table TBODY TR:hover {
+	BACKGROUND-COLOR: #FFFAD0;
+	color: #000;
+}
+
+button {
+    background-color: #f4bd55;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    color: #1e1e1e;
+    text-decoration: none;
+}
+button:hover {
+	color: #000000;
+	text-decoration: none;
+	background-color: #FEE84B;
+	border: 1px solid #000000;
+	border-radius: 5px;
+}
+
+/****************************文章内容样式****************************/
+.main {
+	margin: 0px auto;
+	width: 1000px;
+	background-color: #fff;
+	min-height:500px;
+}
+.main .gongzuofa {
+	padding: 20px 50px;
+	text-align: center;
+}
+.main .gongzuofa h1 {
+	font-size: 70px;
+	margin: 0px;
+}
+.main .gongzuofa .xue {
+	font-size: 24px;
+}
+
+.main .gongzuofa div p {
+	text-align: left;
+	font-size: 18px;
+	text-indent: 2em;
+	line-height: 180%;
+}
+.main .gongzuofa .xue p {
+	font-size: 24px;
+}
+.main .gongzuofa .xue p i {
+	font-family: "楷体";
+	font-size: 36px;
+	font-style: normal;
+	color: #C5050B;
+}
+
+
+.main .gongzuofa .input-div {
+	text-align: left;
+	height: 30px;
+	font-size: 14px;
+}
+
+.main .gongzuofa div .g-button {
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #F88793;
+	font-size: 16px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	border: 3px solid #C5050B;
+	border-radius: 10px;
+	height: 60px;
+	width: 100px;
+}
+.main .gongzuofa .gongzuofa-button {
+	margin-top: 60px;
+}
+.main .gongzuofa .art-list {
+	list-style-type: disc;
+	text-align: left;
+}
+.main .gongzuofa .art-list li {
+	font-size: 14px;
+	height: 24px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #C9C9C9;
+	padding-top: 8px;
+	list-style-position: inside;
+}
+.main .gongzuofa .art-list li span {
+	float: right;
+	margin-left: 15px;
+}
+.main .gongzuofa .art-list li b {
+	background-image: url(../images/tuij.png);
+	background-repeat: no-repeat;
+	height: 22px;
+	width: 22px;
+	display: block;
+	float: left;
+	margin-left: 8px;
+}
+
+.main .gongzuofa .art-list li a {
+	font-size: 14px;
+	color: #313131;
+	text-decoration: none;
+	float: left;
+}
+.main .gongzuofa .art-list li a:hover {
+	font-size: 14px;
+	color: #C5050B;
+	text-decoration: none;
+}
+.main .gongzuofa .neirong {
+	min-height: 400px;
+}
+.main .gongzuofa .art-info {
+	line-height: 30px;
+}
+.main .gongzuofa .art-info span {
+	font-size: 14px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.main .gongzuofa .callback dl dt {
+	border: 1px solid #9C9C9C;
+	text-align: left;
+}

@@ -1,0 +1,85 @@
+<!-- 
+	@description 添加换届选举领导班子成员模板
+	@author 易文俊
+	@since 2015-08-01
+-->
+<div class="modal fade" id="add-election-member-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog modal-lg">
+		<input type="hidden" id="flag" value="in" />
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">添加领导班子成员</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div id="election-member-buttons" style="height: 30px; margin-top: 10px; width: 100%;">
+						<div style="float: left; width: 30%;">
+							<button id="systemOut" onclick="Election.switchOperator('out')" type="button" class="btn btn-default">添加系统外成员</button>
+							<button id="systemIn" onclick="Election.switchOperator('in')" type="button" class="btn btn-default" style="display: none;">添加系统内成员</button>
+						</div>
+						<div style="float: left; width: 70%;" id="systemInButton">
+							<button title="搜索" onclick="Election.loadElectionMember()" type="button" class="btn btn-default" style="width: 50px; height: 32px; float: right; margin-right: 5px;">
+								<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+							</button>
+							<input type="text" id="search" class="form-control" style="width: 150px; float: right; margin-right: 20px;" onkeyup="Election.loadElectionMember()" placeholder="输入姓名搜索" /> <label
+								style="float: right; width: 80px; text-align: right; line-height: 32px;">姓名：</label> 
+							<div style="width: 220px; float: right; margin-left: 5px;">
+								<input type="text" id="searchCcpartyId" name="searchCcpartyId" class="form-control" style="cursor: pointer;width: 200px;" placeholder="选择组织搜索" readonly="readonly" value="" ids="" />
+								<div id="searchCcpartyMenuContent" class="menuContent" style="display: none; position: absolute; z-index: 100001; background-color: white; width: 200px; overflow: auto; border: 1px solid #D3D3D3;">
+									<div style="float: right; padding: 3px;">
+										<a href="javascript:Election.initCcpartyId()" class="btn btn-default btn-xs"><i class="fa fa-times-circle-o"></i>清空</a>
+									</div>
+									<hr style="margin-top: 30px;">
+									<ul id="search-ccparty-tree" class="ztree" style="height: 400px;"></ul>
+								</div>
+							</div>
+							<label class="checkbox inline" style="float: right; margin-left: 5px;">组织：</label>
+						</div>
+					</div>
+					<div style="height: 10px; width: 100%;"></div>
+					<div id="systemInTable">
+						<table id="all-party-member-table" data-url="org/getAllPartyMembersByCcpartyId" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-click-to-select="true"
+							data-pagination="true" data-search="false">
+							<thead>
+								<tr>
+									<th data-radio="true"></th>
+									<th data-field="id" data-visible="false">主键</th>
+									<th data-align="center" data-field="name">姓名</th>
+									<th data-align="center" data-field="gender" data-formatter="Election.genderFormatter">性别</th>
+									<th data-align="center" data-field="partyMember" data-formatter="Election.typeFormatter">发展阶段</th>
+									<th data-field="partyMember" data-formatter="Election.ccpartyFormatter">所在党支部</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div id="systemOutTable" style="display: none;">
+						<div class="form-group">
+							<label for="startTime" class="col-sm-2 control-label">姓名</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="userName" placeholder="姓名">
+							</div>
+							<label for="endTime" class="col-sm-2 control-label">性别</label>
+							<div class="col-sm-4" style="margin-top: 5px;">
+								<input type="radio" value="1" name="sex" checked="checked">男 <input type="radio" value="2" name="sex">女
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="startTime" class="col-sm-2 control-label">出生日期</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="birthDay" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<span style="color:red;">（添加成功后请点击编辑按钮选择党内职务）</span>
+				<button class="btn btn-default" onclick="Election.addElectionMember('{{electionId}}')">
+					<i class="glyphicon glyphicon-floppy-disk"></i> <span>确认添加</span>
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>

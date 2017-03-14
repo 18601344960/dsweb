@@ -1,0 +1,77 @@
+<!-- 
+	@description 单位职务或职业信息弹框
+	@author 赵子靖
+	@since 2016-01-23
+-->
+<div class="modal fade" id="user-position-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 850px;">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">单位、职务或职业信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<table id="user-position-table" data-url="obt/getUserPositions" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="false" data-show-refresh="false"
+						data-click-to-select="true" data-pagination="true">
+						<thead>
+							<tr>
+						    	<th data-radio="true"></th>
+						        <th data-field="id" data-visible="false">主键</th>
+						        <th data-field="institution" data-align="left">任职机构</th>
+						        <th data-field="title" data-formatter="UserPosition.titleFormatter">职务名称</th>
+						        <th data-field="level" data-formatter="UserPosition.levelFormatter">职务级别</th>
+						        <th data-field="startDate" data-formatter="JSUtils.dateFormatToYYYYMMDD">批准任职日期</th>
+						        <th data-field="endDate" data-formatter="JSUtils.dateFormatToYYYYMMDD">批准免职日期</th>
+						        <th data-field="id" data-formatter="UserPosition.deleteOperator" data-width="120" data-align='center'>操作</th>
+						    </tr>
+						</thead>
+						</tbody>
+					</table>
+				</form>
+				<div class="development-maintain">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<input type="hidden" id="id" value="{{id}}"/>
+						<tr>
+							<td style="text-align: right;color: red">*任职机构：</td>
+							<td><input type="text" id="institution" class='form-control' maxlength="50" value="{{institution}}"></td>
+							<td style="text-align: right;color: red">*职务名称：</td>
+							<td>
+								<input type="text" class="form-control hidden" id="titleId" value="" /> 
+								<input type="text" class="form-control" id="titleName" placeholder="请填选职务名称" onclick="SelectTree.selectTree('title')" readonly="readonly" onfocus="SelectTree.initSelectTree('#title-tree', 'sys/getCodeTreeByParentId', 'A070102')"/>
+								<div id="titleContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+									<ul id="title-tree" class="ztree" style="margin-top: 0; height: 400px;">
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td width="20%" style="text-align: right; color: red">*职务级别：</td>
+							<td width="30%">
+								<input type="text" class="form-control hidden" id="levelId" value="" /> 
+								<input type="text" class="form-control" id="levelName" placeholder="请填选职务级别" onclick="SelectTree.selectTree('level')" readonly="readonly" onfocus=" SelectTree.initSelectTree('#level-tree', 'sys/getCodeTreeByParentId', 'A070104')"/>
+								<div id="levelContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+									<ul id="level-tree" class="ztree" style="margin-top: 0; height: 400px;">
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td width="20%" style="text-align: right;">批准免职日期：</td>
+							<td width="30%">
+								<input type="text" class="form-control" id="startDate" placeholder="请选择批准任职日期" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+							</td>
+							<td width="20%" style="text-align: right;" >批准免职日期：</td>
+							<td width="30%">
+								<input type="text" class='form-control' id="endDate" placeholder="请选择批准免职日期" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+							</td>
+						</tr>
+					</table>
+					<div style="text-align: center; padding: 10px;">
+						<button type="button" class="btn btn-primary" onclick="UserPosition.saveOrUpdateUserPosition()">增加/保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

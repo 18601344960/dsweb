@@ -1,0 +1,29 @@
+<!-- 简答题弹出框 -->
+<div class="modal fade" id="subject-question-dialog" tabindex="-1" role="dialog" data-backdrop="" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button style="float: right" data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+        <h4 class="modal-title" >{{dialogTitle}}</h4>
+      </div>
+      <div class="modal-body dialog_table">
+      	<table id="subject_question_table">
+      		<input type="hidden" id="id" value="{{id}}">
+      		<tr>
+      			<td align="right">题目标题<b style="color: red">*</b>：</td>
+      			<td align="left"><textarea id="subject_question_title" rows="3" class='form-control'>{{title}}</textarea></td>
+      			<td><input type="checkbox" checked="checked" id="subject_isMust" name="subject_isMust"/>是否必答题</td>
+      		</tr>
+      		<tr>
+      			<td align="right">显示顺序：</td>
+      			<td><input type="text" class='form-control' id="seq" value="{{sequence}}"/></td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="AssessmentTopic.addOrUpdateSubjectQuestion()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

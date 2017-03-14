@@ -1,0 +1,87 @@
+<!-- 
+	@description  基层党委审批对话框
+	@author 赵子靖
+	@since 2015-12-25
+-->
+<div class="modal fade" id="proposer-0208-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 700px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">基层党委审批  </h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentProcedure.nextStepDevelopmentProcedureDialog('{{id}}','0207')">
+						<i class="fa fa-level-up"></i> <span data-zh="上一步">上一步</span>
+					</button>
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentStepHandle.saveOrUpdate0208Info()">
+						<i class="glyphicon glyphicon-floppy-save"></i> <span data-zh="保存并下一步">保存并下一步</span>
+					</button>
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentProcedure.nextStepDevelopmentProcedureDialog('{{id}}','0301')">
+						<i class="fa fa-level-down"></i> <span data-zh="下一步">下一步</span>
+					</button>
+				</div>
+				<table cellspacing="0" cellpadding="0" border="3" class="development-manager-table">
+					<input type="hidden" id="partymemberId" value="{{id}}" />
+					<input type="hidden" id="procedureId" value="0207" />
+					<tr>
+						<td>姓名</td>
+						<td>
+							{{user.name}}
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">上级审批组织</td>
+						<td>
+							<input type="text" class="form-control" id="superiorAuditOrg13" value="{{getDate(developmentInfo.superiorAuditOrg13)}}" />
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #87CEFA">审查时间</td>
+						<td>
+							<input type="text" class="form-control" id="auditDate13" value="{{getDate(developmentInfo.auditDate13)}}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #87CEFA">审查结果</td>
+						<td>
+							<select id="auditResult13" class="form-control">
+								<option value="0">同意</option>
+								<option value="1">不同意</option>
+								<option value="2">暂缓</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">是否为一线特殊发展党员</td>
+						<td>
+							<select id="isSpecialPartymember13" class="form-control">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">是否特殊情况下提高审批权限发展</td>
+						<td>
+							<select id="isSpecialMaxPrivilege13" class="form-control">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<div class="development-manager-explain">
+					<label style="float: right;">选填项</label>
+					<div style="background-color: #CCCCCC; width: 20px; height: 20px;float: right"></div>
+					<label style="float: right">必填项</label>
+					<div style="background-color: #87CEFA; width: 20px; height: 20px;float: right"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 维护项弹框DIV -->
+<div id="maintainDialogs"></div>

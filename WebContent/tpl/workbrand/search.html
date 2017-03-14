@@ -1,0 +1,55 @@
+<table class="search-table">
+	<tr style="line-height: 25px;">
+		<td>工作步骤</td>
+		<td>
+			<div class="search-step-div">
+				{%for item in steps%}
+					<a class="search-step" onclick="WorkBrand.clickStep('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+				{%endfor%}
+			</div>
+		</td>
+	</tr>
+	<tr style="line-height: 25px;">
+		<td>组织生活</td>
+		<td>
+			<div class="search-format-div">
+				{%for item in formats%}
+					<a class="search-format" onclick="WorkBrand.clickFormat('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+				{%endfor%}
+			</div>
+		</td>
+	</tr>
+	<tr style="line-height: 25px;">
+		<td>工作品牌</td>
+		<td>
+			<div class="search-label-div">
+				{%for item in labels%}
+					<a class="search-label" onclick="WorkBrand.clickLabel('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+				{%endfor%}
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="width: 20%">主题</td>
+		<td style="width: 80%">
+			<input id="name" type="text" class="form-control" value="{{name}}" onkeyup="WorkBrand.searchName(this.value)" placeholder="工作主题">
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="3">日期</td>
+		<td>
+			<input id="beginTime" type="text" class="form-control" placeholder="工作起始日期" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}',onpicked:function() {WorkBrand.searchDate()}})">
+		</td>
+	</tr>
+	<tr style="height: 5px;"></tr>
+	<tr>
+		<td>
+			<input id="endTime" type="text" class="form-control" placeholder="工作截止日期" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'beginTime\')}',onpicked:function() {WorkBrand.searchDate()}})">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<button onclick="WorkBrand.resetSearch()" class="btn btn-default" type="button" style="margin-top:20px;margin-bottom:50px;">重置</button>
+		</td>
+	</tr>
+</table>

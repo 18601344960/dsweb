@@ -1,0 +1,34 @@
+<!-- 
+	@description 选择换届选举领导班子成员模板
+	@author 易文俊
+	@since 2015-07-02
+-->
+<div class="modal fade" id="election-member-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">选择领导班子成员</h4>
+			</div>
+			<div class="modal-body">
+				<!-- 菜单按钮 -->
+				<div id="election-member-buttons" class="btn-group">
+					<button class="btn btn-default" onclick="Election.saveElectionMember()">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存" data-es="import">保存</span>
+					</button>
+				</div>
+				<!-- table列表 -->
+				<table id="election-member-table" data-toolbar="#election-member-buttons" data-click-to-select="true" data-search="true">
+					<thead>
+						<tr>
+							<th data-checkbox="true"></th>
+							<th data-field="ccpartyName">党组织</th>
+							<th data-field="userId" data-visible="false">ID</th>
+							<th data-field="userName" data-align="left">姓名</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

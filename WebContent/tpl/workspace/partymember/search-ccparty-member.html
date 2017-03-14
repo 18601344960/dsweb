@@ -1,0 +1,27 @@
+<!-- 
+	@description 查找党员
+	@author 易文俊
+	@since 2016-10-08
+-->
+<div>
+	<input type="text" id="search-name" class="form-control" style="width: 200px; float: right;" onkeyup="CcpartyLeader.searchCcpartyMember()" placeholder="输入姓名搜索" /> <label
+		style="float: right; width: 80px; text-align: right; line-height: 32px;">姓名：</label>
+</div>
+<table id="search-ccparty-member-table" data-url="org/getAllPartyMembersByCcpartyId" data-toolbar="#" data-page-list="[5, 10, 20, 50, 100, 200]" data-pagination="true" data-side-pagination="server"
+	data-click-to-select="true">
+	<thead>
+		<tr>
+			<th data-checkbox="true" data-visible="false"></th>
+			<th data-field="id" data-visible="false">主键</th>
+			<th data-align="center" data-field="name">姓名</th>
+			<th data-align="center" data-field="gender" data-formatter="CcpartyLeader.genderFormatter">性别</th>
+			<th data-align="center" data-width="90" data-field="birthDay" data-formatter="CcpartyLeader.birthDayFormatter">出生年月</th>
+			<th data-align="center" data-width="90" data-field="nation" data-formatter="CcpartyLeader.nationFormatter">民族</th>
+			<th data-align="center" data-width="100" data-field="birthPlace" data-formatter="CcpartyLeader.birthPlaceFormatter">籍贯</th>
+			<th data-align="left" data-width="120" data-field="jobTitle">行政职务</th>
+			<th data-align="center" data-width="100" data-field="officePhone">办公电话</th>
+			<th data-align="center" data-width="100" data-field="mobile">手机</th>
+			<th data-field="partyMember" data-formatter="CcpartyLeader.ccpartyFormatter">所在党支部</th>
+		</tr>
+	</thead>
+</table>

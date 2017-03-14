@@ -1,0 +1,16 @@
+{%for row in rows%}
+<div class="party-leader-info-user" title="查看详情" onclick="CcpartyLeader.showPartyMemberInfoDialog('{{row.userId}}')" >
+	<img id="headImgId" src="uam/getHeadImg?userId={{row.userId}}" gender="{{row.user.gender}}" onError='Global.onIconError(this)' style="border: 1px solid #DBDBDB; width: 125px; height: 155px;">
+	<br/> 
+	<label style="margin-bottom: 0px;font-weight: bolder;">{{row.userName}}</label><br/>
+	<label style="margin-bottom: 0px;">
+			{%for title in row.memberTitles%}
+				{%if title.code%}
+					{{title.code.name}}
+					{%if loop.last==false%}、{%endif%}
+				{%endif%}
+			{%endfor%}
+	</label> 
+</div>
+{%endfor%}
+<div class="clear"></div>

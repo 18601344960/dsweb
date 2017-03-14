@@ -1,0 +1,48 @@
+<!-- 
+	@description 党费使用
+	@author 王钱俊
+	@since 2015-09-20
+-->
+<div class="modal fade" id="edit-special-fee-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">特殊党费编辑</h4>
+			</div>
+			<div class="modal-body">
+			<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="add-notice-btn" onclick="PartyFee.saveEditSpecialFee()">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+					</button>
+			</div>
+			<hr style="margin: 10px 0">
+			<form class="form-horizontal">
+			<input id="special-id"  value="{{id}}" class="form-control"  type=hidden />	
+			<div class="form-group">
+				<label class="col-sm-3 control-label">缴纳人</label>
+				<div class="col-sm-5">
+					<input type="text" id="targets" ids="{{targets}}" value="{{targets}}" class="form-control" readonly= "true "/>
+				    <!-- <div id="userTreeContent" class="menuContent" style="display:none;width:220px; position: absolute;background-color: white;overflow:auto; border:1px solid #D3D3D3;z-index: 11000;">
+				     	<ul id="use-tree" class="ztree" style="margin-top:0;height: 400px;">
+						</ul>
+					</div> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">金额</label>
+				<div class="col-sm-5">
+					<input id="special-amount" value="{{amount}}" class="form-control" type="text" placeholder="缴纳金额"/>	
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">备注</label>
+				<div class="col-sm-9">
+					<textarea rows="" cols="" id = "special-remark" class = "form-control form-control-largepay" ></textarea>
+				</div>
+			</div>
+	 	 </form>
+	  </div>
+	</div>
+</div>
+</div>

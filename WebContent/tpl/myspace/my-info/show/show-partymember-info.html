@@ -1,0 +1,48 @@
+<table class="my-info-content-first-table">
+	<tr>
+		<td width="5%" style="text-align: center;"><i
+			class="partymember-info-icon"></i></td>
+		<td width="85%" class="head-title">党员信息</td>
+		<td width="10%">
+			<button onclick="MyInfo.editPartymemberInfoPage('{{item.id}}')" class="btn btn-primary" type="button"><i class="fa fa-edit" style="color: white;"></i>编辑</button>
+		</td>
+	</tr>
+</table>
+<table class="my-info-content-two-table">
+	<tr>
+		<td width="20%" style="text-align: right;">加入当前组织日期：</td>
+		<td width="25%">{{getDate(item.partyMember.joinCurrentTime)}}</td>
+		<td width="20%" style="text-align: right;">加入当前组织形式：</td>
+		<td width="25%">{{getEnumName('obt_party_member.joinType.'+item.partyMember.joinType)}}</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">积极分子日期：</td>
+		<td width="25%">{{getDate(item.partyMember.activistTime)}}</td>
+		<td width="20%" style="text-align: right;">申请入党日期：</td>
+		<td width="25%">{{getDate(item.partyMember.applyTime)}}</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">发展对象日期：</td>
+		<td width="25%">{{getDate(item.partyMember.targetTime)}}</td>
+		<td width="20%" style="text-align: right;">培养联系人：</td>
+		<td width="25%">{{item.partyMember.trainer}}</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">大会通过日期：</td>
+		<td width="25%">{{getDate(item.partyMember.passTime)}}</td>
+		<td width="20%" style="text-align: right;">组织批准日期：</td>
+		<td width="25%">{{getDate(item.partyMember.auditTime)}}</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">入党日期：</td>
+		<td width="25%">{{item.partyMember.joinTime}}</td>
+		<td width="20%" style="text-align: right;">月缴党费(元)：</td>
+		<td width="25%">{{item.partyMember.fee}}</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">入党介绍人：</td>
+		<td width="25%">{{item.partyMember.introducer}}</td>
+		<td width="20%" style="text-align: right;">组织生活情况：</td>
+		<td width="25%">{{getEnumName('obt_party_member.joinActivity.'+item.partyMember.joinActivity)}}</td>
+	</tr>
+</table>

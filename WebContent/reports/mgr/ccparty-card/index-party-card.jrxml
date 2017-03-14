@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="index-party-card" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="50" bottomMargin="50" uuid="91985368-6c5d-40de-9cbd-0027742cd67c">
+	<property name="ireport.zoom" value="1.2396694214876032"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="322"/>
+	<parameter name="year" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ZBMC" class="java.lang.String"/>
+	<title>
+		<band height="38">
+			<staticText>
+				<reportElement x="445" y="0" width="90" height="19" forecolor="#000000" uuid="f40ac5d3-7e5b-4c39-997c-e29b2c0e6f1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[党内资料]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="19" width="90" height="19" forecolor="#000000" uuid="a172388d-3023-4caf-9473-7d345fabea49"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[注意保密]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="539" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="257" isPrintWhenDetailOverflows="true" uuid="a7c64691-b376-4dac-8198-63a717a3549e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="华文楷体" size="40" isBold="true" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[党 支 部 工 作 手 册]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="257" width="535" height="59" isPrintWhenDetailOverflows="true" uuid="24f7eb86-6da8-4ac2-b92b-0e179f245e5c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="宋体" size="20" isBold="true" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA["( "+$P{year} + "年 )"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="0" y="316" width="535" height="223" isPrintWhenDetailOverflows="true" uuid="755750a2-877a-4a4c-a249-146a9a23aa72"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="宋体" size="22" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="2.0" tabStopWidth="40"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ZBMC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

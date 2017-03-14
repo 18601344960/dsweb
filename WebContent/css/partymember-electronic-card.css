@@ -1,0 +1,347 @@
+@CHARSET "UTF-8";
+/************************党员电子活动证***************************/
+.cover-1{
+	height: 70px;
+	text-align: center;
+	margin-top: 140px;
+	font-size: 35px;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.cover-2{
+	height: 70px;
+	text-align: center;
+	margin-top: 140px;
+	font-size: 45px;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.cover-3{
+	height: 240px;
+	margin-top: 60px;
+	text-align: center;
+	font-size: 1em;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.cover-4{
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.index-1{
+	height: 60px;
+	text-align: center;
+	margin-top: 80px;
+	font-size: 20px;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.index-li{
+	height: 50px;
+	text-align: center;
+	font-size: 21px;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.index-li a:link {color: #DAA520} /* 未访问的链接 */
+.index-li a:visited {color: #DAA520} /* 已访问的链接 */
+.index-li a:hover {color: #EEC900} /* 鼠标移动到链接上 */
+.index-li a:active {color: #EEC900} /* 选定的链接 */
+.card-info-table{
+	width: 90%;
+	margin-left:23px;
+}
+.card-info-table tr{
+	height: 32px;
+}
+.card-info-table tr td{
+	font-size: 15px;
+	font-family: cursive;
+}
+.card-info-table tr td a{
+	font-family: cursive;
+}
+.cover-over-1{
+	height: 30px;
+	text-align: center;
+	margin-top: 255px;
+	font-size: 1.5em;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.cover-over-2{
+	height: 30px;
+	text-align: center;
+	font-size: 1.5em;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bold;
+}
+.card-info-table p{
+	width: 85%; 
+	margin-left: 40px; 
+	text-indent: 2em; 
+	font-family: cursive;
+}
+.join-party-info{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-image: url('../images/cards/card-join-party-info.jpg');
+	background-repeat:no-repeat;
+    background-size:100%;
+}
+.party-banner{
+	margin-top:50px;
+}
+.join-party-info ul{
+	margin-top: 530px;
+	width: 100%;
+}
+.join-party-info ul li{
+	float: right;
+	font-size: 1.8em;
+	color: #DAA520;
+	font-family: cursive;
+	font-weight: bolder;
+}
+.card-description-table{
+	width: 90%;
+	margin-left:23px;
+}
+.card-description-table tr{
+	height: 32px;
+}
+.card-description-table tr td{
+	font-family: cursive;
+	font-size: 20px;
+}
+.card-description-table p{
+	width: 85%; 
+	margin-left: 40px; 
+	text-indent: 2em; 
+	font-family: cursive;
+	line-height: 40px;
+}
+.honesty-rules-table{
+	width: 90%;
+	margin-left:23px;
+}
+.honesty-rules-table tr{
+	height: 32px;
+}
+.honesty-rules-table tr td{
+	font-family: cursive;
+	font-size: 20px;
+}
+.honesty-rules-table p{
+	width: 100%; 
+	margin-left: 5px; 
+	text-indent: 2em; 
+	font-family: cursive;
+	line-height: 14px;
+	font-size: 19px;
+}
+.education-info{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-image: url('../images/cards/education.jpg');
+	background-repeat:no-repeat;
+    background-size:100%;
+}
+
+
+
+
+.ccparty-card-table{
+	width: 90%;
+	margin-left:23px;
+}
+.ccparty-card-table tr{
+	height: 32px;
+}
+.ccparty-card-table tr td{
+	font-size: 15px;
+	font-family: cursive;
+}
+.ccparty-card-table tr td a{
+	font-family: cursive;
+}
+.ccparty-card-table p{
+	margin-left: 40px; 
+	text-indent: 2em; 
+	line-height: 28px;
+	font-family: cursive;
+}
+.ccparty-card-table tr td div ul li b{
+	font-family: cursive;
+}
+.ccparty-card-table tr td div ul li{
+	font-family: cursive;
+}
+#circle{
+	width: 10px;
+    height: 10px;
+    background: #00CD00;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.partymember-info-table tr{
+	height: 40px;
+}
+.partymember-info-table tr td{
+	font-size: 15px;
+	font-family: cursive;
+}
+.partymember-info-table tr td a{
+	font-family: cursive;
+}
+.category {
+	background-color: #d37166;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.step {
+	background-color: #a06bad;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.format{
+	background-color: #64ADDA;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.card-party-fee-table{
+	border-collapse:collapse;  
+	width: 85%;
+	margin: 10px auto;
+	text-align: center;
+}
+.card-party-fee-table tr{
+	line-height: 30px;
+}
+.card-party-fee-table tr td{
+	padding: 0px;
+	empty-cells : show  ;
+}
+
+/************************电子活动证搜索样式***************************/
+.card-search{
+	text-align: center;
+}
+.card-search-icon{
+	width: 100%;
+}
+.card-search-icon i{
+	font-size: 25px;
+	cursor: pointer;
+}
+.card-search-icon i:HOVER{
+	color: red;
+	cursor: pointer;
+}
+.card-search-tips{
+	font-size: 10px;	
+	color: #CCCCCC;
+}
+.show-card-serch{
+	width: 100%;
+}
+.card-search fieldset {
+	padding:10px;
+	margin:10px;
+	border:#CCCCCC solid 1px;
+	border-radius:5px;
+	text-align: left;
+} 
+.card-search legend {
+	width:100px;
+	font-size:17px;
+	border-bottom: 0px;
+} 
+.card-search-config-table{
+	width: 100%;
+}
+
+
+/***
+Notes
+***/
+
+/* Common styles for all types */
+.note {
+  margin: 0 0 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+
+.note h1,
+.note h2,
+.note h3,
+.note h4 {
+  margin-top: 0;
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+.note code,
+.note .highlight {
+  background-color: #fff;
+}
+
+/* Variations */
+.note-danger {
+  background-color: #FAEAE6;
+  border-color: #ed4e2a;
+}
+
+.note-warning {
+  background-color: #FCF3E1;
+  border-color: #fcb322;
+}
+
+.note-info {
+  background-color: #E8F6FC;
+  border-color: #57b5e3;
+}
+
+.note-success {
+  background-color: #EBFCEE;
+  border-color: #3cc051;
+}
+
+h1.block, 
+h2.block, 
+h3.block, 
+h4.block, 
+h5.block, 
+h6.block {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,20 @@
+<!-- 
+	@description 党员手册-目录
+	@author 赵子靖
+	@since 2015-08-19
+-->
+
+<ul>
+	<li class="index-1">目录(共{{page.pages}}页)</li>
+	{%if cardConfig%}
+		{%for config in cardConfig%}
+			{%if config==1%}
+				<li class="index-li"><a href="#page/{{page.baseInfoBeginPage}}" style="font-family: cursive;">基本信息篇  ------------------- {{page.baseInfoBeginPage}}</a></li>
+			{%elif config==2%}
+				<li class="index-li"><a href="#page/{{page.partyFeeBeginPage}}" style="font-family: cursive;">党费收缴篇 ------------------- {{page.partyFeeBeginPage}}</a></li>
+			{%elif config==3%}
+				<li class="index-li"><a href="#page/{{page.activityBeginPage}}" style="font-family: cursive;">组织生活篇 ------------------- {{page.activityBeginPage}}</a></li>
+			{%endif%}
+		{%endfor%}
+	{%endif%}
+</ul>

@@ -1,0 +1,60 @@
+<!-- 修改答题答卷 -->
+<div class="modal fade" id="update-assessment-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 800px;">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">修改答题答卷</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="form-group hidden">
+                         <label for="id" class="col-sm-2 control-label">ID</label>
+                         <div class="col-sm-10">
+                               <input type="text" class="form-control" id="id" value="{{id}}">
+                         </div>
+                    </div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label"><strong>答卷名称<font style="color:red;font-weight: bolder;">*</font></strong></label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="name" placeholder="答题答卷的主题" value="{{name}}" maxlength="36">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label"><strong>有无截止日期</strong></label>
+						<div class="col-sm-4">
+							<label class="radio-inline" ><input type="radio" name="isExpiry" value="0" onchange="Assessment.isExpiryChange('0')" checked="checked">无</label>
+							<label class="radio-inline" ><input type="radio" name="isExpiry" value="1" onchange="Assessment.isExpiryChange('1')">有</label>
+						</div>
+						<div>
+							<label for="content" class="col-sm-2 control-label" id="endDateLabel" hidden="true"><strong>截止日期<font style="color:red;font-weight: bolder;">*</font></strong></label>
+							<div class="col-sm-4" id="endDateDiv" hidden="true">
+								<input type="text" class="form-control" id="endDate" placeholder="答卷的截止日期" value="{{getDate(endDate)}}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">参与单位<font style="color: red; font-weight: bolder;">*</font></label>
+						<div class="col-sm-10">
+							<ul id="ccparty-trees" class="ztree" style="max-height: 300px; border: 1px solid #E5E5E5;"></ul>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="content" class="col-sm-2 control-label">描述</label>
+						<div class="col-sm-10">
+							<textarea rows="4" cols="20" class="form-control" id="description" maxlength="2000" placeholder="相关描述信息">{{description}}</textarea>
+						</div>
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button class="btn btn-primary" id="save-button" onclick="Assessment.updateAssessment()">
+						<i class="glyphicon glyphicon-floppy-saved" style="color: white;"></i> <span data-zh="保存" data-es="import" style="color: white;">保存</span>
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<i class="fa fa-undo"></i>取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

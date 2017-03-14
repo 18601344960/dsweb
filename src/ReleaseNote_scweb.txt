@@ -1,0 +1,614 @@
+Version: 1.0.3 build201611
+Date:2016-11-
+Author:易文俊
+1.Improvement:登录历史增加删除历史功能
+
+Version: 1.0.2 build20161022
+Date:2016-10-22
+Author:易文俊
+1.Improvement:组织生活增加已发布样式
+2.New Feature:登录页面增加记住历史登录名和密码功能
+3.New Feature:组织生活自动计算参加人数
+	
+Author:赵子靖
+1.Improvement:组织生活发布范围默认为组织内部
+	ALTER TABLE `obt_conference` MODIFY COLUMN `SECRET_LEVEL`  int(1) NULL DEFAULT 0 COMMENT '密级：0组织内部；1本组织和上级；2公开' AFTER `PUBLISH_TIME`;
+2.Improvement:组织生活列表 增加批量发布、批量取消发布的操作。
+3.Improvement:组织生活详情增加上一篇、下一篇功能。
+
+Version: 1.0.1 build20161015
+Date:2016-10-15
+Author:易文俊
+1.New Feature:登录页面增加记住登录名功能
+2.Improvement:修改cookie的生命周期
+3.New Feature:党费收缴增加备注
+	ALTER TABLE `obt_party_fee` ADD COLUMN `REMARK`  varchar(512) NULL COMMENT '备注' AFTER `RECEIVE_DATE`;
+4.Improvement:新增工作记录可以直接选择组织者和参与人员，选择组织者和参与人员时列表分页并可按名字搜索
+5.Improvement:调整党员管理中的密码重置
+6.Improvement:入党介绍人1和入党介绍人2合并为入党介绍人一个字段
+	ALTER TABLE `obt_party_member`
+	DROP COLUMN `INTRODUCER_2`,
+	CHANGE COLUMN `INTRODUCER_1` `INTRODUCER`  varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '入党介绍人' AFTER `DEVELOPMENT_ID`;
+7.Improvement:党员管理基本信息和党籍信息合并一个页面显示
+8.Improvement:党员管理添加查找党员功能
+9.Fix Bug:修复添加党务干部选择radiobox无效的问题
+10.Improvement:文章预览页面完善
+11.New Feature:添加导航图标
+12.New Feature:增加记住密码功能
+13.Improvement:完善我的文章、我的评论和我的点赞
+14.Improvement:修改组织生活列表样式
+15.Improvement:修改头部样式
+16.Improvement:党籍信息去掉月缴党费和组织生活情况
+17.New Feature:增加脚部环境变量配置
+	INSERT INTO `sys_environment` (`ID`, `TYPE`, `VALUE`, `DESCRIPTION`) VALUES ('COPYRIGHT', '0', '中共中央国家机关工作委员会', '版权信息-版权所有者');
+	INSERT INTO `sys_environment` (`ID`, `TYPE`, `VALUE`, `DESCRIPTION`) VALUES ('TECHNICAL_TEL', '0', '010-64972014(分机202或204)', '技术支持电话');
+	INSERT INTO `sys_environment` (`ID`, `TYPE`, `VALUE`, `DESCRIPTION`) VALUES ('TECHNICAL_SUPPORT', '0', '交通运输部规划研究院', '技术支持单位');
+
+Author:赵子靖
+1.Fix Bug:修复管理中心角色权限分配，而已经拥有改权限的用户没有更新缓存，导致用户权限不重启缓存不一致问题。
+2.Improvement：组织生活详情页面去掉头部，增加返回按钮。
+3.Improvement：组织生活增加置顶。
+4.Improvement：ueditor编辑器增加字体。
+5.Improvement：答卷增加是否有截止日期
+	ALTER TABLE `pub_assessment` ADD COLUMN `IS_EXPIRY`  int NULL DEFAULT 1 COMMENT '是否有截止日期：0无1有' AFTER `DESCRIPTION`;
+    ALTER TABLE `pub_assessment_user` ADD COLUMN `CCPARTY_ID`  varchar(36) NULL DEFAULT NULL COMMENT '用户所在党组织' AFTER `ASSESSMENT_ID`;
+6.Improvement：答卷调整
+
+Author:杨兴
+1.Improvement：党费收缴增加备注项。
+2.Improvement：党费收缴签收人改为党务干部
+
+
+Version: 1.0.0 build20160824
+Date:2016-08-24
+Author:易文俊
+1.New Feature：增加组织生活形式表和组织生活组织者
+	CREATE TABLE `obt_conference_format` (
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `CONFERENCE_ID` varchar(36) NOT NULL COMMENT '文章ID',
+	  `CATEGORY_ID` varchar(36) NOT NULL COMMENT '形式ID',
+	  PRIMARY KEY (`ID`),
+	  KEY `PK_CONFERENCE_FORMAT_CATEGORY_ID` (`CATEGORY_ID`) USING BTREE,
+	  KEY `PK_CONFERENCE_FORMAT_CONFERENCE_ID` (`CONFERENCE_ID`) USING BTREE,
+	  CONSTRAINT `obt_conference_fortmat_ibfk_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `obt_conference_category` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+	  CONSTRAINT `obt_conference_fortmat_ibfk_2` FOREIGN KEY (`CONFERENCE_ID`) REFERENCES `obt_conference` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='组织生活形式表';
+
+	CREATE TABLE `obt_conference_orgnizer` (
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `CONFERENCE_ID` varchar(36) DEFAULT NULL COMMENT '组织生活ID',
+	  `TYPE` int(1) DEFAULT '0' COMMENT '人员类型：0系统内；1系统外',
+	  `USER_ID` varchar(36) DEFAULT NULL COMMENT '人员ID',
+	  `USER_NAME` varchar(36) DEFAULT NULL COMMENT '人员姓名',
+	  `ORDER_NO` int(11) DEFAULT '0' COMMENT '顺序号',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='组织生活组织者表';
+	
+2.Improvement：增加组织生活分类表内容
+	UPDATE `obt_conference_category` SET `NAME`='组织生活形式' WHERE (`ID`='A');
+	UPDATE `obt_conference_category` SET `NAME`='组织生活内容' WHERE (`ID`='B');
+	UPDATE `obt_conference_category` SET `NAME`='支部工作法' WHERE (`ID`='S');
+	UPDATE `obt_conference_category` SET `ID`='C' WHERE (`ID`='B');
+	UPDATE `obt_conference_category` SET `ID`='B' WHERE (`ID`='S');
+	UPDATE `obt_conference_category` SET `PARENT_ID`='C' WHERE (`PARENT_ID`='B');
+	UPDATE `obt_conference_category` SET `ID`='B001',`PARENT_ID`='B' WHERE (`ID`='S001');
+	UPDATE `obt_conference_category` SET `ID`='B002',`PARENT_ID`='B' WHERE (`ID`='S002');
+	UPDATE `obt_conference_category` SET `ID`='B003',`PARENT_ID`='B' WHERE (`ID`='S003');
+	UPDATE `obt_conference_category` SET `ID`='B004',`PARENT_ID`='B' WHERE (`ID`='S004');
+	UPDATE `obt_conference_category` SET `ID`='B005',`PARENT_ID`='B' WHERE (`ID`='S005');
+	
+	DELETE FROM `obt_conference_category` WHERE (`ID`='A011');
+	DELETE FROM `obt_conference_category` WHERE (`ID`='A010');
+	DELETE FROM `obt_conference_category` WHERE (`ID`='A009');
+	DELETE FROM `obt_conference_category` WHERE (`ID`='A008');
+	DELETE FROM `obt_conference_category` WHERE (`ID`='A007');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `CCPARTY_ID`, `DESCRIPTION`, `ORDER_NO`) VALUES ('B', '支部工作法', '0', '', NULL, NULL, '0');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `CCPARTY_ID`, `DESCRIPTION`, `ORDER_NO`) VALUES ('B001', '树立目标', '0', 'B', NULL, '树立目标', '1');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `CCPARTY_ID`, `DESCRIPTION`, `ORDER_NO`) VALUES ('B002', '查找问题', '0', 'B', NULL, '查找问题', '2');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `CCPARTY_ID`, `DESCRIPTION`, `ORDER_NO`) VALUES ('B003', '制定计划', '0', 'B', NULL, '制定计划', '3');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `CCPARTY_ID`, `DESCRIPTION`, `ORDER_NO`) VALUES ('B004', '解决问题', '0', 'B', NULL, '解决问题', '4');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `CCPARTY_ID`, `DESCRIPTION`, `ORDER_NO`) VALUES ('B005', '总结评议', '0', 'B', NULL, '总结评议', '5');
+	INSERT INTO `obt_conference_category` (`ID`, `NAME`, `TYPE`, `PARENT_ID`, `DESCRIPTION`) VALUES ('C001', '无分类', '0', 'C', '无分类');
+	
+3.New Feature:党费收缴表增加每月应缴党费字段
+	ALTER TABLE `obt_party_fee`
+	ADD COLUMN `JANUARY_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '一月应缴(元)' AFTER `PARTY_FEE`,
+	ADD COLUMN `FEBRUARY_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '二月应缴(元)' AFTER `JANUARY`,
+	ADD COLUMN `MARCH_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '三月应缴(元)' AFTER `FEBRUARY`,
+	ADD COLUMN `APRIL_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '四月应缴(元)' AFTER `MARCH`,
+	ADD COLUMN `MAY_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '五月应缴(元)' AFTER `APRIL`,
+	ADD COLUMN `JUNE_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '六月应缴(元)' AFTER `MAY`,
+	ADD COLUMN `JULY_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '七月应缴(元)' AFTER `JUNE`,
+	ADD COLUMN `AUGUST_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '八月应缴(元)' AFTER `JULY`,
+	ADD COLUMN `SEPTEMBER_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '九月应缴(元)' AFTER `AUGUST`,
+	ADD COLUMN `OCTOBER_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '十月应缴(元)' AFTER `SEPTEMBER`,
+	ADD COLUMN `NOVEMBER_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '十一月应缴(元)' AFTER `OCTOBER`,
+	ADD COLUMN `DECEMBER_FEE`  decimal(10,2) NULL DEFAULT 0.00 COMMENT '十二月应缴(元)' AFTER `NOVEMBER`;
+4.New Feature:组织生活分类添加只读属性
+	ALTER TABLE `obt_conference_category` ADD COLUMN `READ_ONLY`  int(1) NULL DEFAULT 0 COMMENT '是否只读：0否1是' AFTER `ORDER_NO`;
+	UPDATE `obt_conference_category` SET `READ_ONLY`='1' WHERE `ID` IN('A','A001','A002','A003','A004','A005','A006','B','B001','B002','B003','B004','B005','C','C001');
+5.Improvement:添加工作记录和修改工作记录使用弹出小窗口方式	
+6.New Feature:修改工作必备表字段-修改STATUS字段含义、添加发布时间和发布人ID
+	ALTER TABLE `com_information` MODIFY COLUMN `STATUS`  int(11) NULL DEFAULT 0 COMMENT '状态：0起草1发布2取消发布' AFTER `HITS`;
+	ALTER TABLE `com_information` ADD COLUMN `PUBLISH_TIME`  datetime NULL COMMENT '发布时间' AFTER `UPDATE_TIME`;
+	ALTER TABLE `com_information` ADD COLUMN `PUBLISH_USER_ID`  varchar(36) NULL COMMENT '发布人ID' AFTER `PUBLISH_TIME`
+6.New Feature:	通知通告表添加发布时间和发布人ID
+	ALTER TABLE `com_announcement`
+	ADD COLUMN `PUBLISH_TIME`  datetime NULL COMMENT '发布时间' AFTER `UPDATE_TIME`,
+	ADD COLUMN `PUBLISH_USER_ID`  varchar(255) NULL COMMENT '发布人ID' AFTER `PUBLISH_TIME`;
+7.New Feature:统计分析增加组织工作统计
+8.New Feature:工作记录添加下载打印功能
+9.Improvement：删除组织生活内容“无分类”
+	DELETE FROM `obt_conference_category` WHERE (`ID`='C001');
+10.New Feature:增加党小组和党小组成员表
+	CREATE TABLE `org_ccparty_group` (
+	  `ID` varchar(36) NOT NULL,
+	  `CCPARTY_ID` varchar(36) DEFAULT NULL COMMENT '党组织ID',
+	  `NAME` varchar(256) DEFAULT NULL COMMENT '小组名称',
+	  `DESCRIPTION` varchar(256) DEFAULT NULL COMMENT '描述',
+	  `SEQUENCE` int(11) DEFAULT '10000' COMMENT '序号',
+	  `CREATE_USER_ID` varchar(36) DEFAULT NULL COMMENT '创建人ID',
+	  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+	  `UPDATE_USER_ID` varchar(36) DEFAULT NULL COMMENT '最后更新人ID',
+	  `UPDATE_TIME` datetime DEFAULT NULL COMMENT '最后更新时间',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='党小组';
+	CREATE TABLE `obt_party_group_member` (
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `GROUP_ID` varchar(36) DEFAULT NULL COMMENT '党小组ID',
+	  `USER_ID` varchar(36) DEFAULT NULL COMMENT '用户ID',
+	  `TYPE` int(11) DEFAULT '0' COMMENT '成员类型：0普通成员；1组长；2副组长',
+	  `SEQUENCE` int(11) DEFAULT '100' COMMENT '序号',
+	  PRIMARY KEY (`ID`),
+	  KEY `GROUP_ID` (`GROUP_ID`),
+	  CONSTRAINT `obt_party_group_member_ibfk_1` FOREIGN KEY (`GROUP_ID`) REFERENCES `org_ccparty_group` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='党小组成员';
+11.Improvement:点赞和评论表增加外键关联并级联更新和删除
+	ALTER TABLE `obt_conference_praise` ADD FOREIGN KEY (`CONFERENCE_ID`) REFERENCES `obt_conference` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+	ALTER TABLE `obt_conference_comment` ADD FOREIGN KEY (`CONFERENCE_ID`) REFERENCES `obt_conference` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+	
+Author:刘佳丽
+1.New Feature：标签管理只显示C类标签，并且可以进行简单的维护
+	
+Author:赵子靖
+1.Improvement:完善共享中心、工作品牌 搜索	
+2.New Feature：增加党员发展计划时间轴插件
+3.Improvement:支部手册、党员活动证 增加配置目录、检索条件
+4.Improvement:工作记录搜索条件增加
+5.换届选举支部党内职务增加 宣传委员、纪检委员
+	UPDATE `sys_code` SET `NAME`='党支部组织委员' WHERE (`ID`='A070101.14');
+	INSERT INTO `sys_code` (`ID`, `CODE`, `NAME`, `LEVEL`, `PARENT_ID`, `ORDER_NO`) VALUES ('A070101.22', '22', '党支部宣传委员', '1', 'A070101', '22');
+	INSERT INTO `sys_code` (`ID`, `CODE`, `NAME`, `LEVEL`, `PARENT_ID`, `ORDER_NO`) VALUES ('A070101.23', '23', '党支部纪检委员', '1', 'A070101', '23');
+6.Improvement：支部工作手册、党员活动证打印下载。
+7.New Feature：党员发展计划时间轴。
+8.New Feature：首页工作共享、工作必备、工作品牌增加发布篇数和近一个月发布数展示。
+9.Improvement：统计分析增加检索条件。
+10.New Feature:答题答卷
+	ALTER TABLE `pub_assessment`
+	MODIFY COLUMN `STATUS`  int(1) NULL DEFAULT 0 COMMENT '状态：0未开启1已开启2已关闭' AFTER `END_DATE`;
+	##枚举增减新纪录
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('pub_assessment.status.0', '未开启');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('pub_assessment.status.1', '已开启');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('pub_assessment.status.2', '已关闭');
+11、增加jxl.jar、xmlbeans-2.3.0.jar导入解析文件包。
+12、增加用户导入功能。
+
+	
+Version: 0.1.7 build20160712
+Date:2016-07-12
+Author:易文俊
+1.New Feature：文章内容增加发布人、发布时间、密级等信息
+	ALTER TABLE `com_article` ADD COLUMN `PUBLISH_USER_ID`  varchar(36) NULL COMMENT '发布人ID' AFTER `UPDATE_TIME`;
+	ALTER TABLE `com_article` ADD COLUMN `PUBLISH_TIME`  datetime NULL COMMENT '发布时间' AFTER `PUBLISH_USER_ID`;
+	ALTER TABLE `com_article` ADD COLUMN `SECRET_LEVEL`  int(1) NULL DEFAULT 1 COMMENT '密级：0组织内部；1本组织和上级；2公开' AFTER `PUBLISH_TIME`;
+2.New Feature：增减文章所属工作步骤表
+	CREATE TABLE `com_article_step` (
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `ARTICLE_ID` varchar(36) NOT NULL COMMENT '文章ID',
+	  `CATEGORY_ID` varchar(36) NOT NULL COMMENT '标签ID',
+	  PRIMARY KEY (`ID`),
+	  KEY `PK_ARTICLE_STEP_CATEGORY_ID` (`CATEGORY_ID`) USING BTREE,
+	  KEY `PK_ARTICLE_STEP_ARTICLE_ID` (`ARTICLE_ID`) USING BTREE,
+	  CONSTRAINT `PK_ARTICLE_STEP_CATEGORY_ID` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `com_category` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+	  CONSTRAINT `PK_ARTICLE_STEP_ARTICLE_ID` FOREIGN KEY (`ARTICLE_ID`) REFERENCES `com_article` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章所属工作法步骤表';
+3.New Feature：文章类别表增加工作法步骤
+	INSERT INTO `com_category` VALUES ('S', '一二三四工作法', '0', null, null, null, '0');
+	INSERT INTO `com_category` VALUES ('S001', '树立目标', '0', 'S', null, null, '1');
+	INSERT INTO `com_category` VALUES ('S002', '查找问题', '0', 'S', '', '', '2');
+	INSERT INTO `com_category` VALUES ('S003', '制定计划', '0', 'S', '', '', '3');
+	INSERT INTO `com_category` VALUES ('S004', '解决问题', '0', 'S', '', '', '4');
+	INSERT INTO `com_category` VALUES ('S005', '总结评议', '0', 'S', '', '', '5');
+4.Improvement:修改文章所属标签表名
+	ALTER TABLE com_article_category RENAME com_article_label;
+5.New Feature：新建文章和编辑文章添加工作步骤
+6.Improvement:修改文章来源ID和来源名称的字段名
+	ALTER TABLE `com_article` CHANGE COLUMN `SOURCE_USER_ID` `SOURCE_ID` varchar(36) NULL DEFAULT NULL COMMENT '来源ID';
+	ALTER TABLE `com_article` CHANGE COLUMN `SOURCE_USER_NAME` `SOURCE_NAME` varchar(36) NULL DEFAULT NULL COMMENT '来源名称';
+7.Improvement:缩短页面公共头部的显示高度
+8.Improvement:增加工作平台，把管理平台中的党员管理、工作品牌、工作必备、通知通告迁移过来，并增加党费收缴、发展党员、换届选举模块
+9.Improvement:把个人中心的组织文章迁移到工作平台的工作记录
+10.New Feature:去掉工作品牌表，在工作记录中添加一个标志是否工作品牌的标志
+	ALTER TABLE `com_article` ADD COLUMN `IS_BRAND`  int(1) NULL DEFAULT 0 COMMENT '是否工作品牌：0否1是' AFTER `IS_RECOMMEND`;
+11.New Feature:增加党费收缴表和特殊党费表
+	CREATE TABLE `obt_party_fee` (
+	  `ID` varchar(36) NOT NULL,
+	  `USER_ID` varchar(36) NOT NULL COMMENT '交款人ID',
+	  `YEAR` int(11) DEFAULT NULL COMMENT '年份',
+	  `BASE_SALARY` decimal(10,2) DEFAULT '0.00' COMMENT '基数',
+	  `RATE` decimal(10,2) DEFAULT '0.00' COMMENT '缴纳比例',
+	  `PARTY_FEE` decimal(10,2) DEFAULT '0.00' COMMENT '月缴党费',
+	  `JANUARY` decimal(10,2) DEFAULT '0.00' COMMENT '一月实缴(元)',
+	  `FEBRUARY` decimal(10,2) DEFAULT '0.00' COMMENT '二月实缴(元)',
+	  `MARCH` decimal(10,2) DEFAULT '0.00' COMMENT '三月实缴(元)',
+	  `APRIL` decimal(10,2) DEFAULT '0.00' COMMENT '四月实缴(元)',
+	  `MAY` decimal(10,2) DEFAULT '0.00' COMMENT '五月实缴(元)',
+	  `JUNE` decimal(10,2) DEFAULT '0.00' COMMENT '六月实缴(元)',
+	  `JULY` decimal(10,2) DEFAULT '0.00' COMMENT '七月实缴(元)',
+	  `AUGUST` decimal(10,2) DEFAULT '0.00' COMMENT '八月实缴(元)',
+	  `SEPTEMBER` decimal(10,2) DEFAULT '0.00' COMMENT '九月实缴(元)',
+	  `OCTOBER` decimal(10,2) DEFAULT '0.00' COMMENT '十月实缴(元)',
+	  `NOVEMBER` decimal(10,2) DEFAULT '0.00' COMMENT '十一月实缴(元)',
+	  `DECEMBER` decimal(10,2) DEFAULT '0.00' COMMENT '十二月实缴(元)',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='党费管理表';
+	CREATE TABLE `obt_party_fee_special` (
+	  `ID` varchar(36) NOT NULL,
+	  `CCPARTY_ID` varchar(36) DEFAULT NULL COMMENT '党组织ID',
+	  `USER_ID` varchar(36) DEFAULT NULL COMMENT '交款人ID',
+	  `YEAR` int(11) DEFAULT NULL COMMENT '缴纳年份',
+	  `AMOUNT` decimal(10,0) DEFAULT '0' COMMENT '金额',
+	  `REMARK` varchar(255) DEFAULT NULL COMMENT '备注',
+	  `CREATE_USER_ID` varchar(36) DEFAULT NULL COMMENT '新增人ID',
+	  `CREATE_TIME` datetime DEFAULT NULL COMMENT '新增时间',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='特殊党费表';
+12.Improvement:	更改工作必备表注释
+	ALTER TABLE `com_information` comment '工作必备表';
+13.New Feature:	增加通知通告表
+	CREATE TABLE `com_announcement` (
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `CCPARTY_ID` varchar(36) DEFAULT NULL COMMENT '所属党组织',
+	  `NAME` varchar(256) DEFAULT NULL COMMENT '名称',
+	  `CONTENT` longtext COMMENT '内容',
+	  `HITS` int(255) DEFAULT '0' COMMENT '点击数',
+	  `STATUS` int(1) DEFAULT '0' COMMENT '状态：0起草1发布2取消发布',
+	  `CREATE_USER_ID` varchar(36) DEFAULT NULL COMMENT '创建用户ID',
+	  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+	  `UPDATE_USER_ID` varchar(36) DEFAULT NULL COMMENT '最后更新用户ID',
+	  `UPDATE_TIME` datetime DEFAULT NULL COMMENT '最后修改时间',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='通知通告表';
+14.New Feature:	增加活动参与人员表	
+	CREATE TABLE `com_participants` (
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `ARTICLE_ID` varchar(36) DEFAULT NULL COMMENT '文章ID',
+	  `TYPE` int(1) DEFAULT '0' COMMENT '人员类型：0组织内；1组织外',
+	  `USER_ID` varchar(36) DEFAULT NULL COMMENT '人员ID',
+	  `USER_NAME` varchar(36) DEFAULT NULL COMMENT '人员姓名',
+	  `STATUS` int(11) DEFAULT '0' COMMENT '状态：0参加；1缺席',
+	  `ORDER_NO` int(11) DEFAULT '0' COMMENT '顺序号',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动参与人员表';
+15.New Feature:	增加换届选举相关表	
+	CREATE TABLE `obt_election` (
+	  `ID` varchar(36) NOT NULL,
+	  `CCPARTY_ID` varchar(36) DEFAULT NULL COMMENT '党组织ID',
+	  `SEQUENCE` int(11) DEFAULT '0' COMMENT '届次',
+	  `AGE_LIMIT` int(3) DEFAULT '3' COMMENT '换届年限',
+	  `SELECT_MODE` int(11) DEFAULT NULL COMMENT '选择方式：0差额1等额2其他',
+	  `START_DATE` date DEFAULT NULL COMMENT '当选日期',
+	  `END_DATE` date DEFAULT NULL COMMENT '届满日期',
+	  `PARTICIPANTS` int(11) DEFAULT '0' COMMENT '应到会人数',
+	  `ATTENDANCE` int(11) DEFAULT '0' COMMENT '实到会人数',
+	  `REMARK` varchar(255) DEFAULT NULL COMMENT '备注',
+	  `CREATE_USER_ID` varchar(36) DEFAULT NULL COMMENT '创建人ID',
+	  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='换届选举表';
+	
+	CREATE TABLE `obt_election_member` (
+	  `ID` varchar(36) NOT NULL,
+	  `ELECTION_ID` varchar(36) DEFAULT NULL COMMENT '换届选举ID',
+	  `USER_TYPE` int(11) DEFAULT '0' COMMENT '成员类型：0系统内成员1系统外成员',
+	  `USER_ID` varchar(36) DEFAULT NULL COMMENT '成员ID',
+	  `USER_NAME` varchar(36) DEFAULT NULL COMMENT '成员名称',
+	  `GENDER` int(1) DEFAULT '1' COMMENT '性别',
+	  `BIRTHDAY` date DEFAULT NULL COMMENT '出生年月',
+	  `START_DATE` date DEFAULT NULL COMMENT '批准任职日期',
+	  `END_DATE` date DEFAULT NULL COMMENT '批准免职日期',
+	  `REMARK` varchar(255) DEFAULT NULL COMMENT '职务说明',
+	  `SEQUENCE` int(11) DEFAULT '10000' COMMENT '排序',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='换届选举领导班子成员';
+	CREATE TABLE `obt_election_member_title` (
+	  `ID` varchar(36) NOT NULL,
+	  `MEMBER_ID` varchar(36) DEFAULT NULL COMMENT '班子成员ID',
+	  `PARTY_TITLE_ID` varchar(36) DEFAULT NULL COMMENT '党内职务',
+	  `WORKER_ID` varchar(36) DEFAULT NULL COMMENT '党务干部ID',
+	  `SEQUENCE` int(11) DEFAULT '10000' COMMENT '排序',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='换届选举领导班子成员党内职务表';
+	
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('obt_election.selectMode.0', '差额');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('obt_election.selectMode.1', '等额');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('obt_election.selectMode.2', '其它');
+	
+16.New Feature:	工作平台增加管理工作，将统计分析和上报管理迁移到管理工作中、管理工作中增加支部手册	
+17.New Feature:	管理工作中增加支部手册导航
+18.New Feature:	个人中心-我的信息中增加党员手册	
+19.New Feature: 用户表增加党内职务（user_type=1使用）字段：
+    ALTER TABLE `uam_user` ADD COLUMN `PARTY_TITLE_ID`  varchar(36) NULL COMMENT '党内职务（user_type=1使用）' AFTER `WORK_NO`;
+20.New Feature:	将文章相关表改为组织生活表,并修改相关代码
+	ALTER TABLE `com_article` RENAME TO `obt_conference`;
+	ALTER TABLE `com_comment` RENAME TO `obt_conference_comment`;
+	ALTER TABLE `com_category` RENAME TO `obt_conference_category`;
+	ALTER TABLE `com_article_label` RENAME TO `obt_conference_label`;
+	ALTER TABLE `com_article_step` RENAME TO `obt_conference_step`;
+	ALTER TABLE `com_praise` RENAME TO `obt_conference_praise`;
+	ALTER TABLE `com_participants` RENAME TO `obt_conference_participants`;
+	ALTER TABLE `obt_conference` comment '组织生活表';
+	ALTER TABLE `obt_conference_comment` comment '组织生活评论表';
+	ALTER TABLE `obt_conference_category` comment '组织生活分类表';
+	ALTER TABLE `obt_conference_label` comment '组织生活标签表';
+	ALTER TABLE `obt_conference_step` comment '组织生活所属工作步骤表';
+	ALTER TABLE `obt_conference_praise` comment '组织生活点赞表';
+	ALTER TABLE `obt_conference_participants` comment '组织生活参会人员表';		
+23.Improvement:删除sys_services_config表和相关代码		
+	DROP TABLE IF EXISTS `sys_services_config`;
+24.Improvement:删除com_work_brand表和相关代码		
+	DROP TABLE IF EXISTS `com_work_brand`;
+25.New Feature:	通知通告增加枚举值，增加发布和取消发布通知通告代码
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('com_announcement.status.0', '起草');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('com_announcement.status.1', '发布');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('com_announcement.status.2', '取消发布');
+25.New Feature: 工作共享增加来源搜索
+26.New Feature: 附件增加排序功能
+	ALTER TABLE `com_file` ADD COLUMN `ORDER_NO` int(11) NULL DEFAULT 0 COMMENT '顺序号' AFTER `CREATE_TIME`;
+27.New Feature: 增加jasperreports报表功能
+28.Improvement:删除obt_conference中参与人员字段
+	ALTER TABLE `obt_conference` DROP COLUMN `PARTICIPANTS`;
+29.New Feature:在首页增加换届选举提醒
+30.New Feature:增加换届选举情况监控页面
+31.Improvement：整理系统权限
+	
+	DELETE FROM `uam_privilege`;
+	-- ----------------------------
+	-- Records of uam_privilege
+	-- ----------------------------
+	INSERT INTO `uam_privilege` VALUES ('B', '支部工作手册系统', null, 'root');
+	INSERT INTO `uam_privilege` VALUES ('B.001', '管理中心', null, 'B');
+	INSERT INTO `uam_privilege` VALUES ('B.001.001', '组织管理', null, 'B.001');
+	INSERT INTO `uam_privilege` VALUES ('B.001.002', '标签管理', null, 'B.001');
+	INSERT INTO `uam_privilege` VALUES ('B.001.003', '党务干部', null, 'B.001');
+	INSERT INTO `uam_privilege` VALUES ('B.001.004', '用户管理', null, 'B.001');
+	INSERT INTO `uam_privilege` VALUES ('B.001.005', '系统管理', null, 'B.001');
+	INSERT INTO `uam_privilege` VALUES ('B.002', '工作平台', null, 'B');
+	INSERT INTO `uam_privilege` VALUES ('B.003', '个人中心', null, 'B');
+	INSERT INTO `uam_privilege` VALUES ('B.004', '系统首页', null, 'B');
+	
+	DELETE FROM `uam_role_privilege`;
+	-- ----------------------------
+	-- Records of uam_role_privilege
+	-- ----------------------------
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1003', 'B.003');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.001');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.001.001');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.001.002');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.001.003');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.001.005');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.004');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.001');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.001.003');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.003');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B.003');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B.004');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.002');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.003');
+	INSERT INTO `uam_role_privilege` VALUES ('ADMINISTRATOR', 'B.001.004');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.002');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.004');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.001.001');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1001', 'B.001.002');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B.002');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1003', 'B.004');
+	
+
+Author:赵子靖
+1.Improvement:增加我的点赞
+2.Improvement:文章调整
+3.Improvement:用户表 行政单位、党员外键删除时字段设为空，避免用户数据也一并删除
+	ALTER TABLE `uam_user` DROP FOREIGN KEY `FK_UAM_USER_ORGANIZATION_ID`;
+	ALTER TABLE `uam_user` ADD CONSTRAINT `FK_UAM_USER_ORGANIZATION_ID` FOREIGN KEY (`ORGANIZATION_ID`) REFERENCES `org_organization` (`ID`) ON DELETE SET NULL ON UPDATE CASCADE;
+	ALTER TABLE `uam_user` DROP FOREIGN KEY `FK_UAM_USER_PARTYMEMBERID`;
+	ALTER TABLE `uam_user` ADD CONSTRAINT `FK_UAM_USER_PARTYMEMBERID` FOREIGN KEY (`PARTY_MEMBER_ID`) REFERENCES `obt_party_member` (`ID`) ON DELETE SET NULL ON UPDATE CASCADE;
+4.发展党员
+   CREATE TABLE `obt_development_procedure_config`(
+	  `ID` varchar(36) NOT NULL COMMENT 'ID',
+	  `CCPARTY_ID` varchar(36) DEFAULT NULL,
+	  `DEVELOPMENT_ID` varchar(36) DEFAULT NULL COMMENT '阶段代码',
+	  `STATUS` int(11) DEFAULT '0' COMMENT '状态：0不可跳过1可跳过',
+  	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='各个党组织发展党员流程配置表';
+	CREATE TABLE `obt_development_procedure`(
+	  `ID` varchar(36) NOT NULL COMMENT 'ID',
+	  `PHASE_CODE` int(11) DEFAULT NULL COMMENT '发展阶段',
+	  `PHASE_NAME` varchar(36) DEFAULT NULL COMMENT '阶段名称',
+	  `NODE_CODE` varchar(36) DEFAULT NULL COMMENT '节点代码',
+	  `NODE_NAME` varchar(36) DEFAULT NULL COMMENT '节点名称',
+	  `NEXT_NODE_CODE` varchar(36) DEFAULT NULL COMMENT '下一节点代码',
+	  `STATUS` int(11) DEFAULT '0' COMMENT '状态：0不可跳过1可跳过',
+	  `DESCRIPTION` varchar(256) DEFAULT NULL COMMENT '描述',
+	  `SEQUENCE` int(11) DEFAULT NULL COMMENT '序号',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='党员发展流程表';
+	CREATE TABLE `obt_development_procedure_common_content`(
+	  `ID` varchar(36) NOT NULL COMMENT 'ID',
+	  `PARTY_MEMBER_ID` varchar(36) DEFAULT NULL COMMENT '党员ID',
+	  `PROCEDURE_ID` varchar(36) DEFAULT NULL COMMENT '所属阶段',
+	  `TYPE` int(2) DEFAULT NULL COMMENT '类别 1组织生活，2向党组织汇报，3考察情况',
+	  `CONTENT_DATE` date DEFAULT NULL COMMENT '日期',
+	  `NAME` varchar(200) DEFAULT NULL COMMENT '名称',
+	  `CONTENT` longtext COMMENT '内容',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='党员发展阶段公用内容记录';
+	##党员表增加发展字段
+	ALTER TABLE `obt_party_member`
+	ADD COLUMN `DEVELOPMENT_ID`  varchar(36) NULL COMMENT '发展阶段ID' AFTER `TYPE`;
+	##党员发展信息
+	CREATE TABLE `obt_party_member_development_info`(
+	  `ID` varchar(36) NOT NULL COMMENT 'GUID',
+	  `PARTY_MEMBER_ID` varchar(36) DEFAULT NULL COMMENT '党员ID',
+	  `ORG_EDUCATION_INFO_02` varchar(2000) DEFAULT NULL COMMENT '受组织教育情况(积极分子阶段、第2阶)',
+	  `WORK_INFO_02` varchar(2000) DEFAULT NULL COMMENT '社会工作情况(积极分子阶段、第2阶)',
+	  `MASSES_OPINION_03` varchar(2000) DEFAULT NULL COMMENT '群众意见(积极分子阶段、第3阶)',
+	  `YOUTH_OPINION_03` varchar(2000) DEFAULT NULL COMMENT '团组织推优意见(积极分子阶段、第3阶)',
+	  `GROUP_OPINION_04` int(1) DEFAULT '0' COMMENT '党小组意见0：同意，1不同意，2暂缓。 (积极分子阶段、第4阶)',
+	  `DISCUSS_DATE_04` date DEFAULT NULL COMMENT '讨论日期(积极分子阶段、第4阶)',
+	  `GROUP_LEADER_04` varchar(36) DEFAULT NULL COMMENT '党小组组长(积极分子阶段、第4阶)',
+	  `BRANCH_OPINION_05` int(1) DEFAULT '0' COMMENT '支委会意见0：同意，1不同意，2暂缓。 (积极分子阶段、第5阶)',
+	  `DISCUSS_DATE_05` date DEFAULT NULL COMMENT '讨论日期(积极分子阶段、第5阶)',
+	  `SECRETARY_05` varchar(36) DEFAULT NULL COMMENT '党支部书记(积极分子阶段、第5阶)',
+	  `POLITICAL_AUDIT_07` int(1) DEFAULT '0' COMMENT '政审结果0：同意，1不同意，2暂缓。 (发展对象阶段、第7阶)',
+	  `CULTIVATE_DATE_08` date DEFAULT NULL COMMENT '集中培训日期(发展对象阶段、第8阶)',
+	  `CULTIVATE_RESULT_08` int(1) DEFAULT '0' COMMENT '培训结果0通过，1不通过(发展对象阶段、第8阶)',
+	  `SUPERIOR_AUDIT_ORG_09` varchar(36) DEFAULT NULL COMMENT '上级预审组织(发展对象阶段、第9阶)',
+	  `AUDIT_DATE_09` date DEFAULT NULL COMMENT '审核日期(发展对象阶段、第9阶)',
+	  `AUDIT_RESULT_09` int(1) DEFAULT '0' COMMENT '预审结果0：同意，1不同意，2暂缓。 (发展对象阶段、第9阶)',
+	  `NOTICE_INFO_10` varchar(1000) DEFAULT NULL COMMENT '公示情况(发展对象阶段、第10阶)',
+	  `BRANCH_DISCUSS_DATE_11` date DEFAULT NULL COMMENT '支部大会讨论日期(发展对象阶段、第11阶)',
+	  `BRANCH_DISCUSS_RESULT_11` int(1) DEFAULT '0' COMMENT '支部大会讨论结果0：同意，1不同意，2暂缓。(发展对象阶段、第11阶)',
+	  `JOIN_CCPARTY_TYPE_11` int(1) DEFAULT '0' COMMENT '加入中共组织类型0新吸收为中共预备党员1重新吸收为中共预备党员2直接批准为中共正式党员3直接批准重新入党者为中共正式党员4恢复党籍5追认为中共正式党员',
+	  `TALK_DATE_12` date DEFAULT NULL COMMENT '上级谈话日期(发展对象阶段、第12阶)',
+	  `TALKER_12` varchar(36) DEFAULT NULL COMMENT '谈话人(发展对象阶段、第12阶)',
+	  `SUPERIOR_AUDIT_ORG_13` varchar(36) DEFAULT NULL COMMENT '上级审批组织(发展对象阶段、第13阶)',
+	  `AUDIT_DATE_13` date DEFAULT NULL COMMENT '上级审查时间(发展对象阶段、第13阶)',
+	  `AUDIT_RESULT_13` int(1) DEFAULT '0' COMMENT '上级审查结果0：同意，1不同意，2暂缓。(发展对象阶段、第13阶)',
+	  `IS_SPECIAL_PARTY_MEMBER_13` int(1) DEFAULT '0' COMMENT '是否为一线特殊发展党员 0否 1是',
+	  `IS_SPECIAL_MAX_PRIVILEGE_13` int(1) DEFAULT '0' COMMENT '是否特殊情况下提高审批权限发展 0否 1是',
+	  `WORK_INFO_14` varchar(2000) DEFAULT NULL COMMENT '社会工作情况(预备党员阶段、第14阶)',
+	  `GROUP_OPINION_15` int(1) DEFAULT '0' COMMENT '党小组意见0：同意，1不同意，2暂缓。 (预备党员阶段、第15阶)',
+	  `DISCUSS_DATE_15` date DEFAULT NULL COMMENT '讨论日期(预备党员阶段、第15阶)',
+	  `GROUP_LEADER_15` varchar(36) DEFAULT NULL COMMENT '小组组长(预备党员阶段、第15阶)',
+	  `MASSES_OPINION_16` varchar(2000) DEFAULT NULL COMMENT '党内外群众意见(预备党员阶段、第16阶)',
+	  `BRANCH_OPINION_17` int(1) DEFAULT '0' COMMENT '支委会意见0：同意，1不同意，2暂缓。(预备党员阶段、第17阶)',
+	  `DISCUSS_DATE_17` date DEFAULT NULL COMMENT '讨论日期(预备党员阶段、第17阶)',
+	  `SECRETARY_17` varchar(36) DEFAULT NULL COMMENT '党支部书记(预备党员阶段、第17阶)',
+	  `BRANCH_MEETING_RESULT_18` int(1) DEFAULT '0' COMMENT '支部大会讨论结果0：同意，1不同意，2暂缓。(预备党员阶段、第18阶)',
+	  `OFFICIAL_DATE_18` date DEFAULT NULL COMMENT '转正日期(预备党员阶段、第18阶)',
+	  `OFFICIAL_INFO_18` int(1) DEFAULT '0' COMMENT '转正情况(预备党员阶段、第18阶),0按期转正，1延长预备期满转正，2预备期满尚未讨论或批准，3延长预备期，4预备期满被取消预备党员资格',
+	  `SUPERIOR_AUDIT_ORG_19` varchar(36) DEFAULT NULL COMMENT '上级审批组织(预备党员阶段、第19阶)',
+	  `AUDIT_RESULT_19` int(1) DEFAULT '0' COMMENT '审批结果(预备党员阶段、第19阶)',
+	  PRIMARY KEY (`ID`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='党员发展阶段信息';
+
+Version: 0.1.6 build20160616
+Date:2016-06-16
+Author:易文俊
+1.Fix Bug：修改加载评论列表的bug问题
+2.Improvement：升级谷歌和火狐浏览器下载，需要更新scfc
+3.Improvement：文件上传组件改为html5方式，修复使用flash上传组件在很多浏览器不支持的问题
+4.Improvement:改变用户的缓存存储方式，改为以用户主键为key进行缓存的添加、更新和删除
+5.Improvement:把所有和登录用户相关的都从缓存获取用户信息
+6.Improvement：改善角色切换方式，如果普通用户则不显示角色切换，如果是只有一个党务干部角色则职能显示该角色，如果有多个党务干部角色才进行切换
+7.Improvement：把头部的“角色切换”改为“身份切换”
+8.Improvement：取消角色和权限的关联,优化关于用户信息加载慢的问题
+9.Improvement：取消党组织和行政单位的管理，用户所在行政单位设置可选
+10.Fix Bug:删除角色和权限错误管理
+	DELETE FROM `uam_role_privilege` WHERE `ROLE_ID`='ROLE_1002' and `PRIVILEGE_ID`='B.001.007.003';
+	DELETE FROM `uam_role_privilege` WHERE `ROLE_ID`='ROLE_1002' and `PRIVILEGE_ID`='B.001.007';
+	DELETE FROM `uam_role_privilege` WHERE `ROLE_ID`='ROLE_1002' and `PRIVILEGE_ID`='B.001.001.002';
+	DELETE FROM `uam_role_privilege` WHERE `ROLE_ID`='ADMINISTRATOR' and `PRIVILEGE_ID`='B.001.007.003';
+	DELETE FROM `uam_role_privilege` WHERE `ROLE_ID`='ADMINISTRATOR' and `PRIVILEGE_ID`='B.001.001.002';
+11.Improvement：去掉行政单位相关模块
+12.Improvement：改善当前组织和当前用的显示方式
+13.Improvement：修改管理中心导航栏排列
+13.Improvement：系统管理员增加添加党员管理和组织管理权限	
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B.001.001');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B.001.001.001');
+	INSERT INTO `uam_role_privilege` VALUES ('ROLE_1002', 'B.001.001.003');
+	
+Author:赵子靖
+1.Improvement：
+	##用户性别字段类型修改
+	ALTER TABLE `uam_user` MODIFY COLUMN `GENDER`  int(1) NULL DEFAULT 1 COMMENT '性别1男2女' AFTER `LOGIN_COUNT`;
+2.Improvement：用户模块增加最后一次登录时间功能、增加用户姓名全拼和首字母拼音、个人资料调整
+	##用户表增加姓名全拼和首字母字段
+	ALTER TABLE `uam_user`
+	ADD COLUMN `NAME_PHONETICIZE`  varchar(100) NULL COMMENT '姓名全拼' AFTER `NAME`,
+	ADD COLUMN `NAME_FIRST_CHARACTER`  varchar(36) NULL COMMENT '姓名首字母' AFTER `NAME_PHONETICIZE`;
+	##登录IP字段长度修改
+	ALTER TABLE `uam_user`
+	MODIFY COLUMN `LAST_LOGIN_IP`  varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '最后登录IP' AFTER `LAST_LOGIN_TIME`;
+	##本次登录时间
+	ALTER TABLE `uam_user`
+	ADD COLUMN `THIS_LOGIN_TIME`  datetime NULL COMMENT '本次登录时间' AFTER `LAST_LOGIN_TIME`;
+	##党员类型枚举
+	UPDATE `sys_enumeration` SET `NAME`='申请人' WHERE (`ID`='obt_party_member.type.0');
+	UPDATE `sys_enumeration` SET `NAME`='正式党员' WHERE (`ID`='obt_party_member.type.4');
+	DELETE FROM `sys_enumeration` WHERE (`ID`='obt_party_member.type.5');
+	##加入当前组织形式枚举修改
+	UPDATE `sys_enumeration` SET `NAME`='不参加' WHERE (`ID`='obt_party_member.joinActivity.3');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('obt_party_member.joinType.0', '新入党');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('obt_party_member.joinType.1', '恢复党籍');
+	INSERT INTO `sys_enumeration` (`ID`, `NAME`) VALUES ('obt_party_member.joinType.2', '组织关系转入');
+3.Improvement：党务工作者 新增搜索用户根据党组织进行搜索
+4.Improvement：系统用户根据组织进行搜索
+5.党组织类型为支部禁止修改和新增
+	##删除党小组类型
+	delete from sys_code where id='Z000105';	
+6.Improvement：支部共享搜索更改
+Author:杨兴
+1.Improvement：增加党费收缴模块
+2.Improvement：修改数据库特殊党费字段小数点位数
+ALTER TABLE `obt_party_fee_special` MODIFY COLUMN `AMOUNT`  decimal(10,2) NULL DEFAULT 0 COMMENT '金额' AFTER `YEAR`
+
+Author:张波
+1.Improvement:增加支部工作法详情页面
+2.Improvement:修改工作必备页面显示方式
+	
+Version: 0.1.5 build20160518
+Date:2016-05-18
+Author:易文俊
+1.Improvement：将jar移动tomcat的lib下
+
+Version: 0.1.4 build20160330
+Date:2016-03-30
+Author:赵子靖
+1.Fix Bug：用户、党员模块调整
+Author:易文俊
+1.Improvement：将个人中心、管理中心显示改为宽屏显示
+2.Improvement：修改我的资料样式
+3.Improvement：修改党组织的缓存对象
+4.Fix Bug：修复初始化Global时，json字符串太长的问题
+5.Fix Bug：修改添加党务干部的bug
+6.Fix Bug：修复保存党员出错问题
+7.Fix Bug：修复添加党务干部时未分配党务干部角色的问题
+8.Improvement:修改文件上传路径，由YYYYMMDD改为YYYY/MM/DD
+
+Version: 0.1.3 build20160308
+Date:2016-03-08
+Author:赵子靖
+1.Fix Bug：修复党员管理中删除该党员再添加此党员后保存不了的问题。
+2.Fix Bug：优化党员信息管理、党组织管理、行政单位管理、用户管理 首次加载页面时选中某组织并且加载相应信息，避免手动再去点击的繁琐。
+3.Fix Bug：修复统计分析文章回复数、附件数统计不准确的问题。
+4.Fix Bug：修复统计分析导出文件名称乱码问题。
+5.Improvement：完善左侧组织树因高度导致横向滚动条显示问题。
+6.Fix Bug：工作共享转发平级及下级组织
+7.Fix Bug：修复左侧组织树出现两个横向滚动条
+8.Improvement：身份证号可修改
+Author:易文俊
+1.Improvement：将系统中枚举值的男改为1，女改为2
+2.Improvement：更好头像默认图片和找到图片的默认图片
+
+Version: 0.1.2 build20150328
+Date:2015-03-28
+Author:易文俊
+1.New Feature：创建项目工程
+3.New Feature：添加前端开发jquery支持
+4.New Feature：添加后端开发框架spring MVC支持，并配置MVC相关配置文件
+5.New Feature：添加ant编译打包文件build.xml
+6.New Feature：添加版本发布说明文件ReleaseNote_scweb.txt

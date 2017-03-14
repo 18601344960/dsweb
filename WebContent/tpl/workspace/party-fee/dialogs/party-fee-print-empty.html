@@ -1,0 +1,47 @@
+<!-- 
+	@description 打印空党费使用表
+	@author 王钱俊
+	@since 2015-10-15
+-->
+<div class="modal fade" id="print-empty-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">下载收缴表</h4>
+			</div>
+			<div class="modal-body">
+			<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="add-notice-btn" onclick="PartyFee.printEmptyPDF()">
+						<i class="glyphicon glyphicon-save"></i> <span>下载</span>
+					</button>
+				</div>
+			<hr style="margin: 10px 0">
+			<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">收缴年月</label>
+				<div class="col-sm-5">
+				<input id="print-time" class="form-control" type="text" placeholder="选择年月" onClick="WdatePicker({dateFmt:'yyyy-MM'})"/>
+				</div>
+				
+			</div>
+			<div class="form-group" style="padding-left:70px">
+			<div style="width: 70px;float : left">
+				<input type="radio" style = "margin-left:10px"  name="selectCcparty" onclick="PartyFee.selectUser('0','selectUser')">全选		
+			</div>
+			<div style="width: 100px;float : left">
+				<input type="radio" style = "margin-left:10px"  name="selectCcparty" checked="checked" onclick="PartyFee.selectUser('1','selectUser')">取消全选			
+			</div>
+			</div>			
+			<div class="form-group" style="padding-left:70px" id ="selectUser">			
+			{% for item in items %}
+			      <div style="width: 90px;float: left;">
+			      <input type="checkbox" style = "margin-left:10px"  name="checkbox" value="{{item.id}}">{{item.name}}
+			   	</div>
+			{% endfor %}
+			</div>		
+	 	 </form>
+	  </div>
+	</div>
+</div>
+</div>

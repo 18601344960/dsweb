@@ -1,0 +1,61 @@
+<!-- 问卷测评内容 -->
+<div class="question_survey" id="question_survey" assessmentId="{{id}}" style="height: auto;border:0px;">
+	<div class="question_surveyhead">
+		<h1 id="pater_title" >{{name}}{{titleTip}}</h1>
+		<div id="pater_desc" class="question_surveydescription" >{{description}}</div>
+	</div>
+	
+	<!-- questionType=1单选2多选3简答 answer=选项数量 isMust=是否必做 -->
+	{% for topic in topics %}
+		{% if topic.type==1 %}
+			{%if topic.sequence==1%}
+				<h2 style="text-align: center;margin-top:10px;">调查问卷</h2>
+			{%endif%}
+			<div class="div_question" style="border: 0px;" >
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【单选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label></li>
+					<li id="topic_{{topic.sequence}}_options_li"  style="margin-left:30px;">
+						{% for option in topic.options %}
+							<input type="radio" style="margin:0 10px;" name="topic_{{topic.id}}_radio" value="{{option.id}}" disabled="disabled"/>{{option.seq}}、<font id="topic_{{topic.sequence}}_option_{{loop.index0+1}}">{{option.content}}</font><br>
+						{% endfor %}
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type==2 %}
+			{%if topic.sequence==1%}
+				<h2 style="text-align: center;margin-top:10px;">调查问卷</h2>
+			{%endif%}
+			<div class="div_question"  style="border: 0px;" >
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【多选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label></li>
+					<li style="margin-left:30px;">
+						{% for option in topic.options %}
+							<input type="checkbox" style="margin:0 10px;" id="topic_{{topic.id}}_{{option.id}}_checkbox" value="{{option.id}}" disabled="disabled"/>{{option.seq}}、<font id="topic_{{topic.sequence}}_option_{{loop.index0+1}}">{{option.content}}</font><br>
+						{% endfor %}
+						{%if topic.hasOtherOption==1%}
+							<input type="checkbox" style="margin:0 10px;" id="topic_{{topic.id}}_1_checkbox" value="1" disabled="disabled"/>其他<textarea id="{{topic.id}}_other" style="width: 95%; height: auto;margin-left:30px;" maxlength="2000" class="form-control" disabled="disabled"></textarea>
+						{%endif%}
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type==3 %}
+			{%if topic.sequence==1%}
+				<h2 style="text-align: center;margin-top:10px;">调查问卷</h2>
+			{%endif%}
+			<div class="div_question" style="border: 0px;" >
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【简答】<label>{{topic.title}}</label></li>
+					<li style="margin-left:30px;">
+						<font style="font-weight: bold;color: #FFA500">我的回答：</font><font >{% for result in topic.myAssessresult %}{{result.resultStr}}{% endfor %}</font>
+					</li>
+				</ul>
+			</div>
+		{%endif%}	
+	{% endfor %}
+	<div class="submit-topic-button" style="text-align: center;">
+		<button class="btn btn-default" onclick="MyAssessmentDetail.windowClose();;" type="button" >
+			<i class="fa fa-times"></i> <span data-zh="关闭">关闭</span>
+		</button>
+	</div>
+</div>
+

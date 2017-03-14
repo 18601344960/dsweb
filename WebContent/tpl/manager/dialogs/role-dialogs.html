@@ -1,0 +1,68 @@
+<!-- 新增/编辑角色弹出框 begin-->
+{%if dialog=='role-dialog'%}
+<div class="modal fade" id="role-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" id="role_dialog_title">{%if dialogType=='add'%}新增角色{%elif dialogType=='edit'%}编辑角色{%endif%}</h4>
+      </div>
+      <div class="modal-body">
+      	<table >
+      		<tr>
+      			<input type="text" id="role_id" hidden="true" value="{{id}}"/>
+      			<td align="right">角色名称<b style="color: red">*</b>：</td>
+      			<td align="left" colspan="3"><input type="text" id="role_name" class='form-control' maxlength="20" value="{{name}}"></td>
+      		</tr>
+      		<tr>
+      			<td align="right">描述：</td>
+      			<td align="left" colspan="3"><textarea id="role_desc" style="width: 100%" rows="3" class="form-control" maxlength="255" >{{description}}</textarea></td>
+      		</tr>
+      		<tr>
+      			<td align="right">启用状态<b style="color: red">*</b>：</td>
+      			<td align="left">
+      				<input type="radio" name="role_status" id="role_status_0" value="0" checked="checked"/>启用
+      				<input type="radio" name="role_status" id="role_status_1" value="1" />挂起
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerRole.addOrUpdateRoleSubmit()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+
+<!-- 角色权限分配 -->
+{%if dialog=='role-privilege-dialog'%}
+<div class="modal fade" id="role-privilege-dialog" tabindex="-1" role="dialog" data-backdrop="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+        <h4 class="modal-title" id="user_dialog_title">为“{{name}}”分配权限</h4>
+      </div>
+      <div class="modal-body" style="height: 350px;">
+      	<table >
+      		<!-- 权限树 -->
+      		<tr>
+      			<td width="100%">
+      				<div id="privilegeMenuContent" class="menuContent" style="position: absolute;background-color: white; width: 95%;overflow:auto; border:1px solid #CDC9C9;">
+						<ul id="privilege-tree" class="ztree" style="margin-top: 0; width: 100%;height: 320px;"></ul>
+					</div>
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="ManagerRole.saveRolePrivilegeSubmit()">保存</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+

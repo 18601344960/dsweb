@@ -1,0 +1,24 @@
+<!-- 
+	@description 系统环境参数管理
+	@author zhaozijing
+	@since 2015-06-15
+-->
+
+<div id="environment-buttons" class="btn-group">
+	<button class="btn btn-default" onclick="ManagerEnvironment.newEnvironment()">
+		<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增">新增</span>
+	</button>
+</div>
+<table id="environment-table" data-url="sys/getEnvironmentList" data-side-pagination="server" data-show-refresh="false" data-toolbar="#environment-buttons" data-click-to-select="true">
+	<thead>
+		<tr>
+			<th data-radio="true"></th>
+			<th data-field="id">ID</th>
+			<th data-field="value">值</th>
+			<th data-field="type" data-formatter="ManagerEnvironment.typeFormatter" data-width="80">类型</th>
+			<th data-field="description">描述</th>
+			<th data-field="id" data-formatter="ManagerEnvironment.operator" data-width="120">操作</th>
+		</tr>
+	</thead>
+</table>
+

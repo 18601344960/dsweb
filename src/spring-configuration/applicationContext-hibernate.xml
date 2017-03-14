@@ -1,0 +1,125 @@
+<!--
+	 @description hibernate的spring配置文件
+	 @author yiwenjun
+	 @since 2015-03-28
+ -->
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"   
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	
+	<!--hibernate属性文件注入-->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:hibernate.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!--jndi数据源-->
+	<bean id="jndidjxt" class="java.lang.String">  
+     	<constructor-arg>  
+         	<value>java:comp/env/zhaozijing.datasource.dsweb</value>  
+     	</constructor-arg>  
+ 	</bean>  
+
+	 <bean id="dataSource"  class="org.springframework.jndi.JndiObjectFactoryBean" >  
+	     <property name="jndiName" ref="jndidjxt"></property>  
+	 </bean>   
+	
+	<!--<bean id="dynamicDataSource" class="org.tpri.zbsc.dao.datasource.DynamicDataSource" >  
+	    <property name="targetDataSources">  
+	        <map key-type="java.lang.String">  
+	            <entry  key="dataSourceA" value-ref="dataSourceA"></entry>  
+	        </map>
+	    </property>  
+    	<property name="defaultTargetDataSource" ref="dataSourceA" >  
+    	</property>  
+	</bean>   -->
+	<!--hibernate的session配置-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+			</props>
+		</property>
+		<!--
+		<property name="configLocations">
+        	<value>classpath:hibernate.cfg.xml </value>
+		</property>	
+		-->
+		<!-- 实体包自动扫描 -->
+		<property name="packagesToScan">
+			<list>
+				<value>org.tpri.sc.entity</value>
+			</list>
+		</property>	
+	</bean>
+	<!--hibernate的事务配置-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 配置事务通知属性 -->  
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">  
+        <!-- 定义事务传播属性 -->  
+        <tx:attributes>  
+        	<tx:method name="*" propagation="REQUIRED"/> 
+           <!-- <tx:method name="insert*" propagation="REQUIRED" />  
+            <tx:method name="save*" propagation="REQUIRED" />  
+            <tx:method name="add*" propagation="REQUIRED" />  
+            <tx:method name="new*" propagation="REQUIRED" /> 
+            <tx:method name="update*" propagation="REQUIRED" />  
+            <tx:method name="edit*" propagation="REQUIRED" />  
+            <tx:method name="set*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="remove*" propagation="REQUIRED" /> 
+            <tx:method name="import*" propagation="REQUIRED" /> 
+            <tx:method name="deploy*" propagation="REQUIRED" /> 
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" />  
+            <tx:method name="find*" propagation="REQUIRED" read-only="true" />  
+            <tx:method name="load*" propagation="REQUIRED" read-only="true" />  
+            <tx:method name="*" propagation="REQUIRED" read-only="true" />  -->  
+        </tx:attributes>  
+    </tx:advice>  
+    <aop:config> 
+    	<aop:pointcut id="apiOperation" expression="execution(* org.tpri..*Api*.*(..))" />   
+        <aop:pointcut id="serviceOperation" expression="execution(* org.tpri..*Service*.*(..))" />  
+        <aop:pointcut id="managerOperation" expression="execution(* org.tpri..*Manager*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="apiOperation" />  
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="managerOperation" />   
+        
+        <!-- 在调用每个manager方法时，校验是否需要同步memcached数据
+        <aop:aspect id="managerMcUpdateCheckAspect" ref="managerMcUpdateChecker">  
+            <aop:pointcut id="managerMcUpdateCheckPointCut" expression="execution(* org.tpri..*Manager.*(..))"/>  
+            <aop:before method="check"  pointcut-ref="managerMcUpdateCheckPointCut"/>  
+        </aop:aspect> 
+         -->
+        <!-- 在调用每个controller方法时，重置校验ManagerMcUpdateChecker中当前线程的已校验的manager名称,避免线程池复用线程影响校验 
+        <aop:aspect id="resetManagerMcUpdateCheckAspect" ref="managerMcUpdateChecker">  
+            <aop:pointcut id="resetManagerMcUpdateCheckPointCut" expression="execution(public * org.tpri..*Controller.*(..))"/>  
+            <aop:before method="reset"  pointcut-ref="resetManagerMcUpdateCheckPointCut"/>  
+        </aop:aspect>   
+        -->
+    </aop:config>
+
+</beans>

@@ -1,0 +1,16 @@
+<div>
+	{% if rows.length>0 %} 
+	{% for item in rows %}
+	<div class="information-list" id="{{item.id}}" target="_blank" onclick="Information.onclick(id);">
+		<input id="category" value="{{item.category}}" hidden="hidden">
+		<div class="information-title" limit="26" title="{{item.name}}">{{item.name}}</div>
+		<div class="information-footer">
+			<div class="ccparty-name">{{item.ccparty.name}}</div>
+			<div class="information-create-time">{{item.createTime}}</div>
+		</div>
+	</div>
+</div>
+{% endfor %} {% else %}
+<div>暂时无内容</div>
+{% endif %}
+</div>

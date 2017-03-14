@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="index-member-card" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="50" bottomMargin="50" uuid="91985368-6c5d-40de-9cbd-0027742cd67c">
+	<property name="ireport.zoom" value="1.2396694214876032"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="year" class="java.lang.String"/>
+	<parameter name="ZBMC" class="java.lang.String"/>
+	<parameter name="DYMC" class="java.lang.String"/>
+	<summary>
+		<band height="742" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="257" isPrintWhenDetailOverflows="true" uuid="a7c64691-b376-4dac-8198-63a717a3549e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="华文楷体" size="40" isBold="true" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[中国共产党党员手册]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="257" width="535" height="59" isPrintWhenDetailOverflows="true" uuid="24f7eb86-6da8-4ac2-b92b-0e179f245e5c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="20" isBold="true" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["( "+$P{year} + " 年)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="491" width="535" height="35" isPrintWhenDetailOverflows="true" uuid="755750a2-877a-4a4c-a249-146a9a23aa72"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="22" isBold="true" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ZBMC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="553" width="535" height="35" isPrintWhenDetailOverflows="true" uuid="f3e4898d-d068-4660-ab64-8a3a2a1f5f49"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="22" isBold="true" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DYMC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

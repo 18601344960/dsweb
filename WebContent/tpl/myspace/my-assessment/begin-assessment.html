@@ -1,0 +1,55 @@
+<!-- 问卷测评内容 -->
+<div class="question_survey" id="question_survey" assessmentId="{{id}}" style="height: auto;" reminder="{{reminderId}}">
+	<div class="question_surveyhead">
+		<h1 id="pater_title" >{{name}}</h1>
+		<div id="pater_desc" class="question_surveydescription" >{{description}}</div>
+	</div>
+	
+	<!-- questionType=1单选2多选3简答 answer=选项数量 isMust=是否必做 -->
+	{% for topic in topics %}
+		{% if topic.type=='1' %}
+			<div class="div_question" style="border: 0px;" id="topic_{{topic.sequence}}"  topicId="{{topic.id}}" questionType="{{topic.type}}" answer="{{topic.options.length}}" isMust="{% if topic.isMust=='0' %}true{%else%}false{%endif%}">
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【单选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label></li>
+					<li id="topic_{{topic.sequence}}_options_li">
+						{% for option in topic.options %}
+							<input type="radio" style="margin:0 10px;" name="topic_{{topic.sequence}}_radio" id="{{topic.id}}_radio_answer_{{loop.index0+1}}"  value="{{option.id}}"/>{{option.seq}}、<font id="topic_{{topic.sequence}}_option_{{loop.index0+1}}">{{option.content}}</font><br>
+						{% endfor %}
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type=='2' %}
+			<div class="div_question"  style="border: 0px;" id="topic_{{topic.sequence}}" topicId="{{topic.id}}" questionType="{{topic.type}}" answer="{{topic.options.length}}" isMust="{% if topic.isMust=='0' %}true{%else%}false{%endif%}">
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【多选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label></li>
+					<li id="topic_{{topic.sequence}}_options_li">
+						{% for option in topic.options %}
+							<input type="checkbox" style="margin:0 10px;" name="topic_{{topic.sequence}}_checkbox" id="{{topic.id}}_checkbox_answer_{{loop.index0+1}}"  value="{{option.id}}"/>{{option.seq}}、<font id="topic_{{topic.sequence}}_option_{{loop.index0+1}}">{{option.content}}</font><br>
+						{% endfor %}
+					</li>
+				</ul>
+			</div>
+		{% elif topic.type=='3' %}
+			<div class="div_question" style="border: 0px;" id="topic_{{topic.sequence}}" topicId="{{topic.id}}" questionType="{{topic.type}}" answer="1" isMust="true">
+				<ul>
+					<li style="font-weight: bold;">{{topic.sequence}}、{% if topic.isMust=='0' %}<b style="color: red">*</b>{%endif%}【简答】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label></li>
+					<li style="text-indent: 2em;" >
+						<textarea style="width: 94%; height: auto;" id="{{topic.id}}_answer"></textarea>
+					</li>
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+	
+	<div class="my-assessment-submit">
+		<ul style="padding: 2px;">
+			<button id="submit-button" class="btn btn-primary" onclick="MyAssessmentDetail.submitAssessmentQuestion();" type="button">
+				<i class="fa fa-check" style="color: white;"></i> <span data-zh="提交答卷" style="color: white;">提交答卷</span>
+			</button>
+			<button class="btn btn-danger" onclick="MyAssessmentDetail.windowClose();" type="button" >
+				<i class="fa fa-ban" style="color: white;"></i> <span data-zh="关闭" style="color: white;">关闭</span>
+			</button>
+		</ul>
+	</div>
+</div>
+

@@ -1,0 +1,25 @@
+<!-- 
+	@description 角色管理
+	@author zhaozijing
+	@since 2015-06-12
+-->
+<div id="role-buttons" class="btn-group">
+	<button class="btn btn-default" onclick="ManagerRole.addRole()">
+		<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增" data-es="import">新增</span>
+	</button>
+</div>
+<table id="role-table" data-url="uam/loadRole" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true" data-show-refresh="true" data-toolbar="#role-buttons"
+	data-click-to-select="true" data-pagination="true">
+	<thead>
+		<tr>
+			<th data-radio="true"></th>
+			<th data-field="id" data-visible="false">主键</th>
+			<th data-field="privileges" data-visible="false">权限</th>
+			<th data-field="name" data-align="left" data-sortable="true">角色名称</th>
+			<th data-field="description" data-align="left" data-sortable="true">角色描述</th>
+			<th data-field="status" data-align="center" data-formatter="ManagerRole.statusFormatter">角色状态</th>
+			<th data-field="id" data-align="center" data-formatter="ManagerRole.operator" data-width="150">操作</th>
+		</tr>
+	</thead>
+</table>
+

@@ -1,0 +1,68 @@
+<!-- 结果详情 -->
+<div class="modal fade" id="ccparty-assessment-result-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 800px;">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">完成情况</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div>
+						<ul class="nav nav-tabs" role="tablist" id="ccparty-assessment-info-tab">
+							<li role="presentation" class="active"><a href="#ccparty-info" aria-controls="ccparty-info" role="tab" data-toggle="tab">组织完成情况</a></li>
+							<li role="presentation"><a href="#user-info" aria-controls="user-info" role="tab" data-toggle="tab">人员完成情况</a></li>
+						</ul>
+						<div class="tab-content">
+							<!-- 组织完成情况 -->
+							<div role="tabpanel" class="tab-pane active" id="ccparty-info">
+								<table id="assessment-target-table" data-url="pub/getCcpartyAssessmentTargetsByAssessment" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-show-refresh="true" data-pagination="false" data-search="false">
+									<thead>
+										<tr>
+											<th data-field="ccparty" data-formatter="AssessmentTarget.ccpartyNameFormatter">组织名称</th>
+											<th data-field="submitNum" data-align="center" data-formatter="AssessmentTarget.numFormatter">完成数/总人数</th>
+											<th data-field="ratio" data-align="center" data-formatter="AssessmentTarget.ratoFormatter">完成比例</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<!-- 人员完成情况 -->
+							<div role="tabpanel" class="tab-pane" id="user-info">
+								<div style="width: 100%;margin-top:5px;margin-bottom: 5px;height: 35px;" >
+									<button title="刷新" onclick="AssessmentUser.searchCcpartyFunction()" type="button" class="btn btn-default" style="width: 50px; height: 32px; float: right; margin-right: 5px;">
+										<i class="glyphicon glyphicon-refresh icon-refresh"></i>
+									</button>
+									<select id="status" class="form-control" style="float: right;width: 100px;margin-right: 10px;" onchange="AssessmentUser.searchCcpartyFunction()">
+										<option value="">所有</option>
+										<option value="1">已完成</option>
+										<option value="0">未完成</option>
+									</select>
+									<label style="float: right;margin: 8px;">完成状态：</label>
+									<input type="text" id="search" class="form-control" style="width: 150px; float: right; margin-right: 10px;" onkeyup="AssessmentUser.searchCcpartyFunction()" placeholder="姓名检索"/> 
+									<label style="float: right;margin: 8px;">姓名：</label>
+									<div style="width: 200px;float: right;">
+										<input type="text" id="searchCcpartyId" class="form-control" style="width: 200px; margin-right: 10px;" placeholder="选择组织检索" ids=""/> 
+										<div id="menuContent" class="menuContent" style="display:none; position: absolute ;z-index:100001;background-color: white;overflow:auto; border:1px solid #D3D3D3;width: 200px">
+											<ul id="ccparty-tree" class="ztree" style="margin-top:0;height: 400px;"></ul>
+										</div>
+									</div>
+									<label style="float: right;margin: 8px;">党组织：</label>
+								</div>
+								<table id="assessment-user-table" data-url="pub/getCcpartyAllAssessmentUsersByAssessment" data-side-pagination="server"  data-page-list="[5, 10, 20, 50, 100, 200]" data-pagination="true" data-click-to-select="false" data-search="false" data-show-refresh="false">
+									<thead>
+										<tr>
+											<th data-field="userName" data-align="center">姓名</th>
+											<th data-field="ccpartyName" data-align="center">所属组织</th>
+											<th data-field="id" data-align="center" data-formatter="AssessmentUser.assessmentUserStatus">完成状态</th>
+											<th data-field="submitTime" data-align="center" >完成时间</th>
+										</tr>
+									</thead>
+								</table> 
+							</div>
+						</div>	
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

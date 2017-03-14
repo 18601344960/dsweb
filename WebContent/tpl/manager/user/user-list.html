@@ -1,0 +1,32 @@
+<!-- 
+	@description 用户管理
+	@author zhaozijing
+	@since 2015-06-06
+-->
+<div>
+	<div style="float: left;margin:10px;">
+		<button class="btn btn-default" id="add-user-process-definition">
+	        <i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增" data-es="import">新增</span>
+	    </button>
+	</div>
+	<div>
+	<button title="刷新" onclick="ManagerUser.render()" type="button" class="btn btn-default" style="width: 50px;height:32px; float: right; margin: 10px;"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
+	<input type="text" class='form-control' id="search" style="float: right; margin: 10px;width: 150px;" onkeyup="ManagerUser.searchUser()"/>
+	<label style="float: right; margin: 18px;">姓名：</label>
+	</div>
+</div>
+<div id="task-report-result" style="clear: both;"></div>
+<table id="user-process-definition-table" data-url="uam/getUsers" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-click-to-select="true" data-pagination="true">
+    <thead>
+    <tr>
+    	<th data-radio="true"></th>
+        <th data-field="loginNo" data-align="left">登录账号</th>
+        <th data-field="idNumber" data-align="left" data-formatter="ManagerUser.idNumberFormatter">身份证</th>
+        <th data-field="name" data-align="center" >姓名</th>
+        <th data-field="gender" data-align="center" data-formatter="ManagerUser.genderFormatter">性别</th>
+        <th data-field="type" data-align="center" data-formatter="ManagerUser.codeName">政治面貌</th>
+        <th data-field="operator" data-width="200" data-align="left" data-formatter="ManagerUser.operator">操作</th>
+    </tr>
+    </thead>
+</table>
+

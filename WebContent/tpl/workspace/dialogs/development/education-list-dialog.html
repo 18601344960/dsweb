@@ -1,0 +1,91 @@
+<!-- 
+	@description 学历学位信息弹框
+	@author 赵子靖
+	@since 2015-12-03
+-->
+<div class="modal fade" id="education-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 850px;">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 class="modal-title">学位学历信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<table id="education-table" data-url="obt/loadEducationByUserId" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="false" data-show-refresh="false"
+						data-click-to-select="true" data-pagination="true">
+						<thead>
+							<tr>
+								<th data-radio="true"></th>
+								<th data-field="id" data-visible="false">主键</th>
+								<th data-field="eduSchoolName" data-align="left" data-sortable="true">学校名称</th>
+								<th data-field="startTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">入学时间</th>
+								<th data-field="endTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">毕业时间</th>
+								<th data-field="eduBackground" data-formatter="PartyMemberEducation.eduBackgroundFormatter">学历</th>
+								<th data-field="degree" data-formatter="PartyMemberEducation.degreeFormatter">学位</th>
+								<th data-field="awardTime" data-formatter="JSUtils.dateFormatToYYYYMMDD">学位授予时间</th>
+								<th data-field="type" data-formatter="PartyMemberEducation.typeFormatter">教育类别</th>
+								<th data-field="overseaStudy">海外学习</th>
+								<th data-field="id" data-formatter="PartyMemberEducation.deleteOperator" data-width="50">操作</th>
+							</tr>
+						</thead>
+						</tbody>
+					</table>
+				</form>
+				<div class="development-maintain">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<input type="hidden" id="id" value="{{id}}" />
+						<tr>
+							<td width="20%" style="text-align: right; color: red">*入学日期：</td>
+							<td width="30%"><input id="startTime" type="text" class='form-control' value="{{startTime}}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></td>
+							<td width="20%" style="text-align: right; color: red">*毕业日期：</td>
+							<td width="30%"><input id="endTime" type="text" class='form-control' value="{{endTime}}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></td>
+						</tr>
+						<tr>
+							<td style="text-align: right; color: red">*学历：</td>
+							<td>
+								<input type="text" class="form-control hidden" id="educationBackgroundId" value="" /> 
+								<input type="text" class="form-control" id="educationBackgroundName" placeholder="请填选学历" onclick="SelectTree.selectTree('educationBackground')" readonly="readonly" onfocus="SelectTree.initSelectTree('#educationBackground-tree', 'sys/getCodeTreeByParentId', 'A0405')"/>
+								<div id="educationBackgroundContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+									<ul id="educationBackground-tree" class="ztree" style="margin-top: 0; height: 400px;">
+									</ul>
+								</div>
+							</td>
+							<td style="text-align: right;">学位：</td>
+							<td>
+								<input type="text" class="form-control hidden" id="educationDegreeId" value="" /> 
+								<input type="text" class="form-control" id="educationDegreeName" placeholder="请填选学位" onclick="SelectTree.selectTree('educationDegree')" readonly="readonly" onfocus="SelectTree.initSelectTree('#educationDegree-tree', 'sys/getCodeTreeByParentId', 'A0440')"/>
+								<div id="educationDegreeContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+									<ul id="educationDegree-tree" class="ztree" style="margin-top: 0; height: 400px;">
+									</ul>
+								</div>	
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right; color: red">*教育类别：</td>
+							<td>
+								<input type="text" class="form-control hidden" id="educationTypeId" value="" /> 
+								<input type="text" class="form-control" id="educationTypeName" placeholder="请填选教育类别" onclick="SelectTree.selectTree('educationType')" readonly="readonly" onfocus="SelectTree.initSelectTree('#educationType-tree', 'sys/getCodeTreeByParentId', 'A0449')"/>
+								<div id="educationTypeContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+									<ul id="educationType-tree" class="ztree" style="margin-top: 0; height: 400px;">
+									</ul>
+								</div>
+							</td>
+							<td style="text-align: right;">学位授予日期：</td>
+							<td><input id="awardTime" type="text" class='form-control' value="{{awardTime}}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /></td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">学校：</td>
+							<td><input type="text" id="eduSchoolName" class='form-control' maxlength="50" value="{{eduSchoolName}}"></td>
+							<td style="text-align: right;">海外学习经历：</td>
+							<td><input type="text" class="form-control" id="overseaStudy" value="{{overseaStudy}}" /></td>
+						</tr>
+					</table>
+					<div style="text-align: center; padding: 10px;">
+						<button  type="button" class="btn btn-primary" onclick="PartyMemberEducation.addEducation()">增加/保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

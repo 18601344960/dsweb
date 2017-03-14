@@ -1,0 +1,54 @@
+<!-- 
+	@description 文章列表模板
+	@author 易文俊
+	@since 2015-04-20
+-->
+<table class="article-list-table">
+{% if rows.length>0 %}
+	{% for item in rows %}
+	<tr>
+		<td articleId="{{item.id}}">
+			    <span class="article-title" style="padding: 10px 0px;line-height: 40px;">
+			    	{%if item.isTop==1 %}
+					<img src="images/content/stick.png" alt="[置顶]">
+					{%endif%}
+			    	{%if item.isRecommend==1 %}
+					<img src="images/content/recommond.png" alt="[推荐]">
+					{%endif%}
+			      	<a title="{{item.name}}" target="_blank" href="article-view?articleId={{item.id}}&viewSource=share" limit="30" style="font-size: 20px;">{{item.name}}</a>
+			    </span>
+			    <div limit="130" style="font-size: 14px;color:#666;">{{item.content}}</div>
+			    <div class="news_tag">
+	    		  {% for conferenceStep in item.conferenceSteps %}
+	              	<div class="step-category">{{conferenceStep.category.name}}</div>
+	              {% endfor %}
+	              {% for conferenceFormat in item.conferenceFormats %}
+	              	<div class="format-category">{{conferenceFormat.category.name}}</div>
+	              {% endfor %}
+	              {% for conferenceLabel in item.conferenceLabels %}
+	              	<div class="label-category">{{conferenceLabel.category.name}}</div>
+	              {% endfor %}
+	          	</div>
+			    <div class="news_info">
+			    	{%if item.sourceType==0 %}
+					<img src="images/content/zu.png" alt="[组织]">
+					{%endif%}
+					{%if item.sourceType==1 %}
+					<img src="images/content/ge.png" alt="[个人]">
+					{%endif%}
+			      	<span>工作来源：{{item.sourceName}}</span>|<span>工作时间：{{getDate(item.occurTime)}}</span>|<span>创建人：{{item.createUser.name}}</span>
+			      	<span class="digg json_digg" style="float:right;">
+			        	<span class="comment">浏览 <b id="digg_count_30169">({{item.hits}})</b> </span>
+			        	<span class="comment">评论<b id="digg_count_30169">({{item.reply}})</b> </span>
+			        	<span class="comment">赞 <b id="digg_count_30169">({{item.praiseCount}})</b> </span>
+			    	</span>
+			    </div>
+		  </td>
+	</tr>
+	{% endfor %}
+{% else %}
+	<tr style="font-size: 16px;margin:50px auto;width: 100px;">暂无文章。</tr>
+{% endif %}
+</div>
+</table>
+<div id="tpri-pagination" style="margin-top: 20px;" class="pagination-container"></div>

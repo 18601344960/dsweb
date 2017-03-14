@@ -1,0 +1,29 @@
+<!-- 
+	@description 我的答卷列表
+	@author 赵子靖
+	@since 2016-08-11
+-->
+<div id="querstion-box">
+	{%if rows.length%}
+		{%for item in rows%}
+			{%if item.isJoinType==true%}
+				<div class="qusetionbox-joined" title="{{item.assessmentName}}" onclick="MyAssessment.openMyAssessmentTopic('{{item.assessmentId}}')">
+			{%elif item.isJoinType==false%}
+				<div class="qusetionbox" title="{{item.assessmentName}}" onclick="MyAssessment.openMyAssessmentTopic('{{item.assessmentId}}')">
+			{%endif%}
+				<ul>
+					<li class="title">{{item.assessmentName}}</li>
+					<li class="ccpartyName">[{{item.assessmentCcpartyName}}]</li>
+					<li>
+						<span class="joinNum">{{item.joinNum}}人已参加</span>
+						<span class="overTip">{{item.overTip}}</span>
+					</li>
+				</ul>
+			</div>
+		{%endfor%}
+	{%else%}
+	<div class="no-my-assessment">
+		暂无问卷调查。
+	</div>
+	{%endif%}
+</div>

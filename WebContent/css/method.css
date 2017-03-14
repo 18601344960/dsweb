@@ -1,0 +1,148 @@
+@CHARSET "UTF-8";
+/*************************支部工作法其他方法样式***********************/
+.method-wrap{
+	text-align: center;
+	padding:10px 0;
+}
+.column-wrap{
+	text-align:center;
+	float:left;
+	min-Width:100px;
+	height:60px;
+	padding:8px;
+	margin:0 10px;
+	background:  repeat scroll 0 0 #5EAFA6;
+    border-radius: 5px;
+}
+.column-wrap:HOVER{
+	background:  repeat scroll 0 0 #5EAFF6;
+}
+.column-wrap a{
+	display:block;
+	color: #fff;
+    font-family: "Microsoft Yahei";
+    font-size: 30px;
+    text-decoration: none;
+}
+.navigation-btns {
+	background-color:#eee;
+	border:1px solid #eee;
+	top: 180px;
+	display: block; 
+	/* left: 203px; */
+    height: 185px;
+    position: fixed;
+    width: 120px;
+    z-index: 1001;
+}
+.navigation-btns .navigation-btn{
+	text-align:center;
+	font-family: "宋体";
+	font-size:20px;
+	padding:10px;
+	color:#333;
+    background: none repeat scroll 0 0 #ccc;
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    left: 0;
+    text-decoration: none;
+    width: 120px;
+    bottom: 60px;
+    margin-bottom:10px;
+}
+.navigation-btns .navigation-btn:HOVER{
+	background: none repeat scroll 0 0 #C1E0F5;
+}
+#other-method-container{
+	padding-left:100px;
+}
+.other-method-container-title{
+	margin:10px;
+}
+/***************************工作法介绍*********************/
+.content-detail{
+	min-height:500px;
+	margin:0 auto;
+	padding:10px 50px;
+	text-align: center;
+}
+.content-detail .content-tile{
+	font-size: 36px;
+	text-align: center;
+}
+.content-detail .content-description{
+	font-size: 20px;
+	text-align: left;
+	padding:30px;
+}
+.content-detail .content-description p{
+	text-indent: 2em;
+}
+.pop-container{
+	border-radius:5px;
+	border: 1px solid #ccc;
+	width:500px;
+	height:100px;
+	padding: 5px;
+	color:#fff;
+	background-color:#92ccf1;
+	position:absolute;
+	display:none;
+}
+
+/***********************文章内容录入*************************/
+.method-label{
+	margin: 5px 10px;
+	border: 1px dashed #2D75B7;
+	padding: 7px;
+	width: auto;
+	float: left;
+	background-color: #E1F7FD;
+	border-radius: 5px;
+}
+.first-category{
+	border-radius:5px;
+	margin:10px;
+	border: 1px solid #de2810;
+	padding: 7px;
+}
+.method-label:HOVER{
+	text-decoration: none;
+	cursor: pointer;
+	padding: 6px;
+	background-color: #FFEAA2;
+	border: 2px solid #F9B044;
+}
+.method-label-selected{
+	border: 2px solid #FF8080;
+	background: url("../images/column-bg.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	padding: 6px;
+	color: #fff;
+	border-radius: 6px !important;
+}
+.file-upload-btn{
+	border-radius:5px;
+	background: #428bca;
+    border: none;
+    color: #fff;
+}
+.uploadify-button-text{
+	color: #fff;
+	font-weight:bold;
+	font-size: 20px;
+}
+/*************************上传文件***********************/
+#file-upload-queue {
+    background-color: #FFF;
+    /*border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    height: 200px; */
+    overflow: auto;
+    padding: 5px 10px;
+    width: 600px;
+}
+.uploadify-queue-item{
+	font-size: 16px;
+	max-width:600px;
+}

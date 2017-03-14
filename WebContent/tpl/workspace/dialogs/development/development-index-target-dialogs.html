@@ -1,0 +1,43 @@
+<!-- 
+	@description 党员发展指标下发对象对话框
+	@author 赵子靖
+	@since 2015-12-08
+-->
+<div class="modal fade" id="development-index-target-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 800px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">党员发展指标下发对象</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" id="development-index-target-buttons" style="border-bottom: 1px sold #666">
+				{%if indexStatus==0%}
+					<button class="btn btn-default" onclick="DevelopmentIndexTarget.addDevelopmentIndexTargetDialog('{{indexId}}')" type="button">
+						<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="增加">增加</span>
+					</button>
+				{%endif%}
+				</div>
+				<form class="form-horizontal">
+					<input type="hidden" id="indexId" value="{{indexId}}" />
+					<table id="development-index-target-table" data-url="obt/getDevelopmentIndexTargets" data-side-pagination="server" data-page-list="[10, 20, 50, 100, 200]" data-toolbar="#development-index-target-buttons"
+						data-pagination="true" data-click-to-select="true" data-search="false" data-show-refresh="true">
+						<thead>
+							<tr>
+								<th data-radio="true"></th>
+								<th data-field="id" data-visible="false">ID</th>
+								<th data-field="ccparty" data-formatter="DevelopmentIndexTarget.ccpartyNameFormatter">党组织</th>
+								<th data-field="memberNum" data-align="center">发展党员数</th>
+								<th data-field="status" data-align="center" data-formatter="DevelopmentIndexTarget.statusFormatter">状态</th>
+								<th data-field="sendTime" data-align="center">发送时间</th>
+								<th data-field="id" data-align="center" data-formatter="DevelopmentIndexTarget.operator" >操作</th>
+							</tr>
+						</thead>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="indexTargetDialogs"></div>

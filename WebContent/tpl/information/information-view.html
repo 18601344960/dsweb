@@ -1,0 +1,28 @@
+<script language="javascript" src="information.js"></script>
+<div class="content-wrapper">
+	<div class="detail-title">
+		<b>{{name}}</b>
+	</div>
+	<div class="detail-info">
+		<span class="detail-info-item">来源：{{createUser.name}}</span> <span class="detail-info-item">日期：{{createTime}}</span> <span class="detail-info-item">浏览({{hits}})</span>
+	</div>
+	<div class="detail-content">{{content}}</div>
+
+	<div class="images-container">
+		{% for image in images %}
+		<p>
+			<img src="file/getFileData?filePath={{image.filePath}}" onError='Global.onImgError(this)' style="max-width: 100%" />
+		</p>
+		{% endfor %}
+	</div>
+	{% if files.length>0 %}
+	<div class="detail-files-title">附件：</div>
+	<div id="files-container" class="detail-files-container">
+		{% for file in files %}
+		<p id="{{file.id}}">
+			<a href="file/getFileData?filePath={{file.filePath}}">{{file.name}}</a>
+		</p>
+		{% endfor %}
+	</div>
+	{% endif %}
+</div>

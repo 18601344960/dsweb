@@ -1,0 +1,32 @@
+<!-- 
+	@description 新增党务人员表单模板
+	@author 易文俊
+	@since 2016-01-10
+-->
+<div class="modal fade" id="party-worker-dialog" role="dialog" data-backdrop="">
+	<div class="modal-dialog" style="width: 650px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 id="title" class="modal-title">编辑党务干部</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" onclick="ManagerPartyWorker.updatePartyWorker()">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+					</button>
+				</div>
+				<hr style="margin: 10px 0">
+				<form class="form-horizontal">
+					<input type="hidden" id="id" value="{{id}}" />
+					<div class="form-group">
+						<label class="col-sm-2 control-label">角色名称</label>
+						<div class="col-sm-10">
+							<input id="name" type="text" class="form-control" value="{{name}}">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

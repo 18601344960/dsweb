@@ -1,0 +1,80 @@
+<table class="my-info-content-first-table">
+	<tr>
+		<td width="5%" style="text-align: center;">
+			<i class="base-info-icon"></i>
+		</td>
+		<td width="80%" class="head-title">基本资料(编辑)</td>
+		<td width="15%">
+			<button onclick="MyInfo.updateUserBaseInfo()" class="btn btn-success" type="button">保存</button>
+			<button onclick="MyInfo.loadUserBaseInfo()" class="btn btn-default" type="button">取消</button>
+		</td>
+	</tr>
+</table>
+<div id="user-base-info">
+	<input type="hidden" id="userId" value="{{item.id}}"/>
+	<table class="my-info-content-two-table">
+		<tr>
+			<td width="20%" style="text-align: right;">性别：</td>
+			<td width="25%">
+				<input type="radio" value="1" name="sex">男
+				<input type="radio" value="2" name="sex">女
+			</td>
+			<td width="20%" style="text-align: right;">出生日期：</td>
+			<td width="25%">
+				<input type="text" class='form-control' style="width: 200px;" id="birthday" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.birthDay)}}" maxlength="36"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">民族：</td>
+			<td width="25%">
+				<input type="text" class="form-control hidden" id="nationId" value="" /> 
+				<input type="text" class="form-control" style="width: 200px;" id="nationName" placeholder="请填选民族" onclick="SelectTree.selectTree('nation')" onfocus="SelectTree.initSelectTree('#nation-tree', 'sys/getCodeTreeByParentId', 'A0121')"/>
+				<div id="nationContainer" style="display: none; width: 200px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+					<ul id="nation-tree" class="ztree" style="margin-top: 0; height: 400px;"></ul>
+				</div>
+			</td>
+			<td width="20%" style="text-align: right;">籍贯：</td>
+			<td width="25%">
+				<input type="text" class="form-control hidden" id="birthPlaceId" value="" /> 
+				<input type="text" class="form-control" style="width: 200px;" id="birthPlaceName" placeholder="请填选籍贯" onclick="SelectTree.selectTree('birthPlace')" onfocus="SelectTree.initSelectTree('#birthPlace-tree', 'sys/getCodeTreeByParentId', 'A0114', true, true)"/>
+				<div id="birthPlaceContainer" style="display: none; width: 200px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+					<ul id="birthPlace-tree" class="ztree" style="margin-top: 0; height: 400px;"></ul>
+				</div>			
+			</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">学历：</td>
+			<td width="25%">
+				<input type="text" class="form-control hidden" id="educationId" value="" /> 
+				<input type="text" class="form-control" style="width: 200px;" id="educationName" placeholder="请填选学历" onclick="SelectTree.selectTree('education')" onfocus="SelectTree.initSelectTree('#education-tree', 'sys/getCodeTreeByParentId', 'A0405')"/>
+				<div id="educationContainer" style="display: none; width: 200px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+					<ul id="education-tree" class="ztree" style="margin-top: 0; height: 400px;">
+					</ul>
+				</div>
+			</td>
+			<td width="20%" style="text-align: right;">学位：</td>
+			<td width="25%">
+				<input type="text" class="form-control hidden" id="degreeId" value="" /> 
+				<input type="text" class="form-control" style="width: 200px;" id="degreeName" placeholder="请填选学位" onclick="SelectTree.selectTree('degree')" onfocus="SelectTree.initSelectTree('#degree-tree', 'sys/getCodeTreeByParentId', 'A0440')"/>
+				<div id="degreeContainer" style="display: none; width: 200px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+					<ul id="degree-tree" class="ztree" style="margin-top: 0; height: 400px;">
+					</ul>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">手机：</td>
+			<td width="25%">
+				<input type="text" class="form-control" style="width: 200px;" id="mobile" value="{{item.mobile}}" maxlength="36"/>
+			</td>
+			<td width="20%" style="text-align: right;">办公电话：</td>
+			<td width="25%"><input type="text" class="form-control" style="width: 200px;" id="officePhone" value="{{item.officePhone}}" maxlength="36"/></td>
+		</tr>
+		<tr>
+			<td width="20%" style="text-align: right;">邮箱：</td>
+			<td width="25%"><input type="text" class="form-control" style="width: 200px;" id="email" value="{{item.email}}" maxlength="36"/></td>
+			<td width="20%" style="text-align: right;">家庭地址：</td>
+			<td width="25%"><input type="text" class="form-control" style="width: 200px;" id="address" value="{{item.address}}" maxlength="200"/></td>
+		</tr>
+	</table>
+</div>

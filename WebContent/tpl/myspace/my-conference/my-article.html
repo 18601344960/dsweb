@@ -1,0 +1,27 @@
+<!-- 
+	@description 我的文章列表
+	@author 赵子靖
+	@since 2015-09-21
+-->
+<div style="height: 80px; padding-top: 20px;">
+	<div class="btn-group" style="border-bottom: 1px sold #666; float: left;">
+		<button class="btn btn-default" onclick="javascript:MyArticle.openAddConferece()">
+			<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增">新增</span>
+		</button>
+	</div>
+	<div style="float: right;">
+		<table style="width: 100%" onkeydown="MyArticle.bindEnter(event)">
+			<tr>
+				<td width="" align="right"><b>工作时间：</b></td>
+				<td width="15%"><input type="text" id="beginTime" class="form-control" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}'})" /></td>
+				<td width="1%">&nbsp;至&nbsp;</td>
+				<td width="15%"><input type="text" id="endTime" class="form-control" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'beginTime\')}'})" /></td>
+				<td width="10%" align="right"><b>工作主题：</b></td>
+				<td width="20%"><input type="text" id="searchKey" class="form-control" oninput="MyArticle.searchSubmit()"/></td>
+				<td width="3%"><div class="col-sm-3 btn btn-default" style='margin-left: 5px; width: 70px;' onclick="MyArticle.searchSubmit()">搜索</div></td>
+				<td width="3%"><div class="col-sm-3 btn btn-default" style='margin-left: 5px; width: 70px;' onclick="MyArticle.searchClearSubmit()">清除</div></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="article-list"></div>

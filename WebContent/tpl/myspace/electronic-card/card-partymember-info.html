@@ -1,0 +1,65 @@
+<!-- 
+	@description 党员手册-党员基本信息
+	@author zhaozijing
+	@since 2015-08-19
+-->
+
+<table class="partymember-info-table">
+	<tr height="10px"></tr>
+	<tr>
+		<td colspan="3" align="left"
+			style="color: #DAA520; font-family: cursive;font-weight: bold; font-size: 24px;">&nbsp;&nbsp;基本信息篇</td>
+	</tr>
+	<tr>
+		<td align="right" width="30%" style="font-weight: bold;">姓名：</td>
+		<td align="left" width="35%">{{item.name}}</td>
+		<td rowspan="5" align="center" width="35%"><img id="headImgId" gender="{{item.gender}}"
+			src="uam/getHeadImg?userId={{item.id}}" onError='Global.onIconError(this)'
+			style="cursor: pointer; border: 1px solid #DBDBDB; width: 130px; height: 155px;">
+		</td>
+	</tr>
+	<tr>
+		<td align="right" style="font-weight: bold;">性别：</td>
+		<td align="left">{{getCodeName('A0107.'+item.gender)}}</td>
+	</tr>
+	<tr>
+		<td align="right" style="font-weight: bold;">民族：</td>
+		<td align="left">{{getCodeName('A0121.'+item.nation)}}</td>
+	</tr>
+	<tr>
+		<td align="right" style="font-weight: bold;">籍贯：</td>
+		<td align="left">{{getCodeName('A0114.'+item.birthPlace)}}</td>
+	</tr>
+	<tr>
+		<td align="right" style="font-weight: bold;">出生日期：</td>
+		<td align="left">{{getDate(item.birthDay)}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">入党日期：</td>
+		<td align="left">{{getDate(partyMember.joinTime)}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">所属单位：</td>
+		<td align="left">{{item.organization.name}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">行政职务：</td>
+		<td align="left">{{item.jobTitle}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">所在党支部：</td>
+		<td align="left">{{item.ccpartyName}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">党内职务：</td>
+		<td align="left">{{partyTitleName}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">党员类型：</td>
+		<td align="left">{{getEnumName('obt_party_member.type.'+partyMember.type)}}</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-weight: bold;">加入当前组织日期：</td>
+		<td align="left">{{getDate(partyMember.joinCurrentTime)}}</td>
+	</tr>
+</table>

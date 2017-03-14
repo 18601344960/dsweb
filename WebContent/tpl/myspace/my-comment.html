@@ -1,0 +1,18 @@
+<!-- 
+	@description 我的文章评论
+	@author 赵子靖
+	@since 2015-09-21
+-->
+<table style="width: 100%" onkeydown="MyComment.bindEnter(event)">
+	<tr style="height: 80px;border-bottom:1px solid #ccc;">
+		<td width="" align="right"><b>时间：</b></td>
+		<td width="10%"><input type="text" id="beginTime" class="form-control"  onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}'})"/></td>
+		<td width="1%">&nbsp;至&nbsp;</td>
+		<td width="10%"><input type="text" id="endTime" class="form-control" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'beginTime\')}'})"/></td>
+		<td width="5%" align="right"><b>关键字：</b></td>
+		<td width="15%"><input type="text" id="searchKey" class="form-control" oninput="MyComment.searchSubmit()"/></td>
+		<td width="3%"><div class="col-sm-3 btn btn-default" style='margin-left: 5px;width: 70px;' onclick="MyComment.searchSubmit()">搜索</div></td>
+		<td width="3%"><div class="col-sm-3 btn btn-default" style='margin-left: 5px;width: 70px;' onclick="MyComment.searchClearSubmit()">清除</div></td>
+	</tr>
+</table>
+<div id="comment-list"></div>

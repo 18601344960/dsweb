@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+/**
+	@description 组织机构设置样式
+	@author zhaozijing
+	@since 2015-08-13
+**/
+/************************党组织管理样式******************/
+.ccparty_info_manager table{
+	margin-top: 15px;
+	width: 90%;
+	font-size: 14px;
+}
+.ccparty_info_manager table tr td{
+	padding: 5px;
+}

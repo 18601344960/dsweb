@@ -1,0 +1,436 @@
+@CHARSET "UTF-8";
+/**
+	@description 工作平台样式文件
+	@author 易文俊
+	@since 2016-06-30
+**/
+
+/******************************党员管理*****************************/
+.party-leader-info-label{
+	margin-top:15px;	
+}
+.party-leader-info-description{
+	background-color:#ffffec;
+	border:1px solid #b8c6d3;
+	border-radius:5px;
+	margin:10px 0;
+	padding:30px;
+}
+.main-detail-left-list {
+	border: 1px dashed #d6d6d6;
+	float: left;
+	overflow: auto;
+	height: 600px;
+	width: 150px;
+	margin-bottom: 30px;
+}
+.main-detail-right {
+	overflow: auto;
+}
+
+.container-left {
+	float: left;
+	width: 55%;
+}
+
+.container-right {
+	float: left;
+	width: 45%;
+}
+
+.container-right .btn-detail {
+	margin: 10px 5px;
+	float: right;
+}
+
+.container-right .table-detail {
+	margin-left: 5px;
+	padding: 50px 20px;
+	border-right: 1px solid #f2f2f2;
+	border-bottom: 1px solid #f2f2f2;
+	border-left: 1px solid #f2f2f2;
+	background-color: #fcfcfc;
+}
+
+/******************************换届选举样式*****************************/
+#election-detail {
+	padding: 30px;
+	margin: 10px 0;
+	background-color: #FFFFEC;
+	border:solid 1px #B8C6D3;
+	border-radius:5px;
+}
+
+#election-detail table {
+	width: 80%;
+}
+
+#election-detail table tr {
+	height: 40px;
+}
+
+#election-detail table tr .left {
+	font-weight: bold;
+	text-align: right;
+	padding-right: 30px;
+}
+
+#election-detail table tr .right {
+	text-align: left;
+}
+/***************************右侧内容************************/
+#right-main-container {
+	margin-left: 150px;
+	padding: 5px;
+}
+
+#right-main-container .main-title {
+	border-bottom: 1px solid #f2f2f2;
+	color: #333;
+	font-size: 24px;
+	line-height: 1;
+	border-left: solid #D20202 4px;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 6px;
+}
+
+.main-detail {
+	float: left;
+	width: 99%;
+}
+
+.main-detail-left-tree {
+	float: left;
+	border: 1px dashed #d6d6d6;
+	height: 600px;
+	overflow: auto;
+	width: 230px;
+	margin-bottom: 30px;
+}
+
+.main-detail-left-list {
+	border: 1px dashed #d6d6d6;
+	float: left;
+	overflow: auto;
+	height: 600px;
+	width: 150px;
+	margin-bottom: 30px;
+}
+
+.main-detail-right {
+	overflow: auto;
+}
+
+
+/******************************发展党员*****************************/
+#development-procedure-phase-container {
+	margin: 0px 50px;
+}
+.development-flow-chart{
+	background-color: #FFFFEC;
+	padding: 10px 0;
+	margin-top: 5px;
+	border:solid 1px #B8C6D3;
+	border-radius:5px;
+}
+.development-phase {
+	margin: 2px 5px;
+	float: left;
+}
+
+.development-phase-parent {
+	text-align: center;
+	padding: 15px 20px;
+	color: #fff;
+	margin: 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #7E98AF;	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#097101, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase-child {
+	float: left;
+	text-align: center;
+	height: 25px;
+	width: 25px;
+	padding: 3px;
+	color: #fff;
+	margin: 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	background:#D20202;
+	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#097101, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase-child-disable {
+	color: #DFDFDF;
+	background-color: #0B5AAA;	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#333, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase-parent:HOVER, .development-phase-child:HOVER, .development-phase-selected {
+	background-color: #0C8202;	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#E60012, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase i {
+	color: #fff;
+	margin: 0 5px;
+}
+
+.development-phase-tip {
+	float: left;
+	padding: 3px;
+	color: #000;
+	margin: 2px;
+	border-radius: 5px;
+	margin-top: 80px;
+	margin-left: 20px;
+}
+
+.development-phase-tip-1 {
+	margin-top: 5px;
+	margin-right: 10px;
+	float: left;
+	height: 10px;
+	width: 10px;
+	background:#0B5AAA;
+	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#333, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase-tip-2 {
+	margin-top: 5px;
+	margin-right: 10px;
+	float: left;
+	height: 10px;
+	width: 10px;
+	background:#D20202;
+	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#097101, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase-tip-text {
+	float: left;
+}
+
+.current-development-phase {
+	margin: 10px 0 10px 450px;
+}
+
+#current-development-phase {
+	padding: 3px;
+	background-color: #0C8202;
+	color: #fff;
+}
+
+.development-phase-set {
+	margin: 2px 5px;
+	float: left;
+}
+
+.development-phase-set i {
+	color: #fff;
+	margin: 0 5px;
+}
+
+.development-phase-set-parent {
+	text-align: center;
+	padding: 15px 20px;
+	color: #fff;
+	margin: 2px;
+	border-radius: 5px;
+	background: #7e98af;
+	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#097101, #999) repeat scroll 0 0;
+	*/
+	text-align: center;
+}
+
+.development-phase-set-child {
+	max-width: 200px;
+	text-align: left;
+	padding: 3px;
+	color: #fff;
+	margin: 10px 2px;
+	border-radius: 5px;
+	background: #D20202;
+	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#097101, #999) repeat scroll 0 0;
+	*/
+}
+
+.development-phase-set-child-disable {
+	background:#0B5AAA;
+	/*
+	background: rgba(0, 0, 0, 0) linear-gradient(#333, #999) repeat scroll 0 0;
+	*/
+}
+
+/***************************文章列表样式************************/
+/* .article-list-table{
+	width: 100%;
+}
+.article-list-table tr:HOVER{
+	background-color:#fcfcfc;
+}
+.article-list-table tr{
+	height: 100px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #ccc;
+}
+.article-list-table tr td .article-title{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+.article-list-table tr td .article-title a{
+	font-weight:500;
+	cursor: pointer;
+	color: #222;
+    font-size: 16px;
+}
+.article-list-table tr td .article-title a:hover{
+	color:#a12a2a;
+}
+.article-list-table tr td span{
+	font-size: 12px;
+	color: #666;
+	padding: 10px;
+}
+
+.news_tag::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.news_tag {
+	clear: both;
+	display: block;
+	line-height: 20px;
+	margin: 10px 0 5px;
+}
+
+.news_tag .category {
+	background-color: #d37166;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.step{
+	background-color: #a06bad;
+	border-radius: 10px;
+	font-size: 13px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 0 10px;
+}
+.news_info {
+	background: none repeat scroll 0 0 #f3f3f3;
+	color: #999;
+	padding: 10px 10px 0;
+	position: relative;
+	font-family: Helvetica, Tahoma, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.news_info span {
+	background-repeat: no-repeat;
+	margin: 0 6px;
+}
+
+.news_info .view {
+	background-image: url("icon_arrow.gif");
+}
+
+.news_info .date {
+	color: #a12a2a;
+	padding-left: 0;
+} */
+
+/******************************新增弹框Table样式*****************************/
+.development-manager-table{
+	width: 100%;
+	margin-top:10px;
+}
+.development-manager-table tr{
+	height: 50px;
+}
+.development-manager-table tr td{
+	text-align: center;
+	padding: 5px;
+}
+.development-manager-explain{
+	margin-top:10px;
+	height: 50px;
+}
+.development-maintain{
+	border:3px solid #DDDDDD;
+	width: 100%;
+	margin-top:10px;
+}
+.development-maintain table{
+	width: 94%;
+	text-align: center;
+	margin-top:10px;
+}
+.development-maintain table tr{
+	height: 40px;
+}
+.development-maintain table tr td{
+	text-align: center;
+	padding: 5px;
+}
+/******************************党组织领导班子详情样式*****************************/
+.party-leader-info-description{
+	background-color:#ffffec;
+	border:1px solid #b8c6d3;
+	border-radius:5px;
+	margin:10px 0;
+	padding:30px;
+}
+.party-leader-info-leaders{
+	background-color:#EAEAEA;
+	border:1px solid #b8c6d3;
+	border-radius:5px;
+	margin:10px 0;
+	padding:30px;
+}
+.party-leader-info-user{
+	text-align: center;
+	width: 170px;
+	height: 220px;
+	border-radius:5px;
+	float: left;
+	margin-top: 15px;
+	margin-left:auto;
+	margin-right:auto;
+	cursor: pointer;
+}
+.party-leader-info-label{
+	margin-top:15px;	
+	font-weight: bolder;
+}
+.party-leader-info-user label{
+	line-height: 20px;	
+}
+.clear{
+	clear:both;
+}

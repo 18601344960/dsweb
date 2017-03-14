@@ -1,0 +1,24 @@
+<!-- 
+	@description 标签列表模板
+	@author 易文俊
+	@since 2015-09-02
+-->
+
+<div id="category-buttons" class="btn-group">
+	<button class="btn btn-default" id="new-category-btn">
+		<i class="glyphicon glyphicon-plus-sign"></i> <span data-zh="新增" data-es="new">新增</span>
+	</button>
+</div>
+<table id="category-table" data-url="obt/getConferenceLabelList" data-side-pagination="server" data-show-refresh="false" data-toolbar="#category-buttons" data-side-pagination="server" data-page-list="[5, 10, 20, 50, 100, 200]" data-click-to-select="true" data-pagination="true">
+	<thead>
+		<tr>
+			<th data-radio="true"></th>
+			<th data-field="id" data-visible="false">ID</th>
+			<th data-field="name">标签名称</th>
+			<th data-field="type" data-width="200" data-formatter="ConferenceCategory.typeFormatter">类型</th>
+			<th data-field="orderNo" data-width="150">序号</th>
+			<th data-field="id" data-width="200" data-formatter="ConferenceCategory.operator">操作</th>
+		</tr>
+	</thead>
+</table>
+

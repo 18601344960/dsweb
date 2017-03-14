@@ -1,0 +1,173 @@
+@CHARSET "UTF-8";
+
+/************************题库选择***************************/
+
+.select-dialog{
+	width: 500px;
+	height: 400px;
+	margin:20px auto;
+}
+.select-dialog ul li label{
+	font-size: 19px;
+	padding: 5px;
+}
+.select-dialog-buttons{
+	text-align: center;
+}
+.select-dialog-buttons button{
+	font-size: 23px;
+	margin: 20px;
+}
+.select-dialog-buttons button i{
+	font-size: 23px;
+	color: white;
+}
+/************************顺序练习***************************/
+.lx-main{
+	width: 100%;
+	margin:0 auto;
+	height: 400px;
+}
+.main-title{
+	font-family:'微软雅黑';
+	font-size:24px;
+	border-left:2px solid #5ab24f;
+	padding-left:12px;
+	margin-top:12px;
+	margin-bottom:16px;
+	line-height:24px;
+}
+.main-title span{
+	display: inline-block;
+	margin-left: 20px;
+	font-size: 12px;
+	font-family: '宋体';
+	color: #11161b;
+	vertical-align: middle;
+}
+.lx_box{
+	position: relative;
+	margin-bottom: 20px;	
+}
+.lx_type{
+	background-image: url(../images/question/icons.png);
+	background-position: 0 -1183px;
+	height: 39px;
+	width: 66px;
+	line-height: 37px;
+	position: absolute;
+	top: 7px;
+	left: 0;
+	color: #fff;
+	font-size: 14px;
+	padding-left: 6px;
+}
+.box{
+	border: 1px solid #e6e6e6;
+}
+.lx_box .title {
+	font-size: 20px;
+	font-family: '微软雅黑';
+	font-weight: 400;
+	line-height: 28px;
+	margin-top: 11px;
+	margin-left: 70px;
+}
+.lx_box .box .lx_item {
+    margin-top: 10px;
+    min-height: 214px;
+}
+.lx_box .box ul {
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    width: 720px;
+    float: left;
+}
+.lx_box .box li {
+    clear: both;
+    padding: 10px 0;
+    height: 28px;
+}
+.lx_box .box li label {
+    margin-left: 10px;
+    width: 680px;
+}
+.lx_box .box li input {
+    margin-top: 8px;
+}
+.lx_box .box li input, .lx_box .box li label {
+    display: block;
+    float: left;
+    line-height: 28px;
+    font-size: 18px;
+}
+.lx_box .box .right {
+    float: right;
+    margin-right: 28px;
+    margin-top: 22px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 28px;
+    position: relative;
+}
+.lx_box .box .right img {
+    max-height: 240px;
+    max-width: 360px;
+}
+.lx_box .btns {
+    margin-left: 70px;
+    height: 48px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.lx_box .info {
+    border-top: #e6e6e6 1px solid;
+    height: 72px;
+    line-height: 72px;
+    font-size: 16px;
+    padding-left: 70px;
+}
+.lx_box .info span {
+    display: inline-block;
+    margin-right: 60px;
+}
+.lx_box .info input {
+    vertical-align: middle;
+}
+.lx_box .info input[type="text"] {
+    width: 42px;
+    height:20px;
+    border: 1px solid #b0b0b0;
+    margin: 0 8px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+.lx_box .box .chk_an {
+    font-size: 18px;
+    margin-left: 70px;
+}
+.lx_box .box .chk_an .an_result {
+    border-radius: 3px;
+    line-height: 42px;
+    height: 42px;
+    display: inline-block;
+    float: left;
+    padding: 0 12px;
+}
+.an_right {
+    background: #cce7c9;
+    border: 1px solid #b3d7af;
+    color: #53bb48;
+}
+.an_wrong {
+    background: #fcbabc;
+    border: 1px solid #fba4a7;
+    color: #fd0000;
+}
+.lx_box .box .chk_an .an_why {
+    line-height: 42px;
+    margin-left: 20px;
+    color: #666;
+    cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<!-- 问卷测评内容 -->
+<div class="question_survey" id="question_survey" assessmentId="{{id}}" style="margin-top: 0px;border:0px;height: auto;">
+	<div class="question_surveyhead">
+		<h1 id="pater_title" >{{name}}&nbsp;&nbsp;(答卷预览)</h1>
+		<div id="pater_desc" class="question_surveydescription" >{{description}}</div>
+	</div>
+	
+	<!-- questionType=1单选2多选3简答 answer=选项数量 isMust=是否必做 -->
+	{% for topic in topics %}
+	{% if topic.type=='1' %}
+	<div class="div_question" style="border: 0px;" id="topic_{{topic.sequence}}"  questionType="{{topic.type}}" answer="{{topic.options.length}}" isMust="{% if topic.isMust=='0' %}true{%else%}false{%endif%}">
+		<ul>
+			<li style="font-weight: bold;">{{topic.sequence}}、【单选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label>{% if topic.isMust=='0' %}<b style="color: red" id="topic_{{topic.sequence}}_isMust">*</b>{%endif%}</li>
+			<li style="" id="topic_{{topic.sequence}}_options_li">
+				{% for option in topic.options %}
+					<input type="radio" style="margin:0 10px;" name="topic_{{topic.sequence}}_radio_{{loop.index0+1}}" />{{option.seq}}、<font id="topic_{{topic.sequence}}_option_{{loop.index0+1}}">{{option.content}}</font><br>
+				{% endfor %}
+			</li>
+		</ul>
+	</div>
+	{% elif topic.type=='2' %}
+		<div class="div_question"  style="border: 0px;" id="topic_{{topic.sequence}}"  questionType="{{topic.type}}" answer="{{topic.options.length}}" isMust="{% if topic.isMust=='0' %}true{%else%}false{%endif%}">
+			<ul>
+				<li style="font-weight: bold;">{{topic.sequence}}、【多选】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label>{% if topic.isMust=='0' %}<b style="color: red" id="topic_{{topic.sequence}}_isMust">*</b>{%endif%}</li>
+				<li style="" id="topic_{{topic.sequence}}_options_li">
+					{% for option in topic.options %}
+						<input type="checkbox" style="margin:0 10px;" name="topic_{{topic.sequence}}_checkbox_{{loop.index0+1}}" />{{option.seq}}、<font id="topic_{{topic.sequence}}_option_{{loop.index0+1}}">{{option.content}}</font><br>
+					{% endfor %}
+				</li>
+			</ul>
+		</div>
+	{% elif topic.type=='3' %}
+		<div class="div_question" style="border: 0px;" id="topic_{{topic.sequence}}"  questionType="{{topic.type}}" answer="1" isMust="true">
+			<ul>
+				<li style="font-weight: bold;">{{topic.sequence}}、【简答】<label id="topic_{{topic.sequence}}_title">{{topic.title}}</label><b style="color: red" id="topic_{{topic.sequence}}_isMust">*</b></li>
+				<li style="" >
+					<textarea style="width: 94%; height: auto;" ></textarea>
+				</li>
+			</ul>
+		</div>
+	{% endif %}
+	{% endfor %}
+	
+</div>

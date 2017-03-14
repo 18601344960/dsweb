@@ -1,0 +1,136 @@
+<!-- 
+	@description 党员基本信息
+	@author zhaozijing
+	@since 2015-07-06
+-->
+<div style="margin: 10px 5px;">
+	<fieldset>
+		<legend style="width: 80px;">基本信息</legend>
+		<table id="partymember-baseinfo-table" style="text-align: center;">
+			<tr>
+				<td><b><font class="red-tips">*</font>登录账号：</b></td>
+				<td>
+					<input type="hidden" id="id" value="{{id}}"> 
+					{% if id%}
+						{%if Global.userType==2 or Global.userType==3%}
+							<input type="text" class='form-control' id="loginNo" value="{{loginNo}}" maxlength="20" placeholder="请使用规范登录号，初始密码为123456。" onblur="PartyMemberBaseInfo.checkLoginNoForUpdate(this.value,'loginNo')"/>
+							<input type="hidden" id="beforeLoginNo" value="{{loginNo}}" />
+						{%else%}
+							<input type="text" class='form-control' id="loginNo" value="{{loginNo}}" maxlength="20" readonly="readonly" />
+						{%endif%}
+					{%else%}
+						<input type="text" class='form-control' id="loginNo" value="{{loginNo}}" maxlength="20" placeholder="请使用规范登录号，初始密码为123456。" onblur="UserUtils.checkLoginNo(this.value,'loginNo')"/>
+					{%endif%}
+				</td>
+				<td rowspan="5" align="right"><b>证件照：</b></td>
+				<td rowspan="5" style="text-align: center;">{% if id%} <img id="headImgId" gender="{{gender}}" src="uam/getHeadImg?userId={{id}}&random={{random}}" onError='Global.onIconError(this)'
+					style="cursor: pointer; border: 1px solid #DBDBDB; width: 140px; height: 185px;" onclick="PartyMemberBaseInfo.replaceHeadImg()"> {%else%}
+					<div style="border: 1px solid #DBDBDB; width: 140px; height: 185px; margin: auto; display: table-cell; vertical-align: middle;">
+						<a href="javascript:Notify.notice('请先保存');">上传证件照？</a>
+					</div> {%endif%}
+				</td>
+			</tr>
+			<tr>
+				<td hidden="true"><input hidden="true" id="ccpartyId" value="{{ccpartyId}}" /></td>
+				<td><b><font class="red-tips">*</font>姓名：</b></td>
+				<td><input type="text" class='form-control' id="user_name" value="{{name}}" maxlength="15" placeholder="请输入真实姓名" /></td>
+			</tr>
+			<tr>
+				<td><b>性别：</b></td>
+				<td style="text-align: left;"><input type="radio" name="sex" value="1" checked="checked" />男 <input type="radio" name="sex" value="2" />女</td>
+			</tr>
+			<tr>
+				<td><b>出生年月：</b></td>
+				<td><input type="text" class='form-control' value="{{birthDay}}" id="user_birthday" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" maxlength="36" placeholder="请选择出生日期" /></td>
+			</tr>
+			<tr>
+				<td><b>身份证号：</b></td>
+				<td><input type="text" class='form-control' id="show_idNumber" value="{{showIdNumber}}" maxlength="36" onkeyup="javascript:$('#user_idNumber').val(this.value);" placeholder="身份证号码" /> <input
+					type="hidden" id="user_idNumber" value="{{idNumber}}" /></td>
+			</tr>
+			<tr>
+				<td><b><font class="red-tips">*</font>政治面貌：</b></td>
+				<td><select id="user_type" class="form-control">
+						<option value="A476201">中国共产党党员</option>
+						<option value="A476202">中国共产党预备党员</option>
+				</select></td>
+				<td></td>
+				<td>{%if id%} <!-- <div style="width:100%;text-align: center;">
+			<button type="button" class="btn btn-success" onclick="PartyMemberCard.openPartymemberCard('{{id}}','{{name}}')">党员手册</button>
+			</div> -->
+					<div style="width: 100%; text-align: center;">
+						<a href="javascript:PartyMemberBaseInfo.resetPasswordDialog('{{id}}')" class="btn btn-default"><i class="glyphicon glyphicon-repeat"></i>重置密码</a>
+					</div> {%endif%}
+				</td>
+			</tr>
+			<tr>
+				<td><b>民族：</b></td>
+				<td><input type="text" class="form-control hidden" id="userNationId" value="" /> <input type="text" class="form-control" id="userNationName" placeholder="请填选民族"
+					onclick="SelectTree.selectTree('userNation')" readonly="readonly" onfocus="SelectTree.initSelectTree('#userNation-tree', 'sys/getCodeTreeByParentId', 'A0121')" />
+					<div id="userNationContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+						<ul id="userNation-tree" class="ztree" style="margin-top: 0; height: 400px;">
+						</ul>
+					</div></td>
+				<td><b>籍贯：</b></td>
+				<td><input type="text" class="form-control hidden" id="userBirthPlaceId" value="" /> <input type="text" class="form-control" id="userBirthPlaceName" placeholder="请填选籍贯"
+					onclick="SelectTree.selectTree('userBirthPlace')" readonly="readonly" onfocus="SelectTree.initSelectTree('#userBirthPlace-tree', 'sys/getCodeTreeByParentId', 'A0114', true, true)" />
+					<div id="userBirthPlaceContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+						<ul id="userBirthPlace-tree" class="ztree" style="margin-top: 0; height: 400px;">
+						</ul>
+					</div></td>
+			</tr>
+			<tr>
+				<td><b>学历：</b></td>
+				<td><input type="text" class="form-control hidden" id="userEducationId" value="" /> <input type="text" class="form-control" id="userEducationName" placeholder="请填选学历"
+					onclick="SelectTree.selectTree('userEducation')" readonly="readonly" onfocus="SelectTree.initSelectTree('#userEducation-tree', 'sys/getCodeTreeByParentId', 'A0405')" />
+					<div id="userEducationContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+						<ul id="userEducation-tree" class="ztree" style="margin-top: 0; height: 400px;">
+						</ul>
+					</div></td>
+				<td><b>学位：</b></td>
+				<td><input type="text" class="form-control hidden" id="degreeId" value="" /> <input type="text" class="form-control" id="degreeName" placeholder="请填选学位"
+					onclick="SelectTree.selectTree('degree')" readonly="readonly" onfocus="SelectTree.initSelectTree('#degree-tree', 'sys/getCodeTreeByParentId', 'A0440')" />
+					<div id="degreeContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+						<ul id="degree-tree" class="ztree" style="margin-top: 0; height: 400px;">
+						</ul>
+					</div></td>
+			</tr>
+			<tr>
+				<td><b>行政职务：</b></td>
+				<td><input type="text" class='form-control' value="{{jobTitle}}" id="user_jobTitle" maxlength="36" placeholder="担任的行政职务" /></td>
+				<td><b>职业：</b></td>
+				<td><input type="text" class='form-control' value="{{occupation}}" id="user_occupation" maxlength="36" placeholder="所属职业" /></td>
+
+			</tr>
+			<tr>
+				<td><b>手机：</b></td>
+				<td><input type="text" class='form-control' value="{{mobile}}" id="user_mobile" maxlength="15" {%if isValidateMobile==1%}readonly= "readonly"{%endif%} placeholder="移动电话" /></td>
+				<td><b>办公电话：</b></td>
+				<td><input type="text" class='form-control' value="{{officePhone}}" id="user_officePhone" maxlength="20" placeholder="办公电话" /></td>
+			</tr>
+			<tr>
+				<td><b>邮箱：</b></td>
+				<td><input type="text" class='form-control' value="{{email}}" id="user_email" maxlength="36" placeholder="电子邮箱" /></td>
+				<td><b>家庭地址：</b></td>
+				<td><input id="user_address" type="text" class='form-control' value="{{address}}" maxlength="200" placeholder="家庭地址" /></td>
+			</tr>
+			<tr>
+				<td><b>显示顺序：</b></td>
+				<td>{%if sequence%} <input type="text" class='form-control' value="{{sequence}}" id="sequence" maxlength="36" /> {%else%} <input type="text" class='form-control' value="10000" id="sequence"
+					maxlength="36" /> {%endif%}
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</div>
+<div style="margin: 10px 5px;" id="right-partymember-info"></div>
+<div style="margin: 10px 5px; text-align: center;">
+	<button id="user-process-definition-submit" type="button" class="btn btn-primary" onclick="PartyMemberInfo.updateOrSavePartymemberAndUser()">
+		<i class="glyphicon glyphicon-floppy-disk" style="color: white;"></i>&nbsp;保存党员
+	</button>
+	{%if id%} {%if globalUserType==2 or globalUserType==3%}
+	<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="PartyMemberInfo.fakeDeletePartymember('{{id}}')">
+		<i class="fa fa-trash-o" style="color: white;"></i>&nbsp;删除党员
+	</button>
+	{%endif%} {%endif%}
+</div>

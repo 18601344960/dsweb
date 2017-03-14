@@ -1,0 +1,63 @@
+<!-- 
+	@description 编辑通知模板
+	@author 易文俊
+	@since 2015-09-02
+-->
+<div class="modal fade" id="announcement-dialog" role="dialog" data-backdrop="">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right">关闭</button>
+				<h4 id="title" class="modal-title">编辑通知</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="update-announcement-btn">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+					</button>
+				</div>
+				<hr style="margin: 10px 0">
+				<form class="form-horizontal">
+					<div class="form-group hidden">
+						<label class="col-sm-1 control-label">ID</label>
+						<div class="col-sm-11">
+							<input type="text" class="form-control" id="id" value="{{id}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label">标题</label>
+						<div class="col-sm-11">
+							<input type="text" class="form-control" id="name" placeholder="请填写名称" value="{{name}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label">内容</label>
+						<div class="col-sm-11">
+							<script id="editor-container" type="text/plain" style="height: 250px; margin: 5px">{{content}}</script>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label">附件</label>
+						<div class="col-sm-11">
+							<div id="files-container" style="padding: 8px">
+								{% for file in files %}
+								<p id="{{file.id}}">
+									<a href="file/getFileData?filePath={{file.filePath}}">{{file.name}}</a> <a href="javascript:ComFile.deleteFile('{{file.id}}')" style="margin: 10px 20px;" title="删除"><i class="fa fa-times"></i>
+									</a>
+								</p>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label">上传文件</label>
+						<div class="col-sm-11">
+							<input type="file" name="file-upload" id="file-upload" />
+							<div id="file-upload-queue"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

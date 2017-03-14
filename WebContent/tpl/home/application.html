@@ -1,0 +1,43 @@
+<!-- 
+	@description 首页功能导航
+	@author yiwenjun
+	@since 2015-03-28
+ -->
+<div class="margin-top-20 application-app">
+	<div class="row" style="margin: 0 auto;">
+		<div class="application-app-left">
+			<a href="javascript:void(0)" class="app-a app-2 article-add" onclick="Home.openAddConferece()"> <span class="app-pic"> <i class="fa fa-edit"></i>
+			</span>
+				<div>
+					<h2>工作记录</h2>
+				</div>
+			</a>
+		</div>
+		<div class="application-app-right">
+			<a href="work-share" class="app-a app-5 work-share"> <span class="app-pic"> <i class="fa fa-group"></i>
+			</span>
+				<div>
+					<h2>工作共享</h2>
+				</div> <label class="home-tips"> {{item.shareStr}} </label>
+			</a>
+		</div>
+	</div>
+	<div class="row" style="margin: 0 auto;">
+		<div class="application-app-left">
+			<a href="information" class="app-a app-3 information"> <span class="app-pic"> <i class="fa fa-book"></i>
+			</span>
+				<div>
+					<h2>工作必备</h2>
+				</div> <label class="home-tips"> {{item.workStr}} </label>
+			</a>
+		</div>
+		<div class="application-app-right">
+			<a href="work-brand" class="app-a app-4 work-brand"> <span class="app-pic"> <i class="fa fa-bookmark-o"></i>
+			</span>
+				<div>
+					<h2>工作品牌</h2>
+				</div> <label class="home-tips"> {{item.brandStr}} </label>
+			</a>
+		</div>
+	</div>
+</div>

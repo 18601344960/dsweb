@@ -1,0 +1,7 @@
+{% for item in items %}
+{%if userId==item.id%}
+<option value="{{item.id}}" selected="selected">{{item.user.name}}</option>
+{%else%}
+<option value="{{item.id}}" >{{item.user.name}}</option>
+{%endif%}
+{% endfor %}

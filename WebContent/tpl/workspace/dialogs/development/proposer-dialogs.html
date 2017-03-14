@@ -1,0 +1,114 @@
+<!-- 
+	@description 申请人对话框
+	@author 赵子靖
+	@since 2015-12-02
+-->
+<div class="modal fade" id="proposer-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 850px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">{%if dialogType=='add'%}新增申请人{%elif dialogType=='edit'%}编辑申请人{%endif%}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" id="add-notice-btn" onclick="DevelopmentHandle.saveOrUpdateProposer()">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+					</button>
+				</div>
+				<table cellspacing="0" cellpadding="0" border="3" class="development-manager-table">
+					<tr>
+						<td style="background-color: #87CEFA"><b style="color: red">*</b>登录账号</td>
+						<td colspan="6">
+							<input type="hidden" id="userId" value="{{user.id}}" />
+							{%if dialogType=='add'%}
+							<input type="text" class="form-control" id="loginNo" maxlength="36" value="{{user.loginNo}}" placeholder="请使用规范登录号，初始密码为123456。" onblur="UserUtils.checkLoginNo(this.value,'loginNo')"/>
+							{%else%}
+							<input type="text" class="form-control" id="loginNo" maxlength="36" value="{{user.loginNo}}" readonly="readonly"/>
+							{%endif%}
+						</td>
+					</tr>
+					<tr>
+						<td width="10%" style="background-color: #87CEFA"><b style="color: red">*</b>姓名</td>
+						<td width="17%"><input type="text" maxlength="36" class="form-control" id="name" value="{{user.name}}" /></td>
+						<td width="10%" style="background-color: #87CEFA"><b style="color: red">*</b>性别</td>
+						<td width="17%">
+							<input type="radio" name="gender" value="1" checked="checked"/>男
+							<input type="radio" name="gender" value="2"/>女
+						</td>
+						<td width="10%" style="background-color: #87CEFA"><b style="color: red">*</b>出生日期</td>
+						<td width="17%"><input type="text" class="form-control" id="birthDay" value="{{getDate(user.birthDay)}}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></td>
+						<td rowspan="4" width="20%" id="headImage">
+							{%if dialogType=='add'%}
+								<a href="javascript:Notify.info('请先保存');">上传证件照？</a>
+							{%else%}
+								<img id="headImgId" src="uam/getHeadImg?userId={{user.id}}&random={{random}}" onError='Global.onIconError(this)' style="cursor: pointer;border: 1px solid #DBDBDB;width:130px;height:180px;" title="点击更换" onclick="DevelopmentHandle.replaceHeadImg()">
+							{%endif%}
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #87CEFA"><b style="color: red">*</b>民族</td>
+						<td>
+							<input type="text" class="form-control hidden" id="userNationId" value="" /> 
+							<input type="text" class="form-control" id="userNationName" placeholder="请填选民族" onclick="SelectTree.selectTree('userNation')" readonly="readonly" />
+							<div id="userNationContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+								<ul id="userNation-tree" class="ztree" style="margin-top: 0; height: 400px;">
+								</ul>
+							</div>
+						</td>
+						<td style="background-color: #CCCCCC">籍贯</td>
+						<td>
+							<input type="text" class="form-control hidden" id="userBirthPlaceId" value="" /> 
+							<input type="text" class="form-control" id="userBirthPlaceName" placeholder="请填选籍贯" onclick="SelectTree.selectTree('userBirthPlace')" readonly="readonly" />
+							<div id="userBirthPlaceContainer" style="display: none; width: 220px; position: absolute; background-color: white; overflow: auto; border: 1px solid #D3D3D3; z-index: 11000;">
+								<ul id="userBirthPlace-tree" class="ztree" style="margin-top: 0; height: 400px;">
+								</ul>
+							</div>
+						</td>
+						<td style="background-color: #CCCCCC">联系电话</td>
+						<td><input type="text" class="form-control" id="mobile" maxlength="36" value="{{user.mobile}}" /></td>
+					</tr>
+					<tr>
+						<td style="background-color: #87CEFA"><b style="color: red">*</b>身份证号</td>
+						<td colspan="2"><input type="text" class="form-control" maxlength="20" id="idNumber" value="{{user.idNumber}}" onblur="UserUtils.developmentCheckIdNumber(this.value,'idNumber','proposer-dialog')" /></td>
+						<td style="background-color: #CCCCCC">现居住地</td>
+						<td colspan="2"><input type="text" class="form-control" maxlength="20" id="address" value="{{user.address}}" /></td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">学历</td>
+						<td colspan="2">
+							<input type="hidden" id="educationId" />
+							<input type="text" class="form-control" id="educationName" value="{{user.education}}" placeholder="请双击进入维护" ondblclick="PartyMemberEducation.loadEducationDialog()" readonly="readonly"/>
+						</td>
+						<td style="background-color: #CCCCCC">学位</td>
+						<td colspan="2">
+							<input type="hidden" id="degreeId" />
+							<input type="text" class="form-control" id="degreeName" value="{{user.degree}}" placeholder="请双击进入维护" ondblclick="PartyMemberEducation.loadEducationDialog()" readonly="readonly"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="background-color: #CCCCCC">单位、职务或职业</td>
+						<td colspan="2"><input type="text" class="form-control" id="unitJob" value="" placeholder="请双击进入维护" ondblclick="UserPosition.loadUserPositionDialog()" readonly="readonly"/></td>
+						<td style="background-color: #CCCCCC">奖惩情况</td>
+						<td colspan="3"><input type="text" class="form-control" id="rewards" value="" placeholder="请双击进入维护" ondblclick="PartyMemberRewardsResume.loadRewardsDialog()" readonly="readonly"/></td>
+					</tr>
+					<tr>
+						<td style="background-color: #87CEFA"><b style="color: red">*</b>所在党支部</td>
+						<td colspan="2"><input type="text" class="form-control" id="ccparty" ids="{{ccpartyId}}" value="{{ccpartyName}}" readonly="readonly"/></td>
+						<td style="background-color: #87CEFA"><b style="color: red">*</b>申请入党日期</td>
+						<td colspan="3"><input type="text" class="form-control" id="applyTime" value="{{getDate(partyMember.applyTime)}}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></td>
+					</tr>
+				</table>
+				<div class="development-manager-explain">
+					<label style="float: right;">选填项</label>
+					<div style="background-color: #CCCCCC; width: 20px; height: 20px;float: right"></div>
+					<label style="float: right">必填项</label>
+					<div style="background-color: #87CEFA; width: 20px; height: 20px;float: right"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 维护项弹框DIV -->
+<div id="maintainDialogs"></div>

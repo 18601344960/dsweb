@@ -1,0 +1,82 @@
+<table class="my-info-content-first-table">
+	<tr>
+		<td width="5%" style="text-align: center;"><i
+			class="partymember-info-icon"></i></td>
+		<td width="80%" class="head-title">党员信息(编辑)</td>
+		<td width="15%">
+			<button onclick="MyInfo.updatePartymemberInfo()" class="btn btn-success" type="button">保存</button>
+			<button onclick="MyInfo.loadPartymemberInfo()" class="btn btn-default" type="button">取消</button>
+		</td>
+	</tr>
+</table>
+<input type="hidden" id="userId" value="{{item.id}}"/>
+<table class="my-info-content-two-table">
+	<tr>
+		<td width="20%" style="text-align: right;">加入当前组织日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="joinCurrentTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.joinCurrentTime)}}" maxlength="36"/>
+		</td>
+		<td width="20%" style="text-align: right;">加入当前组织形式：</td>
+		<td width="25%">
+			<select id="joinType" class='form-control' style="width: 200px;">
+				<option value="0">新入党</option>
+				<option value="1">恢复党籍</option>
+				<option value="2">组织关系转入</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">积极分子日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="activistTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.activistTime)}}" maxlength="36"/>
+		</td>
+		<td width="20%" style="text-align: right;">申请入党日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="applyTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.applyTime)}}" maxlength="36"/>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">发展对象日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="targetTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.targetTime)}}" maxlength="36"/>
+		</td>
+		<td width="20%" style="text-align: right;">培养联系人：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="trainer" value="{{item.partyMember.trainer}}" maxlength="36"/>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">大会通过日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="passTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.passTime)}}" maxlength="36"/>
+		</td>
+		<td width="20%" style="text-align: right;">组织批准日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="auditTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.auditTime)}}" maxlength="36"/>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">入党日期：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="joinTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{{getDate(item.partyMember.joinTime)}}" maxlength="36"/>
+		</td>
+		<td width="20%" style="text-align: right;">月缴党费(元)：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="fee" value="{{item.partyMember.fee}}" maxlength="36"/>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="text-align: right;">入党介绍人：</td>
+		<td width="25%">
+			<input type="text" class='form-control' style="width: 200px;" id="introducer" value="{{item.partyMember.introducer}}" maxlength="36"/>
+		</td>
+		<td width="20%" style="text-align: right;">组织生活情况：</td>
+		<td width="25%">
+			<select id="joinActivity" class='form-control' style="width: 200px;">
+				<option value="0">正常参加</option>
+				<option value="1">间断参加</option>
+				<option value="2">不参加</option>
+			</select>
+		</td>
+	</tr>
+</table>

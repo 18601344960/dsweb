@@ -1,0 +1,80 @@
+<!-- 
+	@description 党员手册搜索条件
+	@author 赵子靖
+	@since 2016-07-16
+-->
+<!-- 隐藏搜索条件 -->
+<div id="hidden-card-search">
+	<div class="card-search-icon"><i class="fa fa-angle-down" title="下拉显示搜索条件" onclick="PartyMemberCard.showSearchCard()"></i></div>
+	<div class="card-search-tips">下拉显示搜索条件</div>
+</div>
+	
+<!-- 显示搜索条件 -->
+<div id="show-card-search" hidden="true">	
+	<fieldset> 
+		<legend><i class="fa fa-cogs"></i>配置|检索</legend> 
+	<div class="show-card-serch">
+		<!-- 活动证配置信息 -->
+		<div class="note note-info">
+			<h5 class="block">请在需要展示的目录栏目前打勾</h5>
+			<input type="checkbox" name="card-config" value="1" checked disabled="disabled">基本信息篇&nbsp;&nbsp;
+			<input type="checkbox" name="card-config" value="2" checked>党费缴纳篇&nbsp;&nbsp;
+			<input type="checkbox" name="card-config" value="3" checked>组织生活篇&nbsp;&nbsp;
+		</div>
+		<!-- 搜索条件 -->
+		<div class="note note-danger">
+		   <h5 class="block">按条件检索</h5>
+		   <table>
+			<tr>
+				<td width="10%" style="text-align: center;">工作步骤：</td>
+				<td width="40%" colspan="3" id="search-step-div">
+					{%for item in steps%}
+						<a class="search-step" onclick="PartyMemberCard.clickStep('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+					{%endfor%}
+				</td>
+				<td width="10%" style="text-align: center;">组织生活：</td>
+				<td width="40%" id="search-format-div">
+					{%for item in formats%}
+						<a class="search-format" onclick="PartyMemberCard.clickFormat('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+					{%endfor%}
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align: center;">工作品牌：</td>
+				<td colspan="5" id="search-label-div">
+					{%for item in labels%}
+						<a class="search-label" onclick="PartyMemberCard.clickLabel('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+					{%endfor%}
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align: center;">是否品牌：</td>
+				<td>
+					<input type="radio" onclick="PartyMemberCard.searchBrandType('-1')" checked="" value="-1" name="brandType">所有  
+					<input type="radio" onclick="PartyMemberCard.searchBrandType('1')" value="1" name="brandType">是  
+					<input type="radio" onclick="PartyMemberCard.searchBrandType('0')" value="0" name="brandType">否
+				</td>
+				<td style="text-align: center;">是否推荐：</td>
+				<td>
+					<input type="radio" onclick="PartyMemberCard.searchisRecommend('-1')" checked="" value="-1" name="isRecommend">所有  
+					<input type="radio" onclick="PartyMemberCard.searchisRecommend('1')" value="1" name="isRecommend">是  
+					<input type="radio" onclick="PartyMemberCard.searchisRecommend('0')" value="0" name="isRecommend">否  
+				</td>
+				<td style="text-align: center;">日期：</td>
+				<td>
+					<input id="beginTime" class="form-control" type="text" style="width: 150px;float: left;" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}',onpicked:function() {PartyMemberCard.searchDate()}})" placeholder="开始日期">
+					<label style="float: left;margin: 5px;">-</label>
+					<input id="endTime" class="form-control" type="text" style="width: 150px;float: left;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'beginTime\')}',onpicked:function() {PartyMemberCard.searchDate()}})" placeholder="结束日期">
+				</td>
+			</tr>
+		   </table>
+		</div>
+		<!-- 按钮 -->
+		<div style="text-align: center;">
+			<button type="button" class="btn btn-primary" onclick="PartyMemberCard.search()"><i class="fa fa-search" style="color: white;"></i>检索</button>
+			<button type="button" class="btn btn-info" onclick="PartyMemberCard.downloadCard()"><i class="glyphicon glyphicon-print" style="color: white;"></i>打印</button>
+			<button type="button" class="btn btn-default" onclick="PartyMemberCard.hiddenSearchCard()"><i class="fa fa-angle-up"></i>隐藏</button>
+		</div>
+	</div>
+	</fieldset>
+</div>

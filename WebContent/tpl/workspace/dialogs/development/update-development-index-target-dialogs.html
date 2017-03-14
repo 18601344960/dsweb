@@ -1,0 +1,32 @@
+<!-- 
+	@description 修改党员发展指标下发对象对话框
+	@author 赵子靖
+	@since 2015-12-08
+-->
+<div class="modal fade" id="update-development-index-target-dialog" tabindex="-1" role="dialog" data-backdrop="">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 600px;">
+			<div class="modal-header">
+				<button class="btn btn-default" style="float: right" data-dismiss="modal" type="button">关闭</button>
+				<h4 class="modal-title">编辑下发对象</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group" style="border-bottom: 1px sold #666">
+					<button class="btn btn-default" onclick="DevelopmentIndexTarget.saveDevelopmentIndexTarget()" type="button">
+						<i class="glyphicon glyphicon-floppy-disk"></i> <span data-zh="保存">保存</span>
+					</button>
+				</div>
+				<hr style="margin: 10px 0">
+				<form class="form-horizontal">
+					<input type="hidden" id="id" value="{{id}}" />
+					<div class="form-group">
+						<label class="col-sm-4 control-label">发展党员指标数</label>
+						<div class="col-sm-6">
+							<input id="memberNum" class="form-control" type="text" placeholder="指标数" value="{{memberNum}}"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

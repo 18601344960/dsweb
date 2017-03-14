@@ -1,0 +1,93 @@
+<table class="search-table">
+	<tr style="line-height: 25px;">
+		<td>工作步骤</td>
+		<td>
+			<div class="search-step-div">
+				{%for item in steps%}
+					<a class="search-step" onclick="WorkShare.clickStep('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+				{%endfor%}
+			</div>
+		</td>
+	</tr>
+	<tr style="line-height: 25px;">
+		<td>组织生活</td>
+		<td>
+			<div class="search-format-div">
+				{%for item in formats%}
+					<a class="search-format" onclick="WorkShare.clickFormat('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+				{%endfor%}
+			</div>
+		</td>
+	</tr>
+	<tr style="line-height: 25px;">
+		<td>工作品牌</td>
+		<td>
+			<div class="search-label-div">
+				{%for item in labels%}
+					<a class="search-label" onclick="WorkShare.clickLabel('{{item.id}}')" id="{{item.id}}">{{item.name}}</a>
+				{%endfor%}
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="width: 20%">来源</td>
+		<td style="width: 80%">
+			<input type="radio" name="sourceType" value="-1" checked onclick="WorkShare.searchSourceType('-1')">所有 
+			<input type="radio" name="sourceType" value="1" onclick="WorkShare.searchSourceType('1')">个人 
+			<input type="radio" name="sourceType" value="0" onclick="WorkShare.searchSourceType('0')">组织
+		</td>
+	</tr>
+	<tr id="search-party-condition">
+		<td style="width: 20%">组织</td>
+		<td style="width: 80%">
+			<input id="ccpartyId" type="text" class="form-control" placeholder="点击选择组织" style="cursor: pointer;" readonly="readonly">
+			<div id="menuContent" class="menuContent" style="display:none; position: absolute ;z-index:100001;background-color: white;overflow:auto; border:1px solid #D3D3D3;width: 200px;">
+				<div style="float: right; padding: 3px;">
+					<a class="btn btn-default btn-xs" href="javascript:WorkShare.initCcpartyId()"><i class="fa fa-times-circle-o"></i>清空</a>
+				</div>
+				<hr style="margin-top: 30px;">
+				<ul id="ccparty-tree" class="ztree" style="margin-top:0;height: 400px;"></ul>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="width: 20%">品牌</td>
+		<td style="width: 80%">
+			<input type="radio" name="brandType" value="-1" checked onclick="WorkShare.searchBrandType('-1')">所有 &nbsp;
+			<input type="radio" name="brandType" value="1" onclick="WorkShare.searchBrandType('1')">是 &nbsp;
+			<input type="radio" name="brandType" value="0" onclick="WorkShare.searchBrandType('0')">否&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td style="width: 20%">推荐</td>
+		<td style="width: 80%">
+			<input type="radio" name="isRecommend" value="-1" checked onclick="WorkShare.searchisRecommend('-1')">所有 &nbsp;
+			<input type="radio" name="isRecommend" value="1" onclick="WorkShare.searchisRecommend('1')">是 &nbsp;
+			<input type="radio" name="isRecommend" value="0" onclick="WorkShare.searchisRecommend('0')">否&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td>主题</td>
+		<td>
+			<input id="name" type="text" class="form-control" value="{{name}}" onkeyup="WorkShare.searchName(this.value)" placeholder="工作主题">
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="3">时间</td>
+		<td>
+			<input id="beginTime" type="text" class="form-control" placeholder="工作起始日期" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}',onpicked:function() {WorkShare.searchDate()}})">
+		</td>
+	</tr>
+	<tr style="height: 5px;"></tr>
+	<tr>
+		<td>
+			<input id="endTime" type="text" class="form-control" placeholder="工作截止日期" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'beginTime\')}',onpicked:function() {WorkShare.searchDate()}})">
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">
+			<button onclick="WorkShare.resetSearch()" class="btn btn-default" type="button" style="margin-top:20px;margin-bottom:50px;">重置</button>
+		</td>
+	</tr>
+</table>

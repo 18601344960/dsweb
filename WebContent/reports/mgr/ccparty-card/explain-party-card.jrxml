@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="explain-party-card" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="50" bottomMargin="50" uuid="91985368-6c5d-40de-9cbd-0027742cd67c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="40"/>
+	<property name="ireport.y" value="0"/>
+	<title>
+		<band height="105">
+			<staticText>
+				<reportElement x="0" y="0" width="495" height="105" forecolor="#000000" uuid="1025db8b-bb03-44f0-904e-8fe0d22c37d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="宋体" size="30" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[说  明]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="445" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="495" height="60" uuid="d4540fa4-e5e0-43ac-910c-66ba88732794"/>
+				<textElement>
+					<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2" firstLineIndent="35"/>
+				</textElement>
+				<text><![CDATA[一、为进一步促进党支部工作制度化、规范化，方便支部工作，特编制次手册。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="495" height="60" uuid="7dd2bf01-9d91-4cf0-8ffb-024e2a6a5965"/>
+				<textElement>
+					<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2" firstLineIndent="35"/>
+				</textElement>
+				<text><![CDATA[二、此手册每年使用一本，由支部书记（副书记）或组织委员负责记录和保管。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="495" height="60" uuid="524521b1-8862-45cf-9e56-80eb375fe0aa"/>
+				<textElement>
+					<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2" firstLineIndent="35"/>
+				</textElement>
+				<text><![CDATA[三、各项记录须及时、准确、严肃认真。记载情况作为考核、评比的重要依据。]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
